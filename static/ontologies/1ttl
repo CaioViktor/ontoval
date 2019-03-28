@@ -1,0 +1,1224 @@
+@prefix : <http://www.arida.ufc.br/ontology/drugs/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.arida.ufc.br/ontology/drugs/> .
+
+<http://www.arida.ufc.br/ontology/drugs/> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.arida.ufc.br/ontology/drugs/cargaICMS
+:cargaICMS rdf:type owl:ObjectProperty ;
+           rdfs:domain :Localidade ;
+           rdfs:range :ICMS ;
+           rdfs:comment "Carga tributária de ICMS a se pagar na localidade"@pt ;
+           rdfs:label "carga ICMS"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/concessaoCreditoTributario
+:concessaoCreditoTributario rdf:type owl:ObjectProperty ;
+                            rdfs:domain :Apresentacao ;
+                            rdfs:range :LCCT ;
+                            rdfs:comment "representa a classificação fiscal dos medicamentos, conforme o regime tributário previsto na Lei nº 10.147, de 2000. Defini incidência dos impostos PIS/Pasep e Cofins"@pt ;
+                            rdfs:label "concessão de crédito tributário"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/efeitoColateral
+:efeitoColateral rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf owl:topObjectProperty ;
+                 rdfs:domain :PrincipioAtivo ;
+                 rdfs:range :EfeitoColateral ;
+                 rdfs:label "tem efeito colateral"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/indicacao
+:indicacao rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf owl:topObjectProperty ;
+           rdfs:domain :PrincipioAtivo ;
+           rdfs:range :Indicacao ;
+           rdfs:label "é indicado para"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/preco
+:preco rdf:type owl:ObjectProperty ;
+       rdfs:domain :Apresentacao ;
+       rdfs:range :PrecoMaximo ;
+       rdfs:label "preço"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/produtor
+:produtor rdf:type owl:ObjectProperty ;
+          rdfs:domain :Medicamento ;
+          rdfs:range :Laboratorio ;
+          rdfs:label "produtor"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/risco
+:risco rdf:type owl:ObjectProperty ;
+       rdfs:domain :PrincipioAtivo ;
+       rdfs:range :RiscoGravidezAleitamento ;
+       rdfs:label "risco"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/substancia
+:substancia rdf:type owl:ObjectProperty ;
+            rdfs:domain :Medicamento ;
+            rdfs:range :PrincipioAtivo ;
+            rdfs:label "substância"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/tarja
+:tarja rdf:type owl:ObjectProperty ;
+       rdfs:domain :Apresentacao ;
+       rdfs:range :TipoTarja ;
+       rdfs:label "tarja"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/temApresentacao
+:temApresentacao rdf:type owl:ObjectProperty ;
+                 rdfs:domain :Medicamento ;
+                 rdfs:range :Apresentacao ;
+                 rdfs:label "tem apresentação"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/temCategoriaRiscoGravidez
+:temCategoriaRiscoGravidez rdf:type owl:ObjectProperty ;
+                           rdfs:domain :RiscoGravidezAleitamento ;
+                           rdfs:range :CategoriaRiscoGravidez ;
+                           rdfs:label "tem categoria de risco durante a gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/temClasseTerapeutica
+:temClasseTerapeutica rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Medicamento ;
+                      rdfs:range :ClasseTerapeutica ;
+                      rdfs:label "tem classe terapêutica"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/tributacao
+:tributacao rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf owl:topObjectProperty ;
+            rdfs:domain :PrecoComImposto ;
+            rdfs:range :Tributo ;
+            rdfs:label "tributação"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/usoAleitamento
+:usoAleitamento rdf:type owl:ObjectProperty ;
+                rdfs:domain :RiscoGravidezAleitamento ;
+                rdfs:range :CategoriaUsoAleitamento ;
+                rdfs:label "uso durante aleitamento"@pt .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:DatatypeProperty .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/cargaTributaria
+:cargaTributaria rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :Tributo ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "Percentual de imposto adicionado ao preço do medicamento"@pt ;
+                 rdfs:label "carga tributária"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/cnpj
+:cnpj rdf:type owl:DatatypeProperty ;
+      rdfs:domain :Laboratorio ;
+      rdfs:range xsd:string ;
+      rdfs:comment "Código de identificação da pessoa jurídica"@pt ;
+      rdfs:label "CNPJ"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/codigoTerapeutico
+:codigoTerapeutico rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :ClasseTerapeutica ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment """A classificação ATC (Anatomical Therapeutic Chemical Code) é um classificações amplamente utilizada internacionalmente para classificar as moléculas (substâncias) com acção terapêutica. Esta classificação é a adoptada pela OMS (Organização Mundial de Saúde). Consiste em classificar os fármacos em diferentes grupos e sub-grupos (níveis), de acordo com o órgão ou sistema sobre o qual actuam e segundo as suas propriedades químicas, farmacológicas e terapêuticas, podendo os sub-grupos chegar até ao quinto nível.
+
+Inicialmente as substâncias eram classificadas de acordo com a classificação AC (classificação anatômica), mas essa classificação mostrou-se insuficiente, sendo por isso, alterada para a classificação ATC que possui mais sub-grupos.
+
+    O grupo principal é representado por uma letra e corresponde ao grupo anatómico;
+    O primeiro sub-grupo é representado por dois números e corresponde ao grupo terapêutico;
+    O segundo sub-grupo é representado por uma letra e corresponde ao grupo farmacológico;
+    O terceiro sub-grupo é representado por uma letra e corresponde ao grupo químico;
+    O quarto sub-grupo é representado por dois números e corresponde à substância química."""@pt ;
+                   rdfs:label "Anatomical Therapeutic Chemical Code"@en ,
+                              "código ATC"@pt ,
+                              "código terapeutico"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ean
+:ean rdf:type owl:DatatypeProperty ;
+     rdfs:domain :Apresentacao ;
+     rdfs:range xsd:int ;
+     rdfs:comment "Número que representa o código de barras do produto"@pt ;
+     rdfs:label "código de barras"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ggrem
+:ggrem rdf:type owl:DatatypeProperty ;
+       rdfs:domain :Apresentacao ;
+       rdfs:range xsd:int ;
+       rdfs:comment "Código da apresentação de um produto"@pt ;
+       rdfs:label "GGREM"@pt ,
+                  "Gerência-Geral de Regulação Econômica e Monitoramento de Mercado"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/marcaProduto
+:marcaProduto rdf:type owl:DatatypeProperty ;
+              rdfs:domain :Medicamento ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Nome do medicamento"@pt ;
+              rdfs:label "marca do produto"@pt ,
+                         "produto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/numeroRegistro
+:numeroRegistro rdf:type owl:DatatypeProperty ;
+                rdfs:domain :Apresentacao ;
+                rdfs:range xsd:int ;
+                rdfs:comment "Número de registro do medicamento na Anvisa"@pt ;
+                rdfs:label "número de registro anvisa"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/observacaoAplicacao
+:observacaoAplicacao rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :observacaoRisco ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/observacaoRisco
+:observacaoRisco rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :RiscoGravidezAleitamento ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "observação de risco no uso da substância durante gestação ou aleitamento"@pt ;
+                 rdfs:label "obsevação de risco"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ppc
+:ppc rdf:type owl:DatatypeProperty ;
+     rdfs:domain :LCCT ;
+     rdfs:range xsd:float ;
+     rdfs:comment "Incidência de impostos PIS/PAESP e COFINS"@pt ;
+     rdfs:label "PIS/PAESP e COFINS"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/restricaoHospitalar
+:restricaoHospitalar rdf:type owl:DatatypeProperty ;
+                     rdfs:domain :Apresentacao ;
+                     rdfs:range xsd:boolean ;
+                     rdfs:comment "Indica que o medicamento é ou não de venda exclusiva a hospitais."@pt ;
+                     rdfs:label "restrição hospitalar"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/valorPreco
+:valorPreco rdf:type owl:DatatypeProperty ;
+            rdfs:domain :PrecoMaximo ;
+            rdfs:range xsd:float ;
+            rdfs:comment "valor monetario em reais do medicamento"@pt ;
+            rdfs:label "preço"@pt .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.arida.ufc.br/ontology/drugs/ALC
+:ALC rdf:type owl:Class ;
+     rdfs:subClassOf :Localidade ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :cargaICMS ;
+                       owl:hasValue :ICMS12
+                     ] ;
+     owl:disjointWith :Estado ;
+     rdfs:comment "Dá-se o nome de área de livre comércio ou zona de livre comércio a um grupo de países que concordaram em eliminar as tarifas, quotas e preferências que recaem sobre a maior parte dos (ou todos os) bens importados e exportados entre aqueles países."@pt ;
+     rdfs:label "Área de livre comêrcio"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Apresentacao
+:Apresentacao rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty :preco ;
+                                owl:someValuesFrom :PrecoMaximo
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :tarja ;
+                                owl:someValuesFrom :TipoTarja
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty dc:title ;
+                                owl:someValuesFrom xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ean ;
+                                owl:someValuesFrom xsd:int
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :ggrem ;
+                                owl:someValuesFrom xsd:int
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :numeroRegistro ;
+                                owl:someValuesFrom xsd:int
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :restricaoHospitalar ;
+                                owl:someValuesFrom xsd:boolean
+                              ] ;
+              rdfs:comment "As formas farmacêuticas são as formas físicas de apresentação do medicamento, e elas podem ser classificadas em sólidas, líquidas, semi- sólidas e gasosas. As formas sólidas podem ser pós, granulados, comprimidos, drágeas, cápsulas, supositórios e óvulos."@pt ;
+              rdfs:label "Apresentação"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/BiologicoNovo
+:BiologicoNovo rdf:type owl:Class ;
+               rdfs:subClassOf :MedicamentoBiologico ;
+               rdfs:comment "medicamento biológico que contém molécula com atividade biológica conhecida, ainda não registrada no Brasil e que tenha passado por todas as etapas de fabricação (formulação, envase, liofilização, rotulagem, embalagem, armazenamento, controle de qualidade e liberação do lote de medicamento biológico novo para uso)"@pt ;
+               rdfs:label "Medicamentos biológicos novos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaRiscoGravidez
+:CategoriaRiscoGravidez rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty dc:title ;
+                                          owl:someValuesFrom xsd:string
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty rdfs:comment ;
+                                          owl:someValuesFrom xsd:string
+                                        ] ;
+                        rdfs:comment "Enquadramento desenvolvido pela Food and Drug Administration(FDA) em que os fármacos são categorizados de acordo com o risco de causar dano ao feto durante a gravidez,baseando-se em estudos em animais ou humanos. Os fármacos são categorizados em 5 (cinco) categorias: A,B, C, D e X;"@pt ;
+                        rdfs:label "Categoria de risco na gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaUsoAleitamento
+:CategoriaUsoAleitamento rdf:type owl:Class ;
+                         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                           owl:onProperty dc:title ;
+                                           owl:someValuesFrom xsd:string
+                                         ] ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty rdfs:comment ;
+                                           owl:someValuesFrom xsd:string
+                                         ] ;
+                         rdfs:comment "Categoria de risco do uso da substância durante o período de amamentação"@pt ;
+                         rdfs:label "Categoria de risco no uso durante aleitamento"@pt ,
+                                    "Risco durante amamentação"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ClasseTerapeutica
+:ClasseTerapeutica rdf:type owl:Class ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                     owl:onProperty dc:title ;
+                                     owl:someValuesFrom xsd:string
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :codigoTerapeutico ;
+                                     owl:someValuesFrom xsd:string
+                                   ] ;
+                   rdfs:comment """A classificação ATC (Anatomical Therapeutic Chemical Code) é um classificações amplamente utilizada internacionalmente para classificar as moléculas (substâncias) com acção terapêutica. Esta classificação é a adoptada pela OMS (Organização Mundial de Saúde). Consiste em classificar os fármacos em diferentes grupos e sub-grupos (níveis), de acordo com o órgão ou sistema sobre o qual actuam e segundo as suas propriedades químicas, farmacológicas e terapêuticas, podendo os sub-grupos chegar até ao quinto nível.
+O grupo principal é representado por uma letra e corresponde ao grupo anatómico;
+O primeiro sub-grupo é representado por dois números e corresponde ao grupo terapêutico;
+O segundo sub-grupo é representado por uma letra e corresponde ao grupo farmacológico;
+O terceiro sub-grupo é representado por uma letra e corresponde ao grupo químico;
+O quarto sub-grupo é representado por dois números e corresponde à substância química."""@pt ;
+                   rdfs:label "ATC"@en ,
+                              "Classe terapêutica"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/EfeitoColateral
+:EfeitoColateral rdf:type owl:Class ;
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty dc:title ;
+                                   owl:someValuesFrom xsd:string
+                                 ] ;
+                 rdfs:comment "Efeito colateral causado pela substância"@pt ;
+                 rdfs:label "Efeito colateral"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Estado
+:Estado rdf:type owl:Class ;
+        rdfs:subClassOf :Localidade ;
+        rdfs:comment "As unidades federativas do Brasil são entidades subnacionais com certo grau de autonomia e dotadas de governo e constituição próprios, que unidas formam a República Federativa do Brasil."@pt ;
+        rdfs:label "Estado"@pt ,
+                   "UF"@pt ,
+                   "Unidade Federativa"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ICMS
+:ICMS rdf:type owl:Class ;
+      rdfs:subClassOf :Tributo ;
+      owl:disjointWith :LCCT ;
+      rdfs:comment """O ICMS (imposto sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual, intermunicipal e de comunicação) é de competência dos Estados e do Distrito Federal.
+Sua regulamentação constitucional está prevista na Lei Complementar 87/1996 (a chamada “Lei Kandir”), alterada posteriormente pelas Leis Complementares 92/97, 99/99 e 102/2000."""@pt ;
+      rdfs:label "ICMS"@pt ,
+                 "imposto sobre operações relativas à circulação de mercadorias e sobre prestações de serviços de transporte interestadual, intermunicipal e de comunicação"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Indicacao
+:Indicacao rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty dc:title ;
+                             owl:someValuesFrom xsd:string
+                           ] ;
+           rdfs:comment "Indicação de tratamento do medicamento"@pt ;
+           rdfs:label "Indicação"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/LCCT
+:LCCT rdf:type owl:Class ;
+      rdfs:comment "Classificação fiscal dos medicamentos em uma das listas, conforme o regime tributário previsto na Lei nº 10.147, de 2000. Defini incidência dos impostos PIS/Pasep e Cofins"@pt ;
+      rdfs:label "Lista de Concessão de Crédito Tributário"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Laboratorio
+:Laboratorio rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:title ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :cnpj ;
+                               owl:someValuesFrom xsd:string
+                             ] ;
+             rdfs:comment "Empresas produtoras ou importadoras do produto. Pessoa jurídica detentora do registro do medicamento na Agência Nacional de Vigilância Sanitária - ANVISA"@pt ;
+             rdfs:label "Laboratório"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Localidade
+:Localidade rdf:type owl:Class ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty :cargaICMS ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ICMS
+                            ] ;
+            rdfs:comment "Localização geográfica"@pt ;
+            rdfs:label "Localidade"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Medicamento
+:Medicamento rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :produtor ;
+                               owl:someValuesFrom :Laboratorio
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :substancia ;
+                               owl:someValuesFrom :PrincipioAtivo
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :temApresentacao ;
+                               owl:someValuesFrom :Apresentacao
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :temClasseTerapeutica ;
+                               owl:someValuesFrom :ClasseTerapeutica
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:title ;
+                               owl:someValuesFrom xsd:string
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :marcaProduto ;
+                               owl:someValuesFrom xsd:string
+                             ] ;
+             rdfs:comment "substância ou preparado us. no tratamento de uma afecção ou de uma manifestação mórbida; medicação, remédio, fármaco"@pt ;
+             rdfs:label "Medicamento"@pt ,
+                        "Produto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoAlopatico
+:MedicamentoAlopatico rdf:type owl:Class ;
+                      rdfs:subClassOf :Medicamento ;
+                      rdfs:comment "são os medicamentos mais receitados pelos profissionais da saúde. Com os alopáticos, uma substância química age diretamente sobre o organismo, provocando um efeito sobre a doença ou o sintoma que se quer combater. Esse tipo de remédio pode ser industrializado ou manipulado de acordo com a necessidade de cada paciente"@pt ;
+                      rdfs:label "Medicamentos Alopáticos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoAntroposofico
+:MedicamentoAntroposofico rdf:type owl:Class ;
+                          rdfs:subClassOf :MedicamentoDinamizado ;
+                          rdfs:comment "são medicamentos dinamizados preparados com base nos fundamentos da antroposofia, cujos métodos de preparação e controle constam nas Farmacopéias Homeopáticas e Código Farmacêutico Antroposófico ou compêndios oficiais reconhecidos pela Anvisa, com comprovada a indicação terapêutica descrita nas matérias médicas homeopáticas ou nos compêndios antroposóficos oficiais reconhecidos pela Anvisa, estudos clínicos, ou revistas científicas."@pt ;
+                          rdfs:label "Medicamentos antroposóficos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoBiologico
+:MedicamentoBiologico rdf:type owl:Class ;
+                      rdfs:subClassOf :MedicamentoAlopatico ;
+                      rdfs:comment "aquele que contém molécula com atividade biológica conhecida e que tenha passado por todas as etapas de fabricação – formulação, envase, liofilização, rotulagem, embalagem, armazenamento, controle de qualidade e liberação do lote de produto biológico para uso (RDC n. 55, de 16 de dezembro de 2010)"@pt ;
+                      rdfs:label "Medicamento biológico"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoCAP
+:MedicamentoCAP rdf:type owl:Class ;
+                rdfs:subClassOf :Apresentacao ;
+                rdfs:comment "Indica que o medicamento está na lista do cap e por isso devera ser comercializado junto ao governo com preços diferenciados, sendo um desconto mínimo obrigatório a ser aplicado pelas distribuidoras e empresas produtoras de medicamntos ao preço de produtos vendidos a entes da administração pública. A aplicação do coeficiente estabelece um preço teto para compras governamentais, a partir do qual se deve iniciar o processo de negociação."@pt ;
+                rdfs:label "Medicamento presente na lista CAP"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoConfaz
+:MedicamentoConfaz rdf:type owl:Class ;
+                   rdfs:subClassOf :Apresentacao ;
+                   rdfs:comment "Indica que o medicamento está na lista do confaz que isenta de ICMS algumas apresentações quando vendidas a entes da Administração Pública."@pt ;
+                   rdfs:label "Medicamento presente na lista Confaz"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoDinamizado
+:MedicamentoDinamizado rdf:type owl:Class ;
+                       rdfs:subClassOf :Medicamento ;
+                       rdfs:comment "medicamento preparado a partir de substâncias que são submetidas a triturações sucessivas ou diluições seguidas de sucussão, ou outra forma de agitação ritmada, com finalidade preventiva ou curativa a serem administrados conforme a terapêutica homeopática, homotoxicológica ou antroposófica. O registro de medicamentos dinamizados é regulamentado pela RDC 26/2007"@pt ;
+                       rdfs:label "Medicamentos dinamizados"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoEspecifico
+:MedicamentoEspecifico rdf:type owl:Class ;
+                       rdfs:subClassOf :MedicamentoAlopatico ;
+                       rdfs:comment "produto farmacêutico, tecnicamente obtido ou elaborado, com finalidade profilática, curativa ou paliativa, não enquadrado nas categorias de medicamento novo, genérico, similar, biológico, fitoterápico ou notificado e cuja(s) substância(s) ativa(s), independentemente da sua natureza ou origem, não é(são) passível(passíveis) de ensaio de bioequivalência frente a um produto comparador (RDC n. 24, de 14 de junho de 2011)"@pt ;
+                       rdfs:label "Medicamento específico"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoFitoterapico
+:MedicamentoFitoterapico rdf:type owl:Class ;
+                         rdfs:subClassOf :Medicamento ;
+                         rdfs:comment "são aqueles obtidos com emprego exclusivo de matérias-primas ativas vegetais. Não se considera medicamento fitoterápico aquele que inclui na sua composição substâncias ativas isoladas, sintéticas ou naturais, nem as associações dessas com extratos vegetais. Os medicamentos fitoterápicos, assim como todos os medicamentos, são caracterizados pelo conhecimento da eficácia e dos riscos de seu uso, assim como pela reprodutibilidade e constância de sua qualidade. A eficácia e a segurança devem ser validadas através de levantamentos etnofarmacológicos, de utilização, documentações tecnocientíficas em bibliografia e/ou publicações indexadas e/ou estudos farmacológicos e toxicológicos pré-clínicos e clínicos. A qualidade deve ser alcançada mediante o controle das matérias-primas, do produto acabado, materiais de embalagem e estudos de estabilidade."@pt ;
+                         rdfs:label "Medicamentos fitoterápicos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoGenerico
+:MedicamentoGenerico rdf:type owl:Class ;
+                     rdfs:subClassOf :MedicamentoSinteticoSistemico ;
+                     rdfs:comment "medicamento similar a um produto de referência ou inovador, que se pretende que seja intercambiável com este, geralmente produzido após a expiração ou renúncia da proteção patentária ou de outros direitos de exclusividade, comprovada a sua eficácia, segurança e qualidade, e designado pela Denominação Comum Brasileira - DCB ou, na sua ausência, pela Denominação Comum Internacional - DCI (Lei n. 9.787, de 10 de fevereiro de 1999)"@pt ;
+                     rdfs:label "Medicamento genérico"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoNovo
+:MedicamentoNovo rdf:type owl:Class ;
+                 rdfs:subClassOf :Medicamento ;
+                 rdfs:comment "o termo “medicamento novo”, sem outra adjetivação, é, na prática, utilizado para se referir a medicamentos novos com princípios ativos sintéticos e semi-sintéticos, associados ou não. Quando se utiliza o termo “medicamento novo” sem outro complemento não se está referindo, portanto, a produtos biológicos, fitoterápicos, homeopáticos, medicamentos ditos “específicos”, medicamentos isentos de registro, e nem tampouco a cópias (genéricos e similares)"@pt ;
+                 rdfs:label "Medicamentos novos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoReferencia
+:MedicamentoReferencia rdf:type owl:Class ;
+                       rdfs:subClassOf :MedicamentoSinteticoSistemico ;
+                       rdfs:comment "é um produto inovador, registrado no órgão federal responsável pela vigilância sanitária e comercializado no País cuja eficácia, segurança e qualidade foram comprovadas cientificamente junto ao órgão federal competente por ocasião do registro, conforme a definição do inciso XXII, artigo 3º, da Lei n. 6.360, de 1976 (com redação dada pela Lei nº 9.787 de 10 de fevereiro de 1999). A empresa interessada em registrar medicamentos genéricos e/ou similares deverá utilizar obrigatoriamente o medicamento de referência constante nas listas vigentes disponíveis nesta página (lista A e lista B) de acordo com os requisitos específicos da RDC 35 de 15/06/2012, que dispõe sobre os critérios de indicação, inclusão e exclusão de medicamentos na Lista de Medicamentos de Referência."@pt ;
+                       rdfs:label "Medicamento de Referência"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoSimilar
+:MedicamentoSimilar rdf:type owl:Class ;
+                    rdfs:subClassOf :MedicamentoSinteticoSistemico ;
+                    rdfs:comment "aquele que contém o mesmo ou os mesmos princípios ativos, que apresenta a mesma concentração, forma farmacêutica, via de administração, posologia e indicação terapêutica, e que é equivalente ao medicamento registrado no órgão federal responsável pela vigilância sanitária, podendo diferir somente em características relativas ao tamanho e à forma do produto, ao prazo de validade, à embalagem, à rotulagem, aos excipientes e aos veículos, devendo sempre ser identificado pelo nome comercial ou marca (Medida Provisória n. 2.190-34, de 23 de agosto de 2001)"@pt ;
+                    rdfs:label "Medicamento similar"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentoSinteticoSistemico
+:MedicamentoSinteticoSistemico rdf:type owl:Class ;
+                               rdfs:subClassOf :MedicamentoAlopatico ;
+                               rdfs:comment "Ao contrário dos medicamentos biológicos, sua molécula é sintética ou semissintética. Produto farmacêutico, tecnicamente obtido ou elaborado, com finalidade profilática, curativa, paliativa ou para fins de diagnóstico. Pode ser classificado como novo, genérico ou similar (RDC n. 60, de 10 de outubro de 2014)"@pt ;
+                               rdfs:label "Medicamento com princípios ativos sintéticos e semissintéticos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MedicamentosAntiHomotoxicos
+:MedicamentosAntiHomotoxicos rdf:type owl:Class ;
+                             rdfs:subClassOf :MedicamentoDinamizado ;
+                             rdfs:comment "são medicamentos dinamizados preparados com base nos fundamentos da homeopatia e homotoxicologia, cujos métodos de preparação e controle devem seguir obrigatoriamente os métodos oficiais descritos na Farmacopéia Homeopática Alemã, edição em vigor, ou outras farmacopéias homeopáticas e compêndios oficiais, reconhecidos pela Anvisa; cuja fórmula é constituída por substâncias de comprovada ação terapêutica, descrita nas matérias médicas homeopáticas ou anti-homotóxicas, reconhecidos pela Anvisa, estudos clínicos, ou revistas científicas"@pt ;
+                             rdfs:label "Medicamentos anti-homotóxicos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoAoConsumidorComImposto
+:PrecoAoConsumidorComImposto rdf:type owl:Class ;
+                             rdfs:subClassOf :PrecoComImposto ;
+                             rdfs:comment "Preço ao consumidor de teto permitido para a comercialização com isenção de impostos"@pt ;
+                             rdfs:label "Preço teto ao consumidor com imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoAoConsumidorComImpostoALC
+:PrecoAoConsumidorComImpostoALC rdf:type owl:Class ;
+                                rdfs:subClassOf :PrecoAoConsumidorComImposto ;
+                                rdfs:label "Preço teto ao consumidor com imposto em área de livre comércio"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoAoConsumidorSemImposto
+:PrecoAoConsumidorSemImposto rdf:type owl:Class ;
+                             rdfs:subClassOf :PrecoSemImposto ;
+                             rdfs:comment "Preço ao consumidor de teto permitido para a comercialização sem isenção de impostos"@pt ;
+                             rdfs:label "Preço teto ao consumir sem imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoAoGovernoComImposto
+:PrecoAoGovernoComImposto rdf:type owl:Class ;
+                          rdfs:subClassOf :PrecoComImposto ;
+                          rdfs:comment "Preço ao governo de teto permitido para a comercialização com isenção de impostos"@pt ;
+                          rdfs:label "Preço ao governo com imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoAoGovernoComImpostoALC
+:PrecoAoGovernoComImpostoALC rdf:type owl:Class ;
+                             rdfs:subClassOf :PrecoAoGovernoComImposto ;
+                             rdfs:label "Preço ao governo com imposto em área de livre comércio"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoAoGovernoSemImposto
+:PrecoAoGovernoSemImposto rdf:type owl:Class ;
+                          rdfs:subClassOf :PrecoSemImposto ;
+                          rdfs:comment "Preço ao governo de teto permitido para a comercialização sem isenção de impostos"@pt ;
+                          rdfs:label "Preço teto ao governo sem imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoComImposto
+:PrecoComImposto rdf:type owl:Class ;
+                 rdfs:subClassOf :PrecoMaximo ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :tributacao ;
+                                   owl:someValuesFrom :Tributo
+                                 ] ;
+                 owl:disjointWith :PrecoSemImposto ;
+                 rdfs:comment "Preço de teto permitido para a comercialização sem isenção de impostos"@pt ;
+                 rdfs:label "Preço teto com imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoFabricaComImposto
+:PrecoFabricaComImposto rdf:type owl:Class ;
+                        rdfs:subClassOf :PrecoComImposto ;
+                        rdfs:comment "Preço Fábrica de teto permitido para a comercialização com isenção de impostos"@pt ;
+                        rdfs:label "Preço de fábrica teto com impostos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoFabricaComImpostoALC
+:PrecoFabricaComImpostoALC rdf:type owl:Class ;
+                           rdfs:subClassOf :PrecoFabricaComImposto ;
+                           rdfs:label "Preço de fábrica teto com impostos em área de livre comércio"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoFabricaSemImposto
+:PrecoFabricaSemImposto rdf:type owl:Class ;
+                        rdfs:subClassOf :PrecoSemImposto ;
+                        rdfs:comment "Preço Fábrica de teto permitido para a comercialização sem isenção de impostos"@pt ;
+                        rdfs:label "Preço teto de fábrica sem imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoMaximo
+:PrecoMaximo rdf:type owl:Class ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty :valorPreco ;
+                               owl:someValuesFrom xsd:float
+                             ] ;
+             rdfs:comment "Preço máximo pelo qual um medicamento pode ser comercializado"@pt ;
+             rdfs:label "Preço máximo"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrecoSemImposto
+:PrecoSemImposto rdf:type owl:Class ;
+                 rdfs:subClassOf :PrecoMaximo ;
+                 rdfs:label "Preço teto sem Imposto"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PrincipioAtivo
+:PrincipioAtivo rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty dc:title ;
+                                  owl:someValuesFrom xsd:string
+                                ] ;
+                rdfs:comment "É a substância que deverá exercer efeito farmacológico. Um medicamento, alimento ou planta pode ter diversas substâncias em sua composição, porém somente uma ou algumas destas conseguirão ter ação no organismo. Ainda em relação aos medicamentos, denomina-se fármaco o princípio ativo deste."^^xsd:string ,
+                             "É uma substância química ativa, fármaco, droga ou matéria-prima que tenha propriedades farmacológicas com finalidade medicamentosa, utilizada para diagnóstico, alívio ou tratamento, empregada para modificar ou explorar sistemas fisiológicos ou estados patológicos, em benefício da pessoa na qual se administra."@pt ;
+                rdfs:label "Insumo famacêutico ativo"@pt ,
+                           "Princípio ativo"@pt ,
+                           "Substância"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Radiofarmaco
+:Radiofarmaco rdf:type owl:Class ;
+              rdfs:subClassOf :Medicamento ;
+              rdfs:comment """Radiofármaco é uma substância com afinidade biológica conhecida cuja molécula possui ao menos um átomo radioativo (radioisótopo), produzido segundo as normas preconizadas pela Anvisa (Agência Nacional de Vigilância Sanitária) e pela CNEN (Comissão Nacional de Energia Nuclear).
+O radiofármaco é empregado na Medicina Nuclear tanto para diagnóstico (95%) quanto para terapia (5%). Para a finalidade diagnóstica, o radiofármaco é utilizado nos exames de cintilografia e são administrados em quantidades muito pequenas (quantidades traço), não provocando nenhuma resposta fisiológica nem apresentando efeito terapêutico nos pacientes. Por serem administrados em humanos, estes devem ser estéreis, livres de pirogênios e submetidos aos outros ensaios de controles de qualidade requeridos a todos os medicamentos injetáveis. Esta molécula radioativa permite o acesso a um sistema orgânico sem causar distúrbios na sua homeostase."""@pt ;
+              rdfs:label "Radiofármacos"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/RiscoGravidezAleitamento
+:RiscoGravidezAleitamento rdf:type owl:Class ;
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty :temCategoriaRiscoGravidez ;
+                                            owl:someValuesFrom :CategoriaRiscoGravidez
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty :usoAleitamento ;
+                                            owl:someValuesFrom :CategoriaUsoAleitamento
+                                          ] ;
+                          rdfs:comment "Risco do uso da substância durante a gravidez ou durante a o período de amamentação"@pt ;
+                          rdfs:label "Risco de uso na gravidez e aleitamento"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/TipoTarja
+:TipoTarja rdf:type owl:Class ;
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty dc:title ;
+                             owl:someValuesFrom xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty rdfs:comment ;
+                             owl:someValuesFrom xsd:string
+                           ] ;
+           rdfs:comment "As tarjas são uma classificação visual do grau de risco que o medicamento oferece ao consumidor, sendo a tarja amarela a única exceção. Deste modo, encontramos no mercado medicamentos sem tarja (baixo risco) e medicamentos tarjados, com risco que varia de moderado a alto."@pt ;
+           rdfs:label "Tipo de tarja"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Tributo
+:Tributo rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty :cargaTributaria ;
+                           owl:someValuesFrom xsd:float
+                         ] ;
+         rdfs:comment "Tarifa a ser paga"@pt ;
+         rdfs:label "Tributo"@pt .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.arida.ufc.br/ontology/drugs/AC
+:AC rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "AC"@pt ,
+               "Acre"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/AL
+:AL rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "AL"@pt ,
+               "Alagoas"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/AM
+:AM rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "AM"@pt ,
+               "Amazonas"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/AP
+:AP rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "AP"@pt ,
+               "Amapá"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/BA
+:BA rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "BA"@pt ,
+               "Bahia"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/BoaVista
+:BoaVista rdf:type owl:NamedIndividual ,
+                   :ALC ;
+          rdfs:label "Boa Vista"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Bonfim
+:Bonfim rdf:type owl:NamedIndividual ,
+                 :ALC ;
+        rdfs:label "Bonfim"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Brasileia
+:Brasileia rdf:type owl:NamedIndividual ,
+                    :ALC ;
+           rdfs:label "Brasiléia"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CE
+:CE rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "CE"@pt ,
+               "Ceará"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaA
+:CategoriaA rdf:type owl:NamedIndividual ,
+                     :CategoriaRiscoGravidez ;
+            rdfs:comment "em estudos controlados em mulheres grávidas, o fármaco não demonstrou risco para o feto no primeiro trimestre de gravidez. Não há evidências de risco nos trimestres posteriores, sendo remota a possibilidade de dano fetal"@pt ;
+            rdfs:label "categoria A de risco na gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaB
+:CategoriaB rdf:type owl:NamedIndividual ,
+                     :CategoriaRiscoGravidez ;
+            rdfs:comment "os estudos em animais não demonstraram risco fetal, mas também não há estudos controlados em mulheres grávidas; ou então, os estudos em animais revelaram riscos, mas que não foram confirmados em estudos controlados em mulheres grávidas"@pt ;
+            rdfs:label "categoria B de risco na gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaC
+:CategoriaC rdf:type owl:NamedIndividual ,
+                     :CategoriaRiscoGravidez ;
+            rdfs:comment "não foram realizados estudos em animais e nem em mulheres grávidas; ou então, os estudos em animais revelaram risco, mas não existem estudos disponíveis realizados em mulheres grávidas"@pt ;
+            rdfs:label "categoria C de risco na gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaD
+:CategoriaD rdf:type owl:NamedIndividual ,
+                     :CategoriaRiscoGravidez ;
+            rdfs:comment "o fármaco demonstrou evidências positivas de risco fetal humano, no entanto, os benefícios potenciais para a mulher podem, eventualmente, justificar o risco, como, por exemplo, em casos de doenças graves ou que ameaçam a vida, e para as quais não existam outras drogas mais seguras"@pt ;
+            rdfs:label "categoria D de risco na gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CategoriaX
+:CategoriaX rdf:type owl:NamedIndividual ,
+                     :CategoriaRiscoGravidez ;
+            rdfs:comment """em estudos em animais e mulheres grávidas, o fármaco provocou anomalias fetais, havendo clara evidência de risco para o feto que é maior do que qualquer benefício
+possível para a paciente"""@pt ;
+            rdfs:label "categoria X de risco na gravidez"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Compativel
+:Compativel rdf:type owl:NamedIndividual ,
+                     :CategoriaUsoAleitamento ;
+            rdfs:comment "quando estudos demonstram que o medicamento não é excretado no leite materno ou que seu uso no aleitamento não causa ou não é esperado que cause toxicidade ao lactente"@pt ;
+            rdfs:label "uso compatível com o aleitamento"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Contraindicado
+:Contraindicado rdf:type owl:NamedIndividual ,
+                         :CategoriaUsoAleitamento ;
+                rdfs:comment "quando estudos em humanos ou animais sugerem que o medicamento causa toxicidade grave no lactente, o aleitamento deve ser interrompido durante o uso do medicamento"@pt ;
+                rdfs:label "uso contraindicado no aleitamentouso contraindicado no aleitamento"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Criterioso
+:Criterioso rdf:type owl:NamedIndividual ,
+                     :CategoriaUsoAleitamento ;
+            rdfs:comment "caso em que não há estudos em humanos que avaliem a toxicidade do medicamento durante o aleitamento, ou estudos limitados sugerem uma possível toxicidade ao lactente, porém o risco versus o benefício deve ser avaliado pelo médico"@pt ;
+            rdfs:label "uso criterioso no aleitamento"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/CruzeirodoSul
+:CruzeirodoSul rdf:type owl:NamedIndividual ,
+                        :ALC ;
+               rdfs:label "Cruzeiro do Sul"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/DF
+:DF rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "DF"@pt ,
+               "Distrito Federal"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ES
+:ES rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "ES"@pt ,
+               "Espírito Santo"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Epitaciolandia
+:Epitaciolandia rdf:type owl:NamedIndividual ,
+                         :ALC ;
+                rdfs:label "Epitaciolândia"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/GO
+:GO rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "GO"@pt ,
+               "Goiás"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/GuajaraMirim
+:GuajaraMirim rdf:type owl:NamedIndividual ,
+                       :ALC ;
+              rdfs:label "Guajará-Mirim"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ICMS12
+:ICMS12 rdf:type owl:NamedIndividual ,
+                 :ICMS ;
+        :cargaTributaria "12.0"^^xsd:float ;
+        rdfs:label "ICMS 12%" .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ICMS17
+:ICMS17 rdf:type owl:NamedIndividual ,
+                 :ICMS ;
+        :cargaTributaria "17.0"^^xsd:float ;
+        rdfs:label "ICMS 17%" .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ICMS175
+:ICMS175 rdf:type owl:NamedIndividual ,
+                  :ICMS ;
+         :cargaTributaria "17.5"^^xsd:float ;
+         rdfs:label "ICMS 17,5%" .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ICMS18
+:ICMS18 rdf:type owl:NamedIndividual ,
+                 :ICMS ;
+        :cargaTributaria "18.0"^^xsd:float ;
+        rdfs:label "ICMS 18%" .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/ICMS20
+:ICMS20 rdf:type owl:NamedIndividual ,
+                 :ICMS ;
+        :cargaTributaria "20.0"^^xsd:float ;
+        rdfs:label "ICMS 20%" .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MA
+:MA rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "MA"@pt ,
+               "Maranhão"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MG
+:MG rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "MG"@pt ,
+               "Minas Gerais"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MS
+:MS rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "MS"@pt ,
+               "Mato Grosso do Sul"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/MT
+:MT rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "MT"@pt ,
+               "Mato Grosso"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Macapa
+:Macapa rdf:type owl:NamedIndividual ,
+                 :ALC ;
+        rdfs:label "Macapá"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Manaus
+:Manaus rdf:type owl:NamedIndividual ,
+                 :ALC ;
+        rdfs:label "Manaus"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Negativo
+:Negativo rdf:type owl:NamedIndividual ,
+                   :LCCT ;
+          :ppc "12.0"^^xsd:float ;
+          rdfs:comment """medicamentos pertencentes às classificações constantes do art. 1º da Lei nº 10.147, de 2000, cujas substâncias ativas não estejam relacionadas no anexo do Decreto nº 3.803, de 2001, e suas atualizações. 
+Carga tributária de 12%"""@pt ;
+          rdfs:label "Lista Negativa"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Neutra
+:Neutra rdf:type owl:NamedIndividual ,
+                 :LCCT ;
+        :ppc "9.25"^^xsd:float ;
+        rdfs:comment """medicamentos que não estão sujeitos ao regime tributário estabelecido na Lei nº 10.147, de 2000. 
+Carga tributária 9,25%"""@pt ;
+        rdfs:label "Lista Neutra"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Outro
+:Outro rdf:type owl:NamedIndividual ,
+                :CategoriaUsoAleitamento .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PA
+:PA rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "PA"@pt ,
+               "Pará"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PB
+:PB rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "PB"@pt ,
+               "Paraíba"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PE
+:PE rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "PE"@pt ,
+               "Pernambuco"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PI
+:PI rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "PI"@pt ,
+               "Piauí"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/PR
+:PR rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "PR"@pt ,
+               "Paraná"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Positivo
+:Positivo rdf:type owl:NamedIndividual ,
+                   :LCCT ;
+          :ppc "0.0"^^xsd:float ;
+          rdfs:comment """medicamentos cujas substâncias ativas constam do anexo do Decreto nº 3.803, de 24 de abril de 2001, e suas atualizações, sujeitos à prescrição médica, identificados com tarja vermelha ou preta, e cujas empresas produtoras usufruem do regime especial de utilização de crédito  presumido de PIS/Pasep e Cofins de que trata o Art. 3º da Lei nº 10.147, de 2000, classificados em três categorias:
+1.1.1.1 – monodrogas, com apenas uma das substâncias ativas
+pertencentes à Categoria I;
+1.1.1.2 – associações, nas combinações de substâncias listadas na
+Categoria II;
+1.1.1.3 – monodrogas ou associações destinadas à nutrição parenteral,
+reposição hidroeletrolítica parenteral, expansores do plasma, hemodiálise e
+diálise peritoneal, das substâncias listadas na Categoria III.
+Carga tributária 0%"""@pt ;
+          rdfs:label "Lista Positiva"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/RJ
+:RJ rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS20 ;
+    rdfs:label "RJ"@pt ,
+               "Rio de Janeiro"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/RN
+:RN rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "RN"@pt ,
+               "Rio Grande do Norte"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/RO
+:RO rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS175 ;
+    rdfs:label "RO"@pt ,
+               "Rondônia"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/RR
+:RR rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "RR"@pt ,
+               "Roraima"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/RS
+:RS rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "RS"@pt ,
+               "Rio Grande do Sul"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/SC
+:SC rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS17 ;
+    rdfs:label "SC"@pt ,
+               "Santa Catarina"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/SE
+:SE rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "SE"@pt ,
+               "Sergipe"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/SP
+:SP rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "SP"@pt ,
+               "São Paulo"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Santana
+:Santana rdf:type owl:NamedIndividual ,
+                  :ALC ;
+         rdfs:label "Santana"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/TO
+:TO rdf:type owl:NamedIndividual ,
+             :Estado ;
+    :cargaICMS :ICMS18 ;
+    rdfs:label "TO"@pt ,
+               "Tocantins"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/Tabatinga
+:Tabatinga rdf:type owl:NamedIndividual ,
+                    :ALC ;
+           rdfs:label "Tabatinga"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/TarjaAmarela
+:TarjaAmarela rdf:type owl:NamedIndividual ,
+                       :TipoTarja ;
+              rdfs:comment "Quando a tarja é amarela, indica que se trata de um medicamento genérico. O genérico é um medicamento com o mesmo princípio ativo (sal) e eficácia do referência, mas é fabricado por outros laboratórios depois que a patente daquele princípio ativo expira."@pt ;
+              rdfs:label "Tarja amarela"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/TarjaPreta
+:TarjaPreta rdf:type owl:NamedIndividual ,
+                     :TipoTarja ;
+            rdfs:comment "A tarja preta significa que o medicamento em questão pode trazer graves riscos à saúde, inclusive o vício e a tolerância. São medicamentos que agem no Sistema Nervoso Central (SNC), podendo causar sedação e até mesmo a morte.somente podem ser dispensados mediante prescrição médica ou odontológica, com receita especial e retenção da mesma na farmácia ou drogaria. Por serem a base de princípios ativos que agem no sistema nervoso central ou por possuírem efeitos colaterais graves, como a dependência física ou psicológica, esses medicamentos são sujeitos a controle especial."@pt ;
+            rdfs:label "Tarja Preta"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/TarjaVermelha
+:TarjaVermelha rdf:type owl:NamedIndividual ,
+                        :TipoTarja ;
+               rdfs:comment "Só podem ser dispensados mediante prescrição médica ou odontológica"@pt ;
+               rdfs:label "Tarja vermelha"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/TarjaVermelhaRentencaoReceita
+:TarjaVermelhaRentencaoReceita rdf:type owl:NamedIndividual ,
+                                        :TipoTarja ;
+                               rdfs:comment "Só podem ser dispensados mediante prescrição médica ou odontológica. Nesses casos, a receita é retida porque tais medicamentos possuem um controle especial do governo. Por isso, na hora da compra, é obrigatória a identificação do comprador, que é, então, cadastrado no Sistema Informatizado de Gerenciamento de Produtos Controlados (SNGPC) da Anvisa."@pt ;
+                               rdfs:label "Tarja vermelha com retenção da receita"@pt .
+
+
+###  http://www.arida.ufc.br/ontology/drugs/VendaLivre
+:VendaLivre rdf:type owl:NamedIndividual ,
+                     :TipoTarja ;
+            rdfs:comment "São isentos de prescrição médica, ou seja, não necessitam de receita médica para serem adquiridos. Apesar disso, devem ter sua utilização orientada por um farmacêutico"@pt ;
+            rdfs:label "Medicamentos não tarjados"@pt ,
+                       "Venda livre"@pt .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Apresentacao
+                :CategoriaRiscoGravidez
+                :CategoriaUsoAleitamento
+                :ClasseTerapeutica
+                :EfeitoColateral
+                :Indicacao
+                :LCCT
+                :Laboratorio
+                :Localidade
+                :Medicamento
+                :PrecoMaximo
+                :PrincipioAtivo
+                :RiscoGravidezAleitamento
+                :TipoTarja
+                :Tributo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Apresentacao
+                :CategoriaRiscoGravidez
+                :CategoriaUsoAleitamento
+                :ClasseTerapeutica
+                :EfeitoColateral
+                :Indicacao
+                :Laboratorio
+                :Medicamento
+                :PrecoMaximo
+                :PrincipioAtivo
+                :RiscoGravidezAleitamento
+                :TipoTarja
+                :Tributo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Apresentacao
+                :CategoriaRiscoGravidez
+                :CategoriaUsoAleitamento
+                :ClasseTerapeutica
+                :Laboratorio
+                :Medicamento
+                :PrecoMaximo
+                :PrincipioAtivo
+                :TipoTarja
+                :Tributo
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :PrecoAoConsumidorComImposto
+                :PrecoAoGovernoComImposto
+                :PrecoFabricaComImposto
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :PrecoAoConsumidorSemImposto
+                :PrecoAoGovernoSemImposto
+                :PrecoFabricaSemImposto
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( :efeitoColateral
+                :indicacao
+                :preco
+                :produtor
+                :risco
+                :substancia
+                :tarja
+                :temApresentacao
+                :temCategoriaRiscoGravidez
+                :temClasseTerapeutica
+                :tributacao
+                :usoAleitamento
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

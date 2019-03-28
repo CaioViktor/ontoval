@@ -41,3 +41,21 @@ table{
 #cor0{
 	background-color: white;
 }
+#plus{
+	height: 32px;
+	width: 32px;
+}
+footer{
+	text-align: center;
+	background-color: black;
+	color: white;
+	position: absolute;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	padding: 10px 10px 10px 10px ;
+}
+#aviso{
+	color: red;
+	font-size: 10px;
+}

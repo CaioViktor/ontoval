@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
+		<title>index</title>
+	</head>
+	<body>
+		<div class = "content">
+			<center>
+				<h3>Nova ontologia para avaliação</h3>
+				<form method="post" action="{{url_for('newConfirm')}}" enctype="multipart/form-data" id = "newOntology">
+					<table>
+						<tr>
+							<td>Nome da ontologia*:</td>
+							<td><input type="text" name="nome" placeholder="Nome" required autofocus> </td>
+						</tr>
+						<tr>
+							<td>Descrição:</td>
+							<td><textarea name="descricao" placeholder="Descrição da ontologia" rows="3" col="50"></textarea></td>
+						</tr>
+						<tr>
+							<td>Arquivo da ontologia*:</td>
+							<td><input type="file" name="ontologia" required> </td>
+						</tr>
+						<tr>
+							<td>Imagem da ontologia:</td>
+							<td><input type="file" name="foto" accept="image/*" > </td>
+						</tr>
+					</table>
+					<p id="aviso">(*) Campos obrigatórios</p>
+					<center><button id="uploadButton" type="submit">enviar</button></center>
+				</form>
+			</center>
+		</div>
+	</body>
+
+	<footer>
+		<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+	</footer>
+</html>

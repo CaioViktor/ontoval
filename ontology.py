@@ -2,9 +2,12 @@ from rdflib import Graph
 import os
 import hashlib
 
-path = os.path.abspath("C:/Users/CaioV/Programacao/ontologia.owl")
-g = Graph()
-g.parse(path,format="ttl")
+def getGraph(path,ext):
+	g = Graph()
+	g.parse(path,format=ext)
+	return g
+
+	
 def getClasses(g):
 	query = """
 	    PREFIX dc: <http://purl.org/dc/elements/1.1/>
