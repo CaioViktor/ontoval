@@ -1,0 +1,43 @@
+body{
+	background-color: #87CEFA;
+}
+.content{
+	background-color: white;
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	padding: 10px 10px 10px 10px;
+	box-shadow:2px 2px 5px #000000;
+	-moz-box-shadow:2px 2px 5px #000000;
+	-webkit-box-shadow:2px 2px 5px #000000;
+	position: absolute;
+	left:25%;
+	min-height: 50%;
+	min-width:50%;
+	max-width:50%;
+}
+#listaDiv{
+	position: absolute;
+	top:0%;
+	
+}
+
+#upload{
+	text-align: left;
+}
+#erro{
+	color: red;
+	font-size: 20px;
+	text-align: right;
+}
+
+table{
+	border:1px solid #000000;
+	-moz-box-shadow:2px 2px 5px #000000;
+	-webkit-box-shadow:2px 2px 5px #000000;
+}
+#cor1{
+	background-color: gray;
+}
+#cor0{
+	background-color: white;
+}
