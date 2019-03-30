@@ -1,5 +1,6 @@
 body{
 	background-color: #87CEFA;
+	font-family: "Bookman";
 }
 .content{
 	background-color: white;
@@ -12,8 +13,7 @@ body{
 	position: absolute;
 	left:25%;
 	min-height: 50%;
-	min-width:50%;
-	max-width:50%;
+	width:50%;
 }
 #listaDiv{
 	position: absolute;
@@ -52,10 +52,50 @@ footer{
 	position: absolute;
 	bottom: 0%;
 	left: 0%;
-	width: 100%;
+	width: 98%;
 	padding: 10px 10px 10px 10px ;
 }
 #aviso{
 	color: red;
 	font-size: 10px;
+}
+.listOntologias{
+	border:1px solid #000000;
+	-moz-box-shadow:2px 2px 5px #000000;
+	-webkit-box-shadow:2px 2px 5px #000000;
+	margin-top: 5px;
+	padding: 2px 2px 2px 2px;
+}
+.Rleft{
+	float: left;
+}
+.Rcenter{
+	float:  center;
+}
+.Rright{
+	float:  right;
+}
+.side{
+	position: fixed;
+	top:0%;
+	height: 100%;
+	width: 20%;
+
+	background-color: white;
+	-moz-border-radius: 8px 8px 8px 8px;
+	-webkit-border-radius: 8px 8px 8px 8px;
+	padding: 10px 10px 10px 10px;
+	box-shadow:2px 2px 5px #000000;
+	-moz-box-shadow:2px 2px 5px #000000;
+	-webkit-box-shadow:2px 2px 5px #000000;
+}
+#indice{
+	left: 0%;
+}
+#info{
+	right: 0%;
+}
+#info div{
+	height: 50%;
+	width:10%;
 }

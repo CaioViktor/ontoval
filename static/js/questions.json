@@ -1,0 +1,20 @@
+{
+	"c1":"Você acredita que o identificador associado à classe é adequado?",
+	"c2":"Você acredita que a nomeclatura associada à classe é adequada?",
+	"c3":"Você acredita que a definição dada à classe é adequada?",
+	"c4":"Você acredita que esta classe é um tipo específico da classe ",
+	"c5":"Você acredita que é correto que esta classe possua a relação (ObjectProperty) ",
+	"c6":"Você acredita que é correto que esta classe possua o atributo (DatatypeProperty) ",
+	"p1":"Você acredita que o identificador associado à propriedade é adequado?",
+	"p2":"Você acredita que a nomeclatura associada à propriedade é adequada?",
+	"p3":"Você acredita que a definição dada à propriedade é adequada?",
+	"p4":"Você acredita que esta propriedade é um tipo específico da propriedade ",
+	"p5":"Você acredita que é correto que esta propriedade seja do tipo ",
+	"p6":"Você acredita que é correto que esta propriedade possua o contra-domínio (range) ",
+	"g1":"Você acredita que esta ontologia possua um nome adequado?",
+	"g2":"Você acredita que esta ontologia possua uma descrição adequada?",
+	"g3":"Você acredita que esta ontologia representa bem o domínio o conhecimento que se propõe?",
+	"g4":"Você acredita que esta ontologia possui uma quantidade suficiente de conceitos (classes)?",
+	"g5":"Você acredita que esta ontologia possui uma quantidade suficiente de propriedades?",
+	"g6":"Você acredita que os conceitos apresentados nesta ontologia estão relacionados de maneira adequada?"
+}

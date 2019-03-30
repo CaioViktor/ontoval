@@ -67,7 +67,7 @@ def getClasses(g):
 		    if ob_hash not in classe['objectProperties']:
 		        classe['objectProperties'].append(ob_hash)
 
-		if str(row["mae"]) != "None":
+		if str(row["mae"]) != "None" and str(row["mae"]) != 'http://www.w3.org/2002/07/owl#Thing':
 		    mae_hash = hashlib.md5(str(row["mae"]).encode('utf-8')).hexdigest()
 		    if mae_hash not in classe['mae']:
 		        classe['mae'].append(mae_hash)
@@ -134,11 +134,13 @@ def getProperties(g):
 		        propriedade['domain'].append(domain_hash)
 		        
 		if str(row["range"]) != "None":
-		    range_hash = hashlib.md5(str(row["range"]).encode('utf-8')).hexdigest()
-		    if range_hash not in propriedade['range']:
-		        propriedade['range'].append(range_hash)
-		        
-		if str(row["mae"]) != "None":
+			range_hash = hashlib.md5(str(row["range"]).encode('utf-8')).hexdigest()
+			if str(row['tipo']) == 'owl:DatatypeProperty':
+				range_hash = str(row["range"])
+			if range_hash not in propriedade['range']:
+				propriedade['range'].append(range_hash)
+
+		if str(row["mae"]) != "None" and str(row["mae"]) != 'http://www.w3.org/2002/07/owl#topObjectProperty' and str(row["mae"]) != 'http://www.w3.org/2002/07/owl#topDataProperty':
 		    mae_hash = hashlib.md5(str(row["mae"]).encode('utf-8')).hexdigest()
 		    if mae_hash not in propriedade['mae']:
 		        propriedade['mae'].append(mae_hash)

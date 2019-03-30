@@ -9,6 +9,21 @@
 		<div class = "content">
 			<center><h3>Selecione seu arquivo</h3></center>
 			<div id="divNovaOnto">Nova ontologia: <a href="{{url_for('new')}}"><img id="plus" src="{{url_for('static',filename='img/plus.png')}}"></a></div>
+			{% if ontologies|length > 0 %}
+				{% for ontologia in ontologies %}
+					<div id="{{ontologia['id']}}" class="listOntologias">
+						<center>
+							{{ontologia.name}}<br/>
+							{{ontologia.description}}<br/>
+							<span class="Rleft">Quantidades de classes:{{ontologia.qtd_classes}}</span><span class="Rcenter">Quantidades de propriedades:{{ontologia.qtd_properties}}</span><span class="Rright">Quantidades de avaliações:{{ontologia.qtd_evaluations}}</span><br>
+							<span>Link para avaliação:</span><a href="{{url_for('eval_user',ontology_id=ontologia.id)}}">{{url_for('eval_user',ontology_id=ontologia.id,_external=True)}}</a>
+						</center>
+
+					</div>
+				{%endfor%}
+			{% else %}
+				Nenuma ontologia cadastrada
+			{% endif %}
 		</div>
 	</body>
 
