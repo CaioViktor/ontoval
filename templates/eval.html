@@ -31,6 +31,8 @@
 			<form method="post" action="{{url_for('eval_confirm',ontology_id=ontologia.id,user=user)}}">
 				<input type="hidden" name="termo" value="{{termo}}">
 				<input type="hidden" name="status" value="{{status}}">
+				{% set Sclasses = []%}
+				{% set Spropriedades = []%}
 				{%if status == 0%}<!-- Classe-->
 
 
@@ -51,18 +53,20 @@
 					{{questions.c3}}<br>
 					<input type="radio" name="c3" value=1 checked> Sim   <input type="radio" name="c3" value=0 > Não<br>
 					{%for id_mae in termo.mae%}
-
-						{{questions.c4}} <b>{{ontologia.classes[id_mae].uri}}</b> ?<br>
+						{{ Sclasses.append(id_mae)}}
+						{{questions.c4}} <b><a href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</b></a> ?<br>
 						<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não<br>
 					{%endfor%}
 
 					{%for id_rel in termo.objectProperties%}
-						{{questions.c5}} <b>{{ontologia.properties[id_rel].uri}}</b> ?<br>
+						{{Spropriedades.append(id_rel)}}
+						{{questions.c5}} <b><a href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a></b> ?<br>
 						<input type="radio" name="{{'r'~id_rel}}" value=1 checked> Sim   <input type="radio" name="{{'r'~id_rel}}" value=0 > Não<br>
 					{%endfor%}
 
 					{%for id_atr in termo.dataTypeProperties%}
-						{{questions.c6}} <b>{{ontologia.properties[id_atr].uri}}</b> ?<br>
+						{{Spropriedades.append(id_atr)}}
+						{{questions.c6}} <b><a href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a></b> ?<br>
 						<input type="radio" name="{{'a'~id_atr}}" value=1 checked> Sim   <input type="radio" name="{{'a'~id_atr}}" value=0 > Não<br>
 					{%endfor%}
 
@@ -108,8 +112,8 @@
 					{{questions.p3}}<br>
 					<input type="radio" name="p3" value=1 checked> Sim   <input type="radio" name="p3" value=0 > Não<br>
 					{%for id_mae in termo.mae%}
-
-						{{questions.p4}} <b>{{ontologia.properties[id_mae].uri}}</b> ?<br>
+						{{Spropriedades.append(id_mae)}}
+						{{questions.p4}} <b><a href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a></b> ?<br>
 						<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não<br>
 					{%endfor%}
 
@@ -121,7 +125,8 @@
 						{{questions.p6}} <b>
 						{%set nameC = id_range%}
 						{%if termo.type == 'owl:ObjectProperty'%}
-							{{ontologia.classes[id_range].uri}}</b> 
+							{{Sclasses.append(id_range)}}
+							<a href="#" onclick= "showInfo(event,S{{id_range}} ,0);">{{ontologia.classes[id_range].uri}}</a></b> 
 							
 						{%else%}
 							{%set nameC = (id_range|replace(".","")|replace("/","")|replace(":","")|replace("#",""))%}
@@ -140,8 +145,42 @@
 		</div>
 
 		<div id="info" class="side">
-			<div id="classe">Classe</div>
-			<div id="propriedade">Propriedade</div>
+			<div id="classe">
+				{% for Sclasse in Sclasses%}
+					<div id="S{{Sclasse}}" style="display: none ">
+						<center>
+							{%for label in ontologia.classes[Sclasse].labels%}
+							"{{label}}""   
+							{%endfor%}
+						</center>
+						{%for comment in ontologia.classes[Sclasse].comments%}
+							{{comment}}<br>
+						{%endfor%}
+					</div>
+				{%endfor%}
+			</div>
+			<div id="propriedade">
+				{% for Spropriedade in Spropriedades%}
+					<div id="S{{Spropriedade}}" style="display: none ">
+						<center>
+							{%for label in ontologia.properties[Spropriedade].labels%}
+							"{{label}}"    
+							{%endfor%}
+						</center>
+						{%for comment in ontologia.properties[Spropriedade].comments%}
+							{{comment}}<br>
+						{%endfor%}
+						<br><b>Contra-domínio (range):</b><br>
+						{%for id_range in ontologia.properties[Spropriedade].range%}
+							{%if ontologia.properties[Spropriedade].type == 'owl:ObjectProperty'%}
+								{{ontologia.classes[id_range].labels}}</b>}<br>
+							{%else%}
+								{{id_range}}
+							{%endif%}
+						{%endfor%}
+					</div>
+				{%endfor%}
+			</div>
 		</div>
 	</body>
 
@@ -149,4 +188,24 @@
 	<footer>
 		<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer> -->
+	<script type="text/javascript">
+		var classeAtual = null;
+		var propriedadeAtual = null;
+		function showInfo(event,idS,tipo){
+			event.preventDefault();
+			if(tipo == 0){//Classe
+				if(classeAtual != null){
+					classeAtual.style.display="none";
+				}
+				classeAtual = idS;
+				classeAtual.style.display="block";
+			}else{ //Propriedade
+				if(propriedadeAtual != null){
+					propriedadeAtual.style.display="none";
+				}
+				propriedadeAtual = idS;
+				propriedadeAtual.style.display="block";
+			}
+		}
+	</script>
 </html>
