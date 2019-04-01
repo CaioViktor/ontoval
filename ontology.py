@@ -6,7 +6,7 @@ import hashlib
 def getGraph(path,ext):
 	g = Graph()
 	#g.parse(path,format=ext)
-	g.parse(path,guess_format(path))
+	g.parse(path,format=guess_format(path))
 	return g
 
 	
