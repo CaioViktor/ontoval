@@ -60,7 +60,8 @@ def newConfirm():
 	ontologia_file.save(ontologia_file_path)
 	ontologia["file"] = ontologia_file_path
 
-	if "foto" in request.files:
+	if "foto" in request.files and request.files['foto'].filename != '':
+		print(request.files['foto'].filename)
 		foto_file = request.files['foto']
 		ext_foto = foto_file.filename.split(".")[1]
 		foto_file_name = str(id_ontology)+"."+ext_foto

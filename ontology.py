@@ -1,10 +1,12 @@
 from rdflib import Graph
+from rdflib.util import guess_format
 import os
 import hashlib
 
 def getGraph(path,ext):
 	g = Graph()
-	g.parse(path,format=ext)
+	#g.parse(path,format=ext)
+	g.parse(path,guess_format(path))
 	return g
 
 	
