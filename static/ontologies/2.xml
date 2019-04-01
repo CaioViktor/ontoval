@@ -1,0 +1,2819 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.arida.com/rpg/ontology/#"
+     xml:base="http://www.arida.com/rpg/ontology/"
+	 xml:stor="http://www.arida.com/rpg/ontology/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.arida.com/rpg/ontology/#"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#foaf:person -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#foaf:person">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">foaf:person</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#foaf:Person"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#gco:character2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#gco:character1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#gco:character1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gco:character</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#gco:character2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#gco:character2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gco:character</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#foaf:Person"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:mission1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:mission1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:mission</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Mission"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter1"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#member"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:mission2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:mission2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:mission</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Mission"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:goal1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:adventure1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:adventure1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:adventure</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Adventure"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Match"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:adventure2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:adventure2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:adventure</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Adventure"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:goal3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:attack -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:attack">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:attack</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attack"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat4"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:attribute1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:attribute</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:attribute2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:attribute</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Test"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:test"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:attribute3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:attribute</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:AttributeType"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:attributetype2"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:attribute4 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute4">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:attribute</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Skill"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:skill"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:attributetype2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:attributetype2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:attributetype</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:AttributeType"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:campaign1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:campaign1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:campaign</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Campaign"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:campaign2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:campaign2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:campaign</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Campaign"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Match"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:combat1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:combat1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:combat</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Other"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:other1"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:combat2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:combat2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:combat</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:combat3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:combat3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:combat</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Defense"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:combat4 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:combat4">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:combat</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attack"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:condition -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:condition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:condition</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Condition"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:state1"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:defense -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:defense">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:defense</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Defense"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:dice -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:dice">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:dice</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Dice"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:system1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:encounter1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:encounter</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Mission"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#isMemberOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:encounter2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:encounter</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Player"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#mediatedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:encounter3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:encounter</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:encounter4 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter4">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:encounter</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:NPC"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#mediatedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:entity1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:entity1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:entity</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:Action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:entity2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:entity2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:entity</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:game2"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:experience -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:experience">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:experience</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Experience"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Other"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:forum -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:forum">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:forum</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Forum"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:game1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:game1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:game</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#vgo:Session"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:game2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:game2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:game</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:game3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:game3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:game</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:location -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:location">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:location</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#gco:character1"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:match1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:match1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:match</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Adventure"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Match"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:adventure1"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:match2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:match2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:match</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Campaign"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Match"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:campaign2"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:material -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:material">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:material</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Material"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Scenario"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:money -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:money">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:money</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Money"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Resource"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:news -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:news">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:news</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:News"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:post1"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:npc -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:npc">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:npc</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:NPC"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter4"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#mediates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:object -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:object">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:object</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Object"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Player"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:player2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:other1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:other1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:other</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Other"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:other2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:other2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:other</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Experience"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Other"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:experience"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:plan -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:plan">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:plan</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Plan"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Planning"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:planning"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#member"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:planning -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:planning">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:planning</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Plan"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Planning"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#isMemberOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:player1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:player1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:player</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Player"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter2"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#mediates"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:player2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:player2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:player</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Object"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Player"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:post1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:post1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:post</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:News"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:post2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:post2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:post</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:site2"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:post3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:post3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:post</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:topic3"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:resource -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:resource">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:resource</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Money"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Resource"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:money"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:scenario -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:scenario">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:scenario</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Material"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Scenario"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:site1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:site1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:site</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:site2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:site2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:site</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:site3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:site3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:site</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:skill -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:skill">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:skill</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Skill"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:state1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:state1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:state</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Condition"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:state2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:state2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:state</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:state3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:state3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:state</rdfs:label>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:Action"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#bearer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:system1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:system1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:system</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Dice"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:system2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:system2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:system</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:game3"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:test -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:test">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:test</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Test"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:topic1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:topic1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:topic</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:site1"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:topic2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:topic2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:topic</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:site3"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:topic3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:topic3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:topic</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalWhole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:topic4 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:topic4">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:topic</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Forum"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:forum"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-b:action1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-b:action1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-b:action</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:entity1"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:Action"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-b:action2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-b:action2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-b:action</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:state3"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:Action"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:event -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:event">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:event</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:state2"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:goal1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal1">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:goal</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Mission"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:goal2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal2">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:goal</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter3"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:goal3 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal3">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:goal</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Adventure"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:goal4 -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal4">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:goal</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Campaign"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:campaign1"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#vgo:session -->
+
+    <owl:ObjectProperty rdf:about="http://www.arida.com/rpg/ontology/#vgo:session">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vgo:session</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+        <owl:inverseOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:game1"/>
+        <rdfs:range rdf:resource="http://www.arida.com/rpg/ontology/#vgo:Session"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#bearer -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#bearer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#intrinsicProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quality"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#causedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#causedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#causes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#causes -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#causes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#collectionPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#collectionPart">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#collectionWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#collectionWhole">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#contains">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#during -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#during">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#contains"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#equalTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#equalTo">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#eventPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#eventPart">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#eventWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#eventWhole">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#finishedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#finishedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#finishes"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#finishes -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#finishes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#functionalPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#functionalPart">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#functionalWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#functionalWhole">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#intrinsicProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#intrinsicProperty">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quality"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#isMemberOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#isMemberOf">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Collection"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#mediatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#mediatedBy">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Relator"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#mediates"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Relator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#mediates -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#mediates">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Relator"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Relator"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#meets -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#meets">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#member -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#member">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Collection"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#metBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#metBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#meets"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#overlaps -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#overlaps">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#part -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#part">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#participant -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#participant">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Object"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#participatesIn"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#participatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#participatesIn">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Object"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#precededBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#precededBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#preceds -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#preceds">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#precededBy"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#quantityPart -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#quantityPart">
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#part"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#quantityWhole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#quantityWhole">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Quantity"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#whole"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#startedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#startedBy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <owl:inverseOf rdf:resource="http://www.menthor.net/ontouml#starts"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#starts -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#starts">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.menthor.net/ontouml#temporal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#temporal -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#temporal">
+        <rdfs:domain rdf:resource="http://www.menthor.net/ontouml#Event"/>
+        <rdfs:range rdf:resource="http://www.menthor.net/ontouml#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#whole -->
+
+    <owl:ObjectProperty rdf:about="http://www.menthor.net/ontouml#whole">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:AttributeDomain -->
+
+    <owl:DatatypeProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:AttributeDomain">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:AttributeDomain</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.arida.com/rpg/ontology/#stor:AttributeType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#foaf:Person -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#foaf:Person">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">foaf:Person</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#gco:character2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#gco:Character -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#gco:Character">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gco:Character</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#foaf:person"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#foaf:Person"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:location"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Location"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.arida.com/rpg/ontology/#stor:NPC"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Adventure -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Adventure">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Adventure</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:match1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Match"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:goal3"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Attack -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Attack">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Attack</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat4"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Attribute -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Attribute">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Attribute</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat2"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:skill"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Skill"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:test"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Test"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:attributetype2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:AttributeType"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:System"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:AttributeDomain -->
+
+    <owl:DatatypeProperty rdf:about="http://www.arida.com/rpg/ontology/#stor:AttributeDomain">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:AttributeDomain</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:AttributeDomain"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:AttributeType -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:AttributeType">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:AttributeType</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:attribute3"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Book -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Book">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Book</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Material"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Campaign -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Campaign">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Campaign</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:match2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Match"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:goal4"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Combat -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Combat">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Combat</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:attribute1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:attack"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attack"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:defense"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Defense"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:other1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Other"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Condition -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Condition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Condition</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:PostCondition"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:PreCondition"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:state1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Consumable -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Consumable">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Consumable</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Defense -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Defense">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Defense</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat3"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Dice -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Dice">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Dice</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:system1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Encounter -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Encounter">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Encounter</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:mission1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Mission"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:npc"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:NPC"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:player1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Player"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:goal2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Relator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Entity -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Entity">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Entity</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#gco:Character"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:NPC"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:game2"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:action1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:Action"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Equipment -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Equipment">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Equipment</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Etc -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Etc">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Etc</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Object"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Experience -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Experience">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Experience</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:other2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Other"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Forum -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Forum">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Forum</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:topic4"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Material"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Game -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Game">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Game</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:entity2"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:system2"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:System"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#vgo:session"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#vgo:Session"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Location -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Location">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Location</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#gco:character1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Magazine -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Magazine">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Magazine</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Material"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Match -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Match">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Match</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:adventure1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Adventure"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:campaign2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Campaign"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#vgo:Session"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Material -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Material">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Material</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Book"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Forum"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Magazine"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Site"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:scenario"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Scenario"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Mission -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Mission">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Mission</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:goal1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Goal"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Money -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Money">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Money</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:resource"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Resource"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Quality"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:NPC -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:NPC">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:NPC</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter4"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:News -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:News">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:News</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Object -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Object">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Object</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Consumable"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Equipment"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Etc"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:player2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Player"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Other -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Other">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Other</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:combat1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:experience"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Experience"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Mode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Plan -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Plan">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Plan</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:planning"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Planning"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Planning -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Planning">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Planning</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:plan"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Plan"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Collection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Player -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Player">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Player</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:object"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Object"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#gco:Character"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Post -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Post">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Post</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:topic3"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:site2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:PostCondition -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:PostCondition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:PostCondition</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:Condition"/>
+        <owl:disjointWith rdf:resource="http://www.arida.com/rpg/ontology/#stor:PreCondition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:PreCondition -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:PreCondition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:PreCondition</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:Condition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Resource -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Resource">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Resource</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:money"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Money"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:System"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Scenario -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Scenario">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Scenario</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:material"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Material"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.arida.com/rpg/ontology/#stor:Location"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Site -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Site">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Site</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:post2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:topic1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:topic2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Topic"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Material"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Skill -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Skill">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Skill</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:attribute4"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:State -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:State">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:State</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:condition"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Condition"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:action2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#ufo-b:Action"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:event"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#ufo-c:Event"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Planning"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:System -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:System">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:System</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Resource"/>
+                            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Test"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:dice"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Dice"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:game3"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Test -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Test">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Test</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:attribute2"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:System"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#stor:Topic -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#stor:Topic">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">stor:Topic</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:forum"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Forum"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:post3"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Post"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:site1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:site3"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Site"/>
+                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-b:Action -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#ufo-b:Action">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-b:Action</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:entity1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Entity"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:state3"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:Event"/>
+                    <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:Event -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:Event">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:Event</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:state2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:State"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#ufo-c:Goal -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:Goal">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ufo-c:Goal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:mission2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Mission"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:adventure2"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Adventure"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:campaign1"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Campaign"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:encounter3"/>
+                        <owl:onClass rdf:resource="http://www.arida.com/rpg/ontology/#stor:Encounter"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.arida.com/rpg/ontology/#vgo:Session -->
+
+    <owl:Class rdf:about="http://www.arida.com/rpg/ontology/#vgo:Session">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vgo:Session</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.arida.com/rpg/ontology/#stor:game1"/>
+                        <owl:someValuesFrom rdf:resource="http://www.arida.com/rpg/ontology/#stor:Game"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#FunctionalComplex"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Collection -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Collection">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Event -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Event"/>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#FunctionalComplex -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#FunctionalComplex">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Mode -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Mode">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Moment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Moment -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Moment"/>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Object -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Object"/>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Quality -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Quality">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Moment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Quantity -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Quantity">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.menthor.net/ontouml#Relator -->
+
+    <owl:Class rdf:about="http://www.menthor.net/ontouml#Relator">
+        <rdfs:subClassOf rdf:resource="http://www.menthor.net/ontouml#Moment"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Consumable"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Equipment"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Etc"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Event"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Moment"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Object"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Collection"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#FunctionalComplex"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quantity"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#foaf:person"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#gco:character1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#gco:character2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:mission1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:mission2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:adventure1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:adventure2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:attack"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:attribute4"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:attributetype2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:campaign1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:campaign2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:combat1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:combat2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:combat3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:combat4"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:condition"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:defense"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:dice"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:encounter4"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:entity1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:entity2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:experience"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:forum"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:game1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:game2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:game3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:location"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:match1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:match2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:material"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:money"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:news"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:npc"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:object"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:other1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:other2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:plan"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:planning"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:player1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:player2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:post1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:post2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:post3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:resource"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:scenario"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:site1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:site2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:site3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:skill"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:state1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:state2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:state3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:system1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:system2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:test"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:topic1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:topic2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:topic3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:topic4"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-b:action1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-b:action2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:event"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal1"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal2"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal3"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#ufo-c:goal4"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#vgo:session"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Attribute"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Combat"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Resource"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Test"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Book"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Forum"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Magazine"/>
+            <rdf:Description rdf:about="http://www.arida.com/rpg/ontology/#stor:Site"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Mode"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Quality"/>
+            <rdf:Description rdf:about="http://www.menthor.net/ontouml#Relator"/>
+        </owl:members>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                            </rdf:Description>
+                        </rdf:rest>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#functionalPart"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#collectionPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#collectionPart"/>
+                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#z"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.menthor.net/ontouml#member"/>
+                                <swrl:argument2 rdf:resource="urn:swrl#x"/>
+                                <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                                <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                                        <swrl:argument1 rdf:resource="urn:swrl#y"/>
+                                                        <swrl:argument2 rdf:resource="urn:swrl#z"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl#x"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl#y"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.4) http://owlapi.sourceforge.net -->
+

@@ -6,6 +6,15 @@
 		<title>Avaliação</title>
 	</head>
 	<body>
+		{%if ontologia.image != ""%}
+			<div id="modelDiv" >
+				<img src="{{url_for('static',filename=ontologia.image|replace('static/',''))}}">
+				<img src="{{url_for('static',filename='img/error.png')}}" class="icon" id="close" onclick="this.parentElement.style.display='none'">
+			</div>
+		{%endif%}
+		<div>
+			
+		</div>
 		<div id="indice" class="side">
 			<center><h3>{{ontologia['name']}}</h3></center>
 			<table><tr><td>{{ontologia['description']}}</td></tr></table><br>
@@ -25,6 +34,9 @@
 			</table>
 			
 			link para continuar mais tarde: <a href="{{url_for('eval',ontology_id=ontologia.id,user=user)}}">{{url_for('eval',ontology_id=ontologia.id,user=user,_external=True)}}</a>
+			{%if ontologia.image != ""%}
+				<br><img src="{{url_for('static',filename='img/diagram.png')}}" alt="Imagem com modelo da ontologia" class="icon" onclick="document.getElementById('modelDiv').style.display='block'">
+			{%endif%}
 		</div>
 
 		<div class = "content">

@@ -99,3 +99,35 @@ footer{
 	height: 50%;
 	width:100%;
 }
+#modelDiv{
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width:100%;
+	z-index: 999;
+	background: rgba(0, 0, 0, 0.3);
+}
+#modelDiv img{
+	align-content: center;
+	height: 95%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	width:auto;
+	
+}
+.icon{
+	height:32px !important;
+	width:32px !important;
+	cursor: pointer;
+}
+#close{
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	margin-right: 32px; 
+}
