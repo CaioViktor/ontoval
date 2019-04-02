@@ -18,8 +18,10 @@ def getClasses(g):
 	        {?classe rdf:type owl:Class.}
 	        UNION
 	        {?classe rdf:type rdfs:Class.}
+	        FILTER (!isBlank(?classe))
 	        OPTIONAL{
 	            ?classe rdfs:subClassOf ?mae.
+	             FILTER (!isBlank(?mae))
 	        }
 	        OPTIONAL{
 	            {?classe rdfs:label ?title.}
@@ -108,6 +110,7 @@ def getProperties(g):
 	        }
 	        OPTIONAL{
 	            ?propriedade rdfs:range ?range
+	            FILTER (!isBlank(?range))
 	        }
 	        OPTIONAL{
 	            ?propriedade rdfs:subPropertyOf ?mae.

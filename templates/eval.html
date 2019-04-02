@@ -95,6 +95,7 @@
 					{%for id_mae in termo.mae%}
 						{%set id = "cor1"+ (count.c%2)|string%}
 						<tr id="{{id}}">
+
 							<td>{{questions.c4}} <a href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</a> ?</td>
 							<td>
 								<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
@@ -227,7 +228,7 @@
 									{%set nameC = id_range%}
 									{%if termo.type == 'owl:ObjectProperty'%}
 										<a href="#" onclick= "showInfo(event,S{{id_range}} ,0);">{{ontologia.classes[id_range].uri}}</a>
-										{{Sclasses.append(id_range)}}
+										{%if Sclasses.append(id_range)%}{%endif%}
 										
 									{%else%}
 										{%set nameC = (id_range|replace(".","")|replace("/","")|replace(":","")|replace("#",""))%}

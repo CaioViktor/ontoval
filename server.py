@@ -61,7 +61,7 @@ def newConfirm():
 	ontologia["file"] = ontologia_file_path
 
 	if "foto" in request.files and request.files['foto'].filename != '':
-		print(request.files['foto'].filename)
+		#print(request.files['foto'].filename)
 		foto_file = request.files['foto']
 		ext_foto = foto_file.filename.split(".")[1]
 		foto_file_name = str(id_ontology)+"."+ext_foto
@@ -239,13 +239,13 @@ def eval_confirm(ontology_id,user):
 
 		#print("3.2.3")
 		evaluation_termo['score'] = score_reached/score_total
-		print(avaliacao)
+		#print(avaliacao)
 		avaliacao['properties'].append(evaluation_termo)
 		#return render_template("print.html",mensagem=avaliacao)
 
 
 	elif status == 2: #Geral
-		print("3.3")
+		#print("3.3")
 		evaluation_termo['g1'] = int(request.form['g1'])
 		evaluation_termo['g2'] = int(request.form['g2'])
 		evaluation_termo['g3'] = int(request.form['g3'])
