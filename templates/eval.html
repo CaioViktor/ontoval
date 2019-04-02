@@ -8,7 +8,7 @@
 	<body>
 		{%if ontologia.image != ""%}
 			<div id="modelDiv" >
-				<img src="{{url_for('static',filename=ontologia.image|replace('static/',''))}}">
+				<img src="{{url_for('static',filename=ontologia.image|replace('static/','')|replace('\\','/'))}}">
 				<img src="{{url_for('static',filename='img/error.png')}}" class="icon" id="close" onclick="this.parentElement.style.display='none'">
 			</div>
 		{%endif%}
@@ -17,26 +17,40 @@
 		</div>
 		<div id="indice" class="side">
 			<center><h3>{{ontologia['name']}}</h3></center>
-			<table><tr><td>{{ontologia['description']}}</td></tr></table><br>
-			<table>
-				<tr>
-					<td>Classes avaliadas:</td>
-					<td>{{indices['classes'][0]}}/{{indices['classes'][1]}}</td>
-				</tr>
-				<tr>
-					<td>Propriedades avaliadas:</td>
-					<td>{{indices['properties'][0]}}/{{indices['properties'][1]}}</td>
-				</tr>
-				<tr>
-					<td>Avaliação geral:</td>
-					<td>{{indices['general'][0]}}/{{indices['general'][1]}}</td>
-				</tr>
-			</table>
-			
-			link para continuar mais tarde: <a href="{{url_for('eval',ontology_id=ontologia.id,user=user)}}">{{url_for('eval',ontology_id=ontologia.id,user=user,_external=True)}}</a>
+			<fieldset>
+				<legend>Descrição</legend>
+				{{ontologia['description']}}</td><br>
+			</fieldset>
+			<fieldset>
+				<legend>Progesso da avaliação</legend>
+				<table>
+					<tr>
+						<td>Classes avaliadas:</td>
+						<td>{{indices['classes'][0]}}/{{indices['classes'][1]}}</td>
+					</tr>
+					<tr>
+						<td>Propriedades avaliadas:</td>
+						<td>{{indices['properties'][0]}}/{{indices['properties'][1]}}</td>
+					</tr>
+					<tr>
+						<td>Avaliação geral:</td>
+						<td>{{indices['general'][0]}}/{{indices['general'][1]}}</td>
+					</tr>
+				</table>
+			</fieldset>
 			{%if ontologia.image != ""%}
-				<br><img src="{{url_for('static',filename='img/diagram.png')}}" alt="Imagem com modelo da ontologia" class="icon" onclick="document.getElementById('modelDiv').style.display='block'">
+			<fieldset>
+				<legend>Modelo da ontologia</legend>
+				<center>
+					<img src="{{url_for('static',filename='img/diagram.png')}}" alt="Imagem com modelo da ontologia" class="icon" onclick="document.getElementById('modelDiv').style.display='block'">
+				</center>
+			</fieldset>
 			{%endif%}
+			<fieldset>
+				<legend>Link para continuar mais tarde</legend>
+				<a href="{{url_for('eval',ontology_id=ontologia.id,user=user)}}">{{url_for('eval',ontology_id=ontologia.id,user=user,_external=True)}}</a>
+			</fieldset>
+			
 		</div>
 
 		<div class = "content">
@@ -58,48 +72,97 @@
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
-					{{questions.c1}}<br>
-					<input type="radio" name="c1" value=1 checked> Sim   <input type="radio" name="c1" value=0 > Não<br>
-					{{questions.c2}}<br>
-					<input type="radio" name="c2" value=1 checked> Sim   <input type="radio" name="c2" value=0 > Não<br>
-					{{questions.c3}}<br>
-					<input type="radio" name="c3" value=1 checked> Sim   <input type="radio" name="c3" value=0 > Não<br>
+					<table>
+						<tr id="cor0">
+							<td>{{questions.c1}}</td>
+							<td>
+								<input type="radio" name="c1" value=1 checked> Sim <input type="radio" name="c1" value=0 > Não
+							</td>
+						</tr>
+						<tr id="cor1">
+							<td>{{questions.c2}}</td>
+							<td>
+								<input type="radio" name="c2" value=1 checked> Sim <input type="radio" name="c2" value=0 > Não
+							</td>
+						</tr>
+						<tr id="cor0">
+							<td>{{questions.c3}}</td>
+							<td>
+								<input type="radio" name="c3" value=1 checked> Sim <input type="radio" name="c3" value=0 > Não
+							</td>
+						</tr>
+					{%set count = {'c':0}%}
 					{%for id_mae in termo.mae%}
-						{{ Sclasses.append(id_mae)}}
-						{{questions.c4}} <b><a href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</b></a> ?<br>
-						<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não<br>
+						{%set id = "cor1"+ (count.c%2)|string%}
+						<tr id="{{id}}">
+							<td>{{questions.c4}} <a href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</a> ?</td>
+							<td>
+								<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
+							</td>
+						</tr>
+						{% if Sclasses.append(id_mae)%}{%endif%}
+						{%if count.update({'c':(count.c +1)})%}{%endif%}
 					{%endfor%}
-
+					{%set count = {'c':0}%}
 					{%for id_rel in termo.objectProperties%}
-						{{Spropriedades.append(id_rel)}}
-						{{questions.c5}} <b><a href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a></b> ?<br>
-						<input type="radio" name="{{'r'~id_rel}}" value=1 checked> Sim   <input type="radio" name="{{'r'~id_rel}}" value=0 > Não<br>
+						{%set id = "cor2"+ (count.c%2)|string%}
+						<tr id="{{id}}">
+							<td>{{questions.c5}} <a href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a>?</td>
+							<td>
+								<input type="radio" name="{{'r'~id_rel}}" value=1 checked> Sim <input type="radio" name="{{'r'~id_rel}}" value=0 > Não
+							</td>
+						</tr>
+						{%if Spropriedades.append(id_rel)%}{%endif%}
+						{%if count.update({'c':(count.c +1)})%}{%endif%}
 					{%endfor%}
 
+					{%set count = {'c':0}%}
 					{%for id_atr in termo.dataTypeProperties%}
-						{{Spropriedades.append(id_atr)}}
-						{{questions.c6}} <b><a href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a></b> ?<br>
-						<input type="radio" name="{{'a'~id_atr}}" value=1 checked> Sim   <input type="radio" name="{{'a'~id_atr}}" value=0 > Não<br>
+						{%set id = "cor3"+ (count.c%2)|string%}
+						<tr id="{{id}}">
+						<td>{{questions.c6}} <a href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a> ?</td>
+						<td>
+							<input type="radio" name="{{'a'~id_atr}}" value=1 checked> Sim <input type="radio" name="{{'a'~id_atr}}" value=0 > Não
+						</td>
+						</tr>
+						{% if Spropriedades.append(id_atr)%}{%endif%}
+						{%if count.update({'c':(count.c +1)})%}{%endif%}
 					{%endfor%}
+					</table>
+					
 
 
 
 				{%elif status == 2%}<!-- Geral-->
 					
 
-
-					{{questions.g1}}<br>
-					<input type="radio" name="g1" value=1 checked> Sim   <input type="radio" name="g1" value=0 > Não<br>
-					{{questions.g2}}<br>
-					<input type="radio" name="g2" value=1 checked> Sim   <input type="radio" name="g2" value=0 > Não<br>
-					{{questions.g3}}<br>
-					<input type="radio" name="g3" value=1 checked> Sim   <input type="radio" name="g3" value=0 > Não<br>
-					{{questions.g4}}<br>
-					<input type="radio" name="g4" value=1 checked> Sim   <input type="radio" name="g4" value=0 > Não<br>
-					{{questions.g5}}<br>
-					<input type="radio" name="g5" value=1 checked> Sim   <input type="radio" name="g5" value=0 > Não<br>
-					{{questions.g6}}<br>
-					<input type="radio" name="g6" value=1 checked> Sim   <input type="radio" name="g6" value=0 > Não<br>
+					<table>
+						
+						<tr id="cor0">
+							<td>{{questions.g1}}</td>
+							<td><input type="radio" name="g1" value=1 checked> Sim   <input type="radio" name="g1" value=0 > Não</td>
+						</tr>
+						<tr id="cor1">
+							<td>{{questions.g2}}</td>
+							<td><input type="radio" name="g2" value=1 checked> Sim   <input type="radio" name="g2" value=0 > Não</td>
+						</tr>
+						<tr id="cor0">
+							<td>{{questions.g3}}</td>
+							<td><input type="radio" name="g3" value=1 checked> Sim   <input type="radio" name="g3" value=0 > Não</td>
+						</tr>
+						<tr id="cor1">
+							<td>{{questions.g4}}</td>
+							<td><input type="radio" name="g4" value=1 checked> Sim   <input type="radio" name="g4" value=0 > Não</td>
+						</tr>
+						<tr id="cor0">
+							<td>{{questions.g5}}</td>
+							<td><input type="radio" name="g5" value=1 checked> Sim   <input type="radio" name="g5" value=0 > Não</td>
+						</tr>
+						<tr id="cor1">
+							<td>{{questions.g6}}</td>
+							<td><input type="radio" name="g6" value=1 checked> Sim   <input type="radio" name="g6" value=0 > Não</td>
+						</tr>
+					</table>
 
 
 
@@ -117,41 +180,73 @@
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
-					{{questions.p1}}<br>
-					<input type="radio" name="p1" value=1 checked> Sim   <input type="radio" name="p1" value=0 > Não<br>
-					{{questions.p2}}<br>
-					<input type="radio" name="p2" value=1 checked> Sim   <input type="radio" name="p2" value=0 > Não<br>
-					{{questions.p3}}<br>
-					<input type="radio" name="p3" value=1 checked> Sim   <input type="radio" name="p3" value=0 > Não<br>
-					{%for id_mae in termo.mae%}
-						{{Spropriedades.append(id_mae)}}
-						{{questions.p4}} <b><a href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a></b> ?<br>
-						<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não<br>
-					{%endfor%}
+					<table>
+						<tr id="cor0">
+							<td>{{questions.p1}}</td>
+							<td>
+								<input type="radio" name="p1" value=1 checked> Sim   <input type="radio" name="p1" value=0 > Não</td>
+						</tr>
+						<tr id="cor1">
+							<td>{{questions.p2}}</td>
+							<td>
+								<input type="radio" name="p2" value=1 checked> Sim   <input type="radio" name="p2" value=0 > Não</td>
+						</tr>
+						<tr id="cor0">
+							<td>{{questions.p3}}</td>
+							<td>
+								<input type="radio" name="p3" value=1 checked> Sim   <input type="radio" name="p3" value=0 > Não</td>
+						</tr>
+						{%set count = {'c':0}%}
+						{%for id_mae in termo.mae%}
+							{%set id = "cor1"+ (count.c%2)|string%}
+							<tr id="{{id}}">
+								<td>
+									{{questions.p4}} <a href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a> ?</td>
+								<td>
+									<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
+								</td>
+							</tr>
+							{%if Spropriedades.append(id_mae)%}{%endif%}
+							{%if count.update({'c':(count.c +1)})%}{%endif%}
+						{%endfor%}
 
-					{{questions.p5}} <b>{{termo.type}}</b>?<br>
-					<input type="radio" name="p5" value=1 checked> Sim   <input type="radio" name="p5" value=0 > Não<br>
-					
-
-					{%for id_range in termo.range%}
-						{{questions.p6}} <b>
-						{%set nameC = id_range%}
-						{%if termo.type == 'owl:ObjectProperty'%}
-							{{Sclasses.append(id_range)}}
-							<a href="#" onclick= "showInfo(event,S{{id_range}} ,0);">{{ontologia.classes[id_range].uri}}</a></b> 
-							
-						{%else%}
-							{%set nameC = (id_range|replace(".","")|replace("/","")|replace(":","")|replace("#",""))%}
-							{{id_range}}
-						{%endif%}
-						?<br>
-						<input type="radio" name="{{'r'~nameC}}" value=1 checked> Sim   <input type="radio" name="{{'r'~nameC}}" value=0 > Não<br>
-					{%endfor%}
+						<tr  id="cor1">
+							<td>
+							{{questions.p5}} {{termo.type}}?
+							</td>
+							<td>
+								<input type="radio" name="p5" value=1 checked> Sim   <input type="radio" name="p5" value=0 > Não<br>
+							</td>
+						</tr>
+						{%set count = {'c':0}%}
+						{%for id_range in termo.range%}
+							{%set id = "cor2"+ (count.c%2)|string%}
+							<tr id="{{id}}">
+								<td>
+									{{questions.p6}} 
+									{%set nameC = id_range%}
+									{%if termo.type == 'owl:ObjectProperty'%}
+										<a href="#" onclick= "showInfo(event,S{{id_range}} ,0);">{{ontologia.classes[id_range].uri}}</a>
+										{{Sclasses.append(id_range)}}
+										
+									{%else%}
+										{%set nameC = (id_range|replace(".","")|replace("/","")|replace(":","")|replace("#",""))%}
+										{{id_range}}
+									{%endif%}
+									?
+								</td>
+								<td>
+									<input type="radio" name="{{'r'~nameC}}" value=1 checked> Sim   <input type="radio" name="{{'r'~nameC}}" value=0 > Não
+								</td>
+							</tr>
+							{%if count.update({'c':(count.c +1)})%}{%endif%}
+						{%endfor%}
+					</table>
 
 
 				{%endif%}
 					<b>Observação:</b><br>
-					<textarea name="observation" placeholder="Opcional" rows="3" col="50"></textarea>
+					<textarea name="observation" placeholder="Opcional" rows="3" col="150"></textarea>
 				<center><button id="uploadButton" type="submit">enviar</button></center>
 			</form>
 		</div>
@@ -162,15 +257,18 @@
 					<div id="S{{Sclasse}}" style="display: none ">
 						<center>
 							{%for label in ontologia.classes[Sclasse].labels%}
-							"{{label}}""   
+							"{{label}}"   
 							{%endfor%}
 						</center>
-						{%for comment in ontologia.classes[Sclasse].comments%}
-							{{comment}}<br>
-						{%endfor%}
+						<fieldset>
+							{%for comment in ontologia.classes[Sclasse].comments%}
+								{{comment}}<br>
+							{%endfor%}
+						</fieldset>
 					</div>
 				{%endfor%}
 			</div>
+			<hr>
 			<div id="propriedade">
 				{% for Spropriedade in Spropriedades%}
 					<div id="S{{Spropriedade}}" style="display: none ">
@@ -179,17 +277,22 @@
 							"{{label}}"    
 							{%endfor%}
 						</center>
-						{%for comment in ontologia.properties[Spropriedade].comments%}
-							{{comment}}<br>
-						{%endfor%}
-						<br><b>Contra-domínio (range):</b><br>
-						{%for id_range in ontologia.properties[Spropriedade].range%}
-							{%if ontologia.properties[Spropriedade].type == 'owl:ObjectProperty'%}
-								{{ontologia.classes[id_range].labels}}</b>}<br>
-							{%else%}
-								{{id_range}}
-							{%endif%}
-						{%endfor%}
+						<fieldset>							
+							{%for comment in ontologia.properties[Spropriedade].comments%}
+								{{comment}}<br>
+							{%endfor%}
+						</fieldset>
+						<fieldset>
+							<legend>Contra-domínio (range)</legend>
+							{%for id_range in ontologia.properties[Spropriedade].range%}
+								{%if ontologia.properties[Spropriedade].type == 'owl:ObjectProperty'%}
+									{{ontologia.classes[id_range].labels}}</b>}<br>
+								{%else%}
+									{{id_range}}
+								{%endif%}
+								
+							{%endfor%}
+						</fieldset>
 					</div>
 				{%endfor%}
 			</div>

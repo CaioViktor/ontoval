@@ -10,17 +10,32 @@
 			<center><h3>Selecione seu arquivo</h3></center>
 			<div id="divNovaOnto">Nova ontologia: <a href="{{url_for('new')}}"><img id="plus" src="{{url_for('static',filename='img/plus.png')}}"></a></div>
 			{% if ontologies|length > 0 %}
-				{% for ontologia in ontologies %}
-					<div id="{{ontologia['id']}}" class="listOntologias">
-						<center>
-							{{ontologia.name}}<br/>
-							{{ontologia.description}}<br/>
-							<span class="Rleft">Quantidades de classes:{{ontologia.qtd_classes}}</span><span class="Rcenter">Quantidades de propriedades:{{ontologia.qtd_properties}}</span><span class="Rright">Quantidades de avaliações:{{ontologia.qtd_evaluations}}</span><br>
-							<span>Link para avaliação:</span><a href="{{url_for('eval_user',ontology_id=ontologia.id)}}">{{url_for('eval_user',ontology_id=ontologia.id,_external=True)}}</a>
-						</center>
-
-					</div>
-				{%endfor%}
+				<table id="listaOnt">
+					<tr>
+						<th>Nome</th>
+						<th>Descrição</th>
+						<th>Classes</th>
+						<th>Propriedades</th>
+						<th>Avaliações</th>
+					</tr>
+					{%set count = {'c':0}%}
+					{% for ontologia in ontologies %}
+						{%set id = "cor"+ (count.c%2)|string%}
+						<tr id="{{id}}">
+							
+							<td id="col1">{{ontologia.name}}</td>
+							<td id="col2">{{ontologia.description}}</td>
+							<td id="col3"> {{ontologia.qtd_classes}}</td>
+							<td id="col4">{{ontologia.qtd_properties}}</td>
+							<td id="col5">{{ontologia.qtd_evaluations}}</td>
+							<tr id="{{id}}">
+								<td>Link para avaliação</td>
+								<td colspan="4"><a href="{{url_for('eval_user',ontology_id=ontologia.id)}}">{{url_for('eval_user',ontology_id=ontologia.id,_external=True)}}</a></td>
+							</tr>
+						</tr>
+						{%if count.update({'c':(count.c +1)})%}{%endif%}
+					{%endfor%}
+				</table>
 			{% else %}
 				Nenuma ontologia cadastrada
 			{% endif %}
