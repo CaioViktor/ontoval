@@ -4,6 +4,8 @@ import ontology as ont
 import pymongo
 import json
 from ast import literal_eval
+import time
+import datetime
 
 
 
@@ -99,7 +101,7 @@ def eval_user_confirm(ontology_id):
 	ontology_id = int(ontology_id)
 	evaluations = eval_coll.find({'ontology_id':ontology_id}).count()
 	eval_id = int(evaluations) + 1
-	evaluation = {'eval_id':eval_id,'ontology_id':ontology_id,'name':request.form['nameE'],'age':int(request.form['age']),'expert_domain':int(request.form['expert_domain']),'expert_ontology':int(request.form['expert_ontology']),'classes':[],'properties':[],'general':[],'completed':False}
+	evaluation = {'eval_id':eval_id,'ontology_id':ontology_id,'name':request.form['nameE'],'age':int(request.form['age']),'expert_domain':int(request.form['expert_domain']),'expert_ontology':int(request.form['expert_ontology']),'classes':[],'properties':[],'general':[],'completed':False,'timeStart':time.time(),'timeFinish':None}
 
 
 
@@ -126,9 +128,9 @@ def eval(ontology_id,user):
 	indice = len(avaliacao['classes'])
 	termo = {}
 
-	if len(avaliacao['classes']) == ontologia['qtd_classes']:
-		if len(avaliacao['properties']) == ontologia['qtd_properties']:
-			if len(avaliacao['general']) == 1:
+	if len(avaliacao['classes']) >= ontologia['qtd_classes']:
+		if len(avaliacao['properties']) >= ontologia['qtd_properties']:
+			if len(avaliacao['general']) >= 1:
 				status = 1 #concluido
 				return redirect(url_for("done"))
 			else:
@@ -137,6 +139,7 @@ def eval(ontology_id,user):
 		else:
 			status = 3 #falta avaliar propriedades
 			indice = len(avaliacao['properties'])
+			print(indice)
 			termo = ontologia['properties'][list(ontologia['properties'])[indice]]
 	else:
 		termo = ontologia['classes'][list(ontologia['classes'])[indice]]
@@ -256,6 +259,8 @@ def eval_confirm(ontology_id,user):
 		
 		avaliacao['general'].append(evaluation_termo)
 		avaliacao['completed'] = True
+		avaliacao['timeFinish'] = time.time()
+		print("Tempo: " + str(datetime.timedelta(seconds=(avaliacao['timeFinish']-avaliacao['timeStart']))))
 
 		eval_coll.replace_one({'eval_id': user,'ontology_id':ontology_id},avaliacao)
 		ontologia = onto_coll.find_one({'id':ontology_id},{'qtd_evaluations':1})

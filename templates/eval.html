@@ -4,8 +4,9 @@
 		<meta charset = "UTF-8">
 		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
 		<title>Avaliação</title>
+		<script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 	</head>
-	<body>
+	<body onkeypress="keyPress(event)" >
 		{%if ontologia.image != ""%}
 			<div id="modelDiv" >
 				<img src="{{url_for('static',filename=ontologia.image|replace('static/','')|replace('\\','/'))}}">
@@ -48,12 +49,48 @@
 			{%endif%}
 			<fieldset>
 				<legend>Link para continuar mais tarde</legend>
-				<a href="{{url_for('eval',ontology_id=ontologia.id,user=user)}}">{{url_for('eval',ontology_id=ontologia.id,user=user,_external=True)}}</a>
+				<a tabindex="-1" href="{{url_for('eval',ontology_id=ontologia.id,user=user)}}">{{url_for('eval',ontology_id=ontologia.id,user=user,_external=True)}}</a>
 			</fieldset>
-			
+			<fieldset id="atalhos">
+				<legend>Atalhos</legend>
+				<table>
+					<tr>
+						<td>
+							Tab
+						</td>
+						<td>
+							Próximo Campo
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Shift + Tab
+						</td>
+						<td>
+							Campo Anterior
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&larr;,&rarr;
+						</td>
+						<td>
+							Mudar valor selecionado (Sim/Não)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Enter
+						</td>
+						<td>
+							Enviar
+						</td>
+					</tr>
+				</table>
+			</fieldset>
 		</div>
 
-		<div class = "content">
+		<div class = "content" >
 			<form method="post" action="{{url_for('eval_confirm',ontology_id=ontologia.id,user=user)}}">
 				<input type="hidden" name="termo" value="{{termo}}">
 				<input type="hidden" name="status" value="{{status}}">
@@ -72,10 +109,10 @@
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
-					<table>
+					<table class="eval">
 						<tr id="cor0">
-							<td>{{questions.c1}}</td>
-							<td>
+							<td class="question">{{questions.c1}}</td>
+							<td class="response">
 								<input type="radio" name="c1" value=1 checked> Sim <input type="radio" name="c1" value=0 > Não
 							</td>
 						</tr>
@@ -96,7 +133,7 @@
 						{%set id = "cor1"+ (count.c%2)|string%}
 						<tr id="{{id}}">
 
-							<td>{{questions.c4}} <a href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</a> ?</td>
+							<td>{{questions.c4}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</a> ?</td>
 							<td>
 								<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
 							</td>
@@ -108,7 +145,7 @@
 					{%for id_rel in termo.objectProperties%}
 						{%set id = "cor2"+ (count.c%2)|string%}
 						<tr id="{{id}}">
-							<td>{{questions.c5}} <a href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a>?</td>
+							<td>{{questions.c5}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a>?</td>
 							<td>
 								<input type="radio" name="{{'r'~id_rel}}" value=1 checked> Sim <input type="radio" name="{{'r'~id_rel}}" value=0 > Não
 							</td>
@@ -121,7 +158,7 @@
 					{%for id_atr in termo.dataTypeProperties%}
 						{%set id = "cor3"+ (count.c%2)|string%}
 						<tr id="{{id}}">
-						<td>{{questions.c6}} <a href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a> ?</td>
+						<td>{{questions.c6}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a> ?</td>
 						<td>
 							<input type="radio" name="{{'a'~id_atr}}" value=1 checked> Sim <input type="radio" name="{{'a'~id_atr}}" value=0 > Não
 						</td>
@@ -137,11 +174,11 @@
 				{%elif status == 2%}<!-- Geral-->
 					
 
-					<table>
+					<table class="eval">
 						
 						<tr id="cor0">
-							<td>{{questions.g1}}</td>
-							<td><input type="radio" name="g1" value=1 checked> Sim   <input type="radio" name="g1" value=0 > Não</td>
+							<td class="question">{{questions.g1}}</td>
+							<td class="response"><input type="radio" name="g1" value=1 checked> Sim   <input type="radio" name="g1" value=0 > Não</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g2}}</td>
@@ -181,10 +218,10 @@
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
-					<table>
+					<table class="eval">
 						<tr id="cor0">
-							<td>{{questions.p1}}</td>
-							<td>
+							<td class="question">{{questions.p1}}</td>
+							<td class="response">
 								<input type="radio" name="p1" value=1 checked> Sim   <input type="radio" name="p1" value=0 > Não</td>
 						</tr>
 						<tr id="cor1">
@@ -197,20 +234,6 @@
 							<td>
 								<input type="radio" name="p3" value=1 checked> Sim   <input type="radio" name="p3" value=0 > Não</td>
 						</tr>
-						{%set count = {'c':0}%}
-						{%for id_mae in termo.mae%}
-							{%set id = "cor1"+ (count.c%2)|string%}
-							<tr id="{{id}}">
-								<td>
-									{{questions.p4}} <a href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a> ?</td>
-								<td>
-									<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
-								</td>
-							</tr>
-							{%if Spropriedades.append(id_mae)%}{%endif%}
-							{%if count.update({'c':(count.c +1)})%}{%endif%}
-						{%endfor%}
-
 						<tr  id="cor1">
 							<td>
 							{{questions.p5}} {{termo.type}}?
@@ -220,6 +243,20 @@
 							</td>
 						</tr>
 						{%set count = {'c':0}%}
+						{%for id_mae in termo.mae%}
+							{%set id = "cor1"+ (count.c%2)|string%}
+							<tr id="{{id}}">
+								<td>
+									{{questions.p4}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a> ?</td>
+								<td>
+									<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
+								</td>
+							</tr>
+							{%if Spropriedades.append(id_mae)%}{%endif%}
+							{%if count.update({'c':(count.c +1)})%}{%endif%}
+						{%endfor%}
+
+						{%set count = {'c':0}%}
 						{%for id_range in termo.range%}
 							{%set id = "cor2"+ (count.c%2)|string%}
 							<tr id="{{id}}">
@@ -227,7 +264,7 @@
 									{{questions.p6}} 
 									{%set nameC = id_range%}
 									{%if termo.type == 'owl:ObjectProperty'%}
-										<a href="#" onclick= "showInfo(event,S{{id_range}} ,0);">{{ontologia.classes[id_range].uri}}</a>
+										<a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_range}} ,0);">{{ontologia.classes[id_range].uri}}</a>
 										{%if Sclasses.append(id_range)%}{%endif%}
 										
 									{%else%}
@@ -247,7 +284,7 @@
 
 				{%endif%}
 					<b>Observação:</b><br>
-					<textarea name="observation" placeholder="Opcional" rows="3" col="150"></textarea>
+					<textarea name="observation" placeholder="Opcional" rows="3" col="150" onkeypress="event.stopPropagation();"></textarea>
 				<center><button id="uploadButton" type="submit">enviar</button></center>
 			</form>
 		</div>
@@ -302,7 +339,7 @@
 
 	<!--
 	<footer>
-		<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+		<div>Icons made by <a tabindex="-1" href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a tabindex="-1" href="https://www.flaticon.com/" 		    title="Flaticon">www.flaticon.com</a> is licensed by <a tabindex="-1" href="http://creativecommons.org/licenses/by/3.0/" 		    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer> -->
 	<script type="text/javascript">
 		var classeAtual = null;
@@ -324,4 +361,5 @@
 			}
 		}
 	</script>
+	
 </html>

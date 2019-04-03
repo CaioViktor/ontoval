@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<div class = "content">
-			<center> Formulário de inscrição para avaliação da ontolgia {{ontology.name}}</center>
+			<center><h3> Formulário de inscrição para avaliação da ontolgia {{ontology.name}}</h3></center>
 			<b>Descrição:</b>{{ontology.description}}<br>
 			<form action="{{url_for('eval_user_confirm',ontology_id=ontology.id)}}" method="post" id="novoAvaliador">
 				<table>
@@ -16,15 +16,15 @@
 						<td><input type="text" name="nameE" placeholder="Opicional"></td>
 					</tr>
 					<tr>
-						<td>Idade:</td>
+						<td>Idade*:</td>
 						<td><input type="number" name="age" value=18 min=0 max=120 step=1 pattern="\d+" required></td>
 					</tr>
 					<tr>
-						<td>Nível de conhecimento no domínio:</td>
+						<td>Nível de conhecimento no domínio*:</td>
 						<td><input type="number" name="expert_domain" value=5 min=0 max=10 step=1 pattern="\d+" required></td>
 					</tr>
 					<tr>
-						<td>Nível de conhecimento sobre ontologias:</td>
+						<td>Nível de conhecimento sobre ontologias*:</td>
 						<td><input type="number" name="expert_ontology" value=5 min=0 max=10 step=1 pattern="\d+" required></td>
 					</tr>
 				</table>
