@@ -218,6 +218,11 @@
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
+					<b>Dono da propriedade (Domain):</b><br>
+					{%for id_domain in termo.domain%}
+						<a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_domain}} ,0);">{{ontologia.classes[id_domain].uri}}</a><br>
+						{%if Sclasses.append(id_domain)%}{%endif%}
+					{%endfor%}<br>
 					<table class="eval">
 						<tr id="cor0">
 							<td class="question">{{questions.p1}}</td>

@@ -183,21 +183,21 @@ def eval_confirm(ontology_id,user):
 			evaluation_termo['parents'].append([parent,int(request.form['m'+parent])])
 			score_total = score_total + 1
 			score_reached = score_reached + int(request.form['m'+parent])
-			evaluation_termo['score_parents'] = evaluation_termo['score_parents'] + 1/len(termo['mae'])
+			evaluation_termo['score_parents'] = evaluation_termo['score_parents'] + (int(request.form['m'+parent])/len(termo['mae']))
 
 		evaluation_termo['dataTypeProperties'] = []
 		for dp in termo['dataTypeProperties']:
 			evaluation_termo['dataTypeProperties'].append([dp,int(request.form['a'+dp])])
 			score_total = score_total + 1
 			score_reached = score_reached + int(request.form['a'+dp])
-			evaluation_termo['score_dataProperties'] = evaluation_termo['score_dataProperties'] + 1/len(termo['dataTypeProperties'])
+			evaluation_termo['score_dataProperties'] = evaluation_termo['score_dataProperties'] + (int(request.form['a'+dp])/len(termo['dataTypeProperties']))
 
 		evaluation_termo['objectProperties'] = []
 		for op in termo['objectProperties']:
 			evaluation_termo['objectProperties'].append([op,int(request.form['r'+op])])
 			score_total = score_total + 1
 			score_reached = score_reached + int(request.form['r'+op])
-			evaluation_termo['score_objectProperties'] = evaluation_termo['score_objectProperties'] + 1/len(termo['objectProperties'])
+			evaluation_termo['score_objectProperties'] = evaluation_termo['score_objectProperties'] + (int(request.form['r'+op])/len(termo['objectProperties']))
 
 		evaluation_termo['score'] = score_reached/score_total
 
@@ -221,7 +221,7 @@ def eval_confirm(ontology_id,user):
 			evaluation_termo['parents'].append([parent,int(request.form['m'+parent])])
 			score_total = score_total + 1
 			score_reached = score_reached + int(request.form['m'+parent])
-			evaluation_termo['score_parents'] = evaluation_termo['score_parents'] + 1/len(termo['mae'])
+			evaluation_termo['score_parents'] = evaluation_termo['score_parents'] + (int(request.form['m'+parent])/len(termo['mae']))
 		#print("3.2.2")
 		evaluation_termo['range'] = []
 		for dp in termo['range']:
@@ -237,7 +237,7 @@ def eval_confirm(ontology_id,user):
 			score_total = score_total + 1
 			score_reached = score_reached + int(request.form[nameC])
 			#print("3.2.2.4")
-			evaluation_termo['score_range'] = evaluation_termo['score_range'] + 1/len(termo['range'])
+			evaluation_termo['score_range'] = evaluation_termo['score_range'] + (int(request.form[nameC])/len(termo['range']))
 
 
 		#print("3.2.3")
@@ -276,4 +276,5 @@ def eval_confirm(ontology_id,user):
 def done():
 	return render_template("done.html")
 if __name__ == "__main__":
-	app.run(host='0.0.0.0')
+	app.run(host='200.19.182.252')
+	#app.run(host='0.0.0.0')

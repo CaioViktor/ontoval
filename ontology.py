@@ -107,6 +107,7 @@ def getProperties(g):
 	        }
 	        OPTIONAL{
 	            ?propriedade rdfs:domain ?domain
+	            FILTER (!isBlank(?domain))
 	        }
 	        OPTIONAL{
 	            ?propriedade rdfs:range ?range
