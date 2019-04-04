@@ -30,7 +30,12 @@
 							
 							<tr id="link">
 								<td><b>Link para avaliação:</b></td>
-								<td colspan="3"><a href="{{url_for('eval_user',ontology_id=ontologia.id)}}">{{url_for('eval_user',ontology_id=ontologia.id,_external=True)}}</a></td>
+								<td colspan="2"><a href="{{url_for('eval_user',ontology_id=ontologia.id)}}">{{url_for('eval_user',ontology_id=ontologia.id,_external=True)}}</a></td>
+								<td>
+									{%if ontologia.qtd_evaluations > 0%}
+										<a href="{{url_for('result',ontology_id=ontologia.id)}}"><img alt="analizar" class="icon" src="{{url_for('static',filename='img/analyzing.png')}}"></a>
+									{%endif%}
+								</td>
 							</tr>
 						</tr>
 						{%if count.update({'c':(count.c +1)})%}{%endif%}

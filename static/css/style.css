@@ -1,3 +1,17 @@
+#estatisticas{
+	height: 100%;
+	width: 97%;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+details table{
+	margin: 5px 5px 5px 5px;
+}
+details table,details tr,details td,details th{
+	border:1px solid #000000;
+	border-collapse: collapse;
+	padding: 5px 5px 5px 5px;
+}
 body{
 	background-color: #87CEFA;
 	font-family: "Bookman";

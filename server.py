@@ -6,6 +6,7 @@ import json
 from ast import literal_eval
 import time
 import datetime
+import dataAnalyses as da
 
 
 
@@ -293,6 +294,26 @@ def back(ontology_id,user):
 		eval_coll.update_one({'eval_id': user,'ontology_id':ontology_id},{'$set':{'classes':avaliacao['classes']}})
 	return redirect(url_for("eval",ontology_id=ontology_id,user=user))
 
+@app.route("/analize/<ontology_id>/")
+def result(ontology_id):
+	ontology_id = int(ontology_id)
+	cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True})
+	evaluations = da.getDataFrameGeneral(cursor)
+
+	cursor = onto_coll.find_one({'id':ontology_id},{'name':1,'classes':1,'properties':1})
+	classes = {}
+	properties = {}
+	for classe in cursor['classes']:
+		classes[classe] = cursor['classes'][classe]['uri']
+
+	for propertie in cursor['properties']:
+		properties[propertie] = cursor['properties'][propertie]['uri']
+
+	evaluations['score_classe'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].T.mean()
+	evaluations['score_properties'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].T.mean()
+
+	#evaluations.plot(x='expert_domain',y='score_classes',kind='scatter',title='dominio X score classes').get_figure()
+	return render_template('result.html',name=cursor['name'],evaluations=evaluations,classes=classes,properties=properties,generalClasses=evaluations['score_classe'],generalProperties=evaluations['score_properties'])
 
 if __name__ == "__main__":
 	#app.run(host='200.19.182.252')
