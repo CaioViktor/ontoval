@@ -275,6 +275,25 @@ def eval_confirm(ontology_id,user):
 @app.route("/done")
 def done():
 	return render_template("done.html")
+
+@app.route("/eval/<ontology_id>/<user>/back")
+def back(ontology_id,user):
+	ontology_id = int(ontology_id)
+	user = int(user)
+	avaliacao = eval_coll.find_one({'eval_id': user,'ontology_id':ontology_id})
+
+	if len(avaliacao['general']) > 0 :
+		avaliacao['general'].pop()
+		eval_coll.update_one({'eval_id': user,'ontology_id':ontology_id},{'$set':{'general':avaliacao['general']}})
+	elif len(avaliacao['properties']) > 0 :
+		avaliacao['properties'].pop()
+		eval_coll.update_one({'eval_id': user,'ontology_id':ontology_id},{'$set':{'properties':avaliacao['properties']}})
+	elif len(avaliacao['classes']) > 0 :
+		avaliacao['classes'].pop()
+		eval_coll.update_one({'eval_id': user,'ontology_id':ontology_id},{'$set':{'classes':avaliacao['classes']}})
+	return redirect(url_for("eval",ontology_id=ontology_id,user=user))
+
+
 if __name__ == "__main__":
-	app.run(host='200.19.182.252')
-	#app.run(host='0.0.0.0')
+	#app.run(host='200.19.182.252')
+	app.run(host='0.0.0.0')

@@ -110,22 +110,28 @@
 						{{comment}}<br>
 					{%endfor%}<br>
 					<table class="eval">
+						<tr>
+							<td class="question"></td>
+							<td class="response">
+								<input type="radio" value=1 name="all" checked onchange="check(1);"> Sim <input type="radio" name="all" value=0 onchange="check(0);"> Não
+							</td>
+						</tr>
 						<tr id="cor0">
 							<td class="question">{{questions.c1}}</td>
 							<td class="response">
-								<input type="radio" name="c1" value=1 checked> Sim <input type="radio" name="c1" value=0 > Não
+								<input type="radio" name="c1" value=1 class="sim" checked> Sim <input type="radio" name="c1" class="nao" value=0 > Não
 							</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.c2}}</td>
 							<td>
-								<input type="radio" name="c2" value=1 checked> Sim <input type="radio" name="c2" value=0 > Não
+								<input type="radio" name="c2" value=1 class="sim" checked> Sim <input type="radio" name="c2" class="nao" value=0 > Não
 							</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.c3}}</td>
 							<td>
-								<input type="radio" name="c3" value=1 checked> Sim <input type="radio" name="c3" value=0 > Não
+								<input type="radio" name="c3" value=1 class="sim" checked> Sim <input type="radio" name="c3" class="nao" value=0 > Não
 							</td>
 						</tr>
 					{%set count = {'c':0}%}
@@ -135,7 +141,7 @@
 
 							<td>{{questions.c4}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</a> ?</td>
 							<td>
-								<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
+								<input type="radio" name="{{'m'~id_mae}}" value=1 class="sim" checked> Sim <input type="radio" name="{{'m'~id_mae}}" class="nao" value=0 > Não
 							</td>
 						</tr>
 						{% if Sclasses.append(id_mae)%}{%endif%}
@@ -147,7 +153,7 @@
 						<tr id="{{id}}">
 							<td>{{questions.c5}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a>?</td>
 							<td>
-								<input type="radio" name="{{'r'~id_rel}}" value=1 checked> Sim <input type="radio" name="{{'r'~id_rel}}" value=0 > Não
+								<input type="radio" name="{{'r'~id_rel}}" value=1 class="sim" checked> Sim <input type="radio" name="{{'r'~id_rel}}" class="nao" value=0 > Não
 							</td>
 						</tr>
 						{%if Spropriedades.append(id_rel)%}{%endif%}
@@ -160,7 +166,7 @@
 						<tr id="{{id}}">
 						<td>{{questions.c6}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a> ?</td>
 						<td>
-							<input type="radio" name="{{'a'~id_atr}}" value=1 checked> Sim <input type="radio" name="{{'a'~id_atr}}" value=0 > Não
+							<input type="radio" name="{{'a'~id_atr}}" value=1 class="sim" checked> Sim <input type="radio" name="{{'a'~id_atr}}" class="nao" value=0 > Não
 						</td>
 						</tr>
 						{% if Spropriedades.append(id_atr)%}{%endif%}
@@ -175,30 +181,35 @@
 					
 
 					<table class="eval">
-						
+						<tr>
+							<td class="question"></td>
+							<td class="response">
+								<input type="radio" value=1 name="all" checked onchange="check(1);"> Sim <input type="radio" name="all" value=0 onchange="check(0);"> Não
+							</td>
+						</tr>
 						<tr id="cor0">
 							<td class="question">{{questions.g1}}</td>
-							<td class="response"><input type="radio" name="g1" value=1 checked> Sim   <input type="radio" name="g1" value=0 > Não</td>
+							<td class="response"><input type="radio" name="g1" value=1 class="sim" checked> Sim   <input type="radio" name="g1" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g2}}</td>
-							<td><input type="radio" name="g2" value=1 checked> Sim   <input type="radio" name="g2" value=0 > Não</td>
+							<td><input type="radio" name="g2" value=1 class="sim" checked> Sim   <input type="radio" name="g2" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.g3}}</td>
-							<td><input type="radio" name="g3" value=1 checked> Sim   <input type="radio" name="g3" value=0 > Não</td>
+							<td><input type="radio" name="g3" value=1 class="sim" checked> Sim   <input type="radio" name="g3" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g4}}</td>
-							<td><input type="radio" name="g4" value=1 checked> Sim   <input type="radio" name="g4" value=0 > Não</td>
+							<td><input type="radio" name="g4" value=1 class="sim" checked> Sim   <input type="radio" name="g4" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.g5}}</td>
-							<td><input type="radio" name="g5" value=1 checked> Sim   <input type="radio" name="g5" value=0 > Não</td>
+							<td><input type="radio" name="g5" value=1 class="sim" checked> Sim   <input type="radio" name="g5" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g6}}</td>
-							<td><input type="radio" name="g6" value=1 checked> Sim   <input type="radio" name="g6" value=0 > Não</td>
+							<td><input type="radio" name="g6" value=1 class="sim" checked> Sim   <input type="radio" name="g6" class="nao" value=0 > Não</td>
 						</tr>
 					</table>
 
@@ -223,28 +234,35 @@
 						<a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_domain}} ,0);">{{ontologia.classes[id_domain].uri}}</a><br>
 						{%if Sclasses.append(id_domain)%}{%endif%}
 					{%endfor%}<br>
+
 					<table class="eval">
+						<tr>
+							<td class="question"></td>
+							<td class="response">
+								<input type="radio" value=1 name="all" checked onchange="check(1);"> Sim <input type="radio" name="all" value=0 onchange="check(0);"> Não
+							</td>
+						</tr>
 						<tr id="cor0">
 							<td class="question">{{questions.p1}}</td>
 							<td class="response">
-								<input type="radio" name="p1" value=1 checked> Sim   <input type="radio" name="p1" value=0 > Não</td>
+								<input type="radio" name="p1" value=1 class="sim" checked> Sim   <input type="radio" name="p1" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.p2}}</td>
 							<td>
-								<input type="radio" name="p2" value=1 checked> Sim   <input type="radio" name="p2" value=0 > Não</td>
+								<input type="radio" name="p2" value=1 class="sim" checked> Sim   <input type="radio" name="p2" class="nao" value=0 > Não</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.p3}}</td>
 							<td>
-								<input type="radio" name="p3" value=1 checked> Sim   <input type="radio" name="p3" value=0 > Não</td>
+								<input type="radio" name="p3" value=1 class="sim" checked> Sim   <input type="radio" name="p3" class="nao" value=0 > Não</td>
 						</tr>
 						<tr  id="cor1">
 							<td>
 							{{questions.p5}} {{termo.type}}?
 							</td>
 							<td>
-								<input type="radio" name="p5" value=1 checked> Sim   <input type="radio" name="p5" value=0 > Não<br>
+								<input type="radio" name="p5" value=1 class="sim" checked> Sim   <input type="radio" name="p5" class="nao" value=0 > Não<br>
 							</td>
 						</tr>
 						{%set count = {'c':0}%}
@@ -254,7 +272,7 @@
 								<td>
 									{{questions.p4}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a> ?</td>
 								<td>
-									<input type="radio" name="{{'m'~id_mae}}" value=1 checked> Sim   <input type="radio" name="{{'m'~id_mae}}" value=0 > Não
+									<input type="radio" name="{{'m'~id_mae}}" value=1 class="sim" checked> Sim   <input type="radio" name="{{'m'~id_mae}}" class="nao" value=0 > Não
 								</td>
 							</tr>
 							{%if Spropriedades.append(id_mae)%}{%endif%}
@@ -279,7 +297,7 @@
 									?
 								</td>
 								<td>
-									<input type="radio" name="{{'r'~nameC}}" value=1 checked> Sim   <input type="radio" name="{{'r'~nameC}}" value=0 > Não
+									<input type="radio" name="{{'r'~nameC}}" value=1 class="sim" checked> Sim   <input type="radio" name="{{'r'~nameC}}" class="nao" value=0 > Não
 								</td>
 							</tr>
 							{%if count.update({'c':(count.c +1)})%}{%endif%}
@@ -290,7 +308,7 @@
 				{%endif%}
 					<b>Observação:</b><br>
 					<textarea name="observation" placeholder="Opcional" rows="3" col="150" onkeypress="event.stopPropagation();"></textarea>
-				<center><button id="uploadButton" type="submit">enviar</button></center>
+				<center><input tabindex="-1" class="botao" type="image" src="{{url_for('static',filename='img/back.png')}}" alt="Voltar" onclick="voltar(event);"><input type="image" id="uploadButton" class="botao" src="{{url_for('static',filename='img/next.png')}}" alt="Enviar"></center>
 			</form>
 		</div>
 
