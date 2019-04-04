@@ -19,9 +19,11 @@ def getClasses(g):
 	        UNION
 	        {?classe rdf:type rdfs:Class.}
 	        FILTER (!isBlank(?classe))
+	        FILTER ( !strstarts(str(?classe), "http://www.menthor.net/ontouml#") )
 	        OPTIONAL{
 	            ?classe rdfs:subClassOf ?mae.
 	             FILTER (!isBlank(?mae))
+	             FILTER ( !strstarts(str(?mae), "http://www.menthor.net/ontouml#") )
 	        }
 	        OPTIONAL{
 	            {?classe rdfs:label ?title.}
@@ -97,6 +99,7 @@ def getProperties(g):
 	            ?propriedade rdf:type owl:DatatypeProperty;
 	            BIND("owl:DatatypeProperty" as ?tipo)
 	        }
+	        FILTER ( !strstarts(str(?propriedade), "http://www.menthor.net/ontouml#") )
 	        OPTIONAL{
 	            {?propriedade rdfs:label ?title.}
 	            UNION
@@ -108,13 +111,16 @@ def getProperties(g):
 	        OPTIONAL{
 	            ?propriedade rdfs:domain ?domain
 	            FILTER (!isBlank(?domain))
+	            FILTER ( !strstarts(str(?domain), "http://www.menthor.net/ontouml#") )
 	        }
 	        OPTIONAL{
 	            ?propriedade rdfs:range ?range
 	            FILTER (!isBlank(?range))
+	            FILTER ( !strstarts(str(?domain), "http://www.menthor.net/ontouml#") )
 	        }
 	        OPTIONAL{
 	            ?propriedade rdfs:subPropertyOf ?mae.
+	            FILTER ( !strstarts(str(?mae), "http://www.menthor.net/ontouml#") )
 	        }
 	    }
 	"""
