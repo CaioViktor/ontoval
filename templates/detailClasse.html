@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
+		<title>Estatísticas detalhadas para classe</title>
+	</head>
+	<body>
+		<div id="estatisticas" class = "content">
+			<center><h1>Estatísticas para a classe: {{name}}</h1></center>
+			<details open>
+				<summary>Geral</summary>
+				<table id="listaOnt">
+					<tr>
+						<th></th>
+						<th>experiência Domínio</th>
+						<th>experiência Ontologias</th>
+						<th>Aprovação Geral</th>
+						<th>C1</th>
+						<th>C2</th>
+						<th>C3</th>
+						<th>superclasses</th>
+						<th>ObjectProperties</th>
+						<th>DatatypeProperties</th>
+					</tr>
+					<tr>
+						<th>Média</th>
+						<td>{{evaluations['expert_domain'].mean()}}</td>
+						<td>{{evaluations['expert_ontology'].mean()}}</td>
+						<td>{{evaluations['score'].mean() *100}}%</td>
+						<td>{{evaluations['c1'].mean() *100}}%</td>
+						<td>{{evaluations['c2'].mean() *100}}%</td>
+						<td>{{evaluations['c3'].mean() *100}}%</td>
+						<td>{{evaluations['score_parents'].mean() *100}}%</td>
+						<td>{{evaluations['score_objectProperties'].mean() *100}}%</td>
+						<td>{{evaluations['score_dataProperties'].mean() *100}}%</td>
+					</tr>
+					<tr>
+						<th>Máximo</th>
+						<td>{{evaluations['expert_domain'].max()}}</td>
+						<td>{{evaluations['expert_ontology'].max()}}</td>
+						<td>{{evaluations['score'].max() *100}}%</td>
+						<td>{{evaluations['c1'].max() *100}}%</td>
+						<td>{{evaluations['c2'].max() *100}}%</td>
+						<td>{{evaluations['c3'].max() *100}}%</td>
+						<td>{{evaluations['score_parents'].max() *100}}%</td>
+						<td>{{evaluations['score_objectProperties'].max() *100}}%</td>
+						<td>{{evaluations['score_dataProperties'].max() *100}}%</td>
+					</tr>
+					<tr>
+						<th>Mínimo</th>
+						<td>{{evaluations['expert_domain'].min()}}</td>
+						<td>{{evaluations['expert_ontology'].min()}}</td>
+						<td>{{evaluations['score'].min() *100}}%</td>
+						<td>{{evaluations['c1'].min() *100}}%</td>
+						<td>{{evaluations['c2'].min() *100}}%</td>
+						<td>{{evaluations['c3'].min() *100}}%</td>
+						<td>{{evaluations['score_parents'].min() *100}}%</td>
+						<td>{{evaluations['score_objectProperties'].min() *100}}%</td>
+						<td>{{evaluations['score_dataProperties'].min() *100}}%</td>
+					</tr>
+					<tr>
+						<th>Desvio Padrão</th>
+						<td>{{evaluations['expert_domain'].mad()}}</td>
+						<td>{{evaluations['expert_ontology'].mad()}}</td>
+						<td>{{evaluations['score'].mad() *100}}%</td>
+						<td>{{evaluations['c1'].mad() *100}}%</td>
+						<td>{{evaluations['c2'].mad() *100}}%</td>
+						<td>{{evaluations['c3'].mad() *100}}%</td>
+						<td>{{evaluations['score_parents'].mad() *100}}%</td>
+						<td>{{evaluations['score_objectProperties'].mad() *100}}%</td>
+						<td>{{evaluations['score_dataProperties'].mad()}}</td>
+					</tr>
+				</table>
+			</details>
+			
+			<details>
+				<summary>Super-Classes</summary>
+				{%for p in parents%}
+					<details>
+						<summary>{{uris[p]}}</summary>
+						<table>
+							<tr>
+								<th></th>
+								<th>Aprovação</th>
+							</tr>
+							<tr>
+								<th>Média (%)</th>
+								<td>{{evaluations[p].mean() *100}}</td>
+							</tr>
+							<tr>
+								<th>Máximo (%)</th>
+								<td>{{evaluations[p].max() *100}}</td>
+							</tr>
+							<tr>
+								<th>Mínimo (%)</th>
+								<td>{{evaluations[p].min() *100}}</td>
+							</tr>
+							<tr>
+								<th>Desvio Padrão (%)</th>
+								<td>{{evaluations[p].mad()}}</td>
+							</tr>
+						</table>
+					</details>
+				{%endfor%}
+			</details>
+
+			<details>
+				<summary>ObjectProperties</summary>
+				{%for op in ops%}
+					<details>
+						<summary>{{uris[op]}}</summary>
+						<table>
+							<tr>
+								<th></th>
+								<th>Aprovação</th>
+							</tr>
+							<tr>
+								<th>Média (%)</th>
+								<td>{{evaluations[op].mean() *100}}</td>
+							</tr>
+							<tr>
+								<th>Máximo (%)</th>
+								<td>{{evaluations[op].max() *100}}</td>
+							</tr>
+							<tr>
+								<th>Mínimo (%)</th>
+								<td>{{evaluations[op].min() *100}}</td>
+							</tr>
+							<tr>
+								<th>Desvio Padrão (%)</th>
+								<td>{{evaluations[op].mad()}}</td>
+							</tr>
+						</table>
+					</details>
+				{%endfor%}
+			</details>
+
+			<details>
+				<summary>DatatypeProperties</summary>
+				{%for dp in dps%}
+					<details>
+						<summary>{{uris[dp]}}</summary>
+						<table>
+							<tr>
+								<th></th>
+								<th>Aprovação</th>
+							</tr>
+							<tr>
+								<th>Média (%)</th>
+								<td>{{evaluations[dp].mean() *100}}</td>
+							</tr>
+							<tr>
+								<th>Máximo (%)</th>
+								<td>{{evaluations[dp].max() *100}}</td>
+							</tr>
+							<tr>
+								<th>Mínimo (%)</th>
+								<td>{{evaluations[dp].min() *100}}</td>
+							</tr>
+							<tr>
+								<th>Desvio Padrão (%)</th>
+								<td>{{evaluations[dp].mad()}}</td>
+							</tr>
+						</table>
+					</details>
+				{%endfor%}
+			</details>
+			<details>
+				<summary>Comentários</summary>
+				{%for comment in observations%}
+					<textarea readonly>{{comment}}</textarea><br>
+				{%endfor%}
+			</details>
+		</div>
+	</body>
+
+</html>

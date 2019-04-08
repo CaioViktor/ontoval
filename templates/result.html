@@ -8,7 +8,7 @@
 	<body>
 		<div id="estatisticas" class = "content">
 			<center><h1>Estatísticas para a ontologia: {{name}}</h1></center>
-			<details>
+			<details open>
 				<summary>Geral</summary>
 				<table>
 					<tr>
@@ -18,6 +18,7 @@
 						<th>experiência Ontologias</th>
 						<th>Aprovação Média de Classes</th>
 						<th>Aprovação Média de Propriedades</th>
+						<th>Tempo</th>
 					</tr>
 					<tr>
 						<th>Média</th>
@@ -26,6 +27,7 @@
 						<td>{{evaluations['expert_ontology'].mean()}}</td>
 						<td>{{generalClasses.mean() *100}}%</td>
 						<td>{{generalProperties.mean() *100}}%</td>
+						<td>{{datetime.timedelta(seconds=evaluations['time'].mean())}}</td>
 					</tr>
 					<tr>
 						<th>Máximo</th>
@@ -34,6 +36,7 @@
 						<td>{{evaluations['expert_ontology'].max()}}</td>
 						<td>{{generalClasses.max() *100}}%</td>
 						<td>{{generalProperties.max() *100}}%</td>
+						<td>{{datetime.timedelta(seconds=evaluations['time'].max())}}</td>
 					</tr>
 					<tr>
 						<th>Mínimo</th>
@@ -42,6 +45,7 @@
 						<td>{{evaluations['expert_ontology'].min()}}</td>
 						<td>{{generalClasses.min() *100}}%</td>
 						<td>{{generalProperties.min() *100}}%</td>
+						<td>{{datetime.timedelta(seconds=evaluations['time'].min())}}</td>
 					</tr>
 					<tr>
 						<th>Desvio Padrão</th>
@@ -50,6 +54,7 @@
 						<td>{{evaluations['expert_ontology'].mad()}}</td>
 						<td>{{generalClasses.mad() *100}}%</td>
 						<td>{{generalProperties.mad() *100}}%</td>
+						<td>{{datetime.timedelta(seconds=evaluations['time'].mad())}}</td>
 					</tr>
 				</table>
 			</details>
@@ -57,7 +62,7 @@
 				<summary>Classes</summary>
 				{%for classe in classes%}
 					<details>
-						<summary>{{classes[classe]}}</summary>
+						<summary class="{%if evaluations['s'+classe].mean() < 1%}vermelho{%endif%}">{{classes[classe]}}</summary>
 						<table>
 							<tr>
 								<th></th>
@@ -95,14 +100,17 @@
 								<td>{{evaluations['o'+classe].mad() *100}}</td>
 							</tr>
 						</table>
+						<center>
+							<a href="{{url_for('detail',ontology_id=ontology_id,typeT=0,id_term=classe)}}"><img src="{{url_for('static',filename='img/information.png')}}"></a>
+						</center>
 					</details>
 				{%endfor%}
 			</details>
 			<details>
 				<summary>Propriedades</summary>
 				{%for property in properties%}
-					<details>
-						<summary>{{properties[property]}}</summary>
+					<details >
+						<summary class="{%if evaluations['s'+property].mean() < 1%}vermelho{%endif%}">{{properties[property]}}</summary>
 						<table>
 							<tr>
 								<th></th>
@@ -135,10 +143,12 @@
 								<td>{{evaluations['r'+property].mad() *100}}</td>
 							</tr>
 						</table>
+						<center>
+							<a href="{{url_for('detail',ontology_id=ontology_id,typeT=1,id_term=property)}}"><img src="{{url_for('static',filename='img/information.png')}}"></a>
+						</center>
 					</details>
 				{%endfor%}
 			</details>
-			
 		</div>
 	</body>
 

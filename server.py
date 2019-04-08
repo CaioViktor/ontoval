@@ -313,7 +313,28 @@ def result(ontology_id):
 	evaluations['score_properties'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].T.mean()
 
 	#evaluations.plot(x='expert_domain',y='score_classes',kind='scatter',title='dominio X score classes').get_figure()
-	return render_template('result.html',name=cursor['name'],evaluations=evaluations,classes=classes,properties=properties,generalClasses=evaluations['score_classe'],generalProperties=evaluations['score_properties'])
+	return render_template('result.html',ontology_id=ontology_id,name=cursor['name'],evaluations=evaluations,classes=classes,properties=properties,generalClasses=evaluations['score_classe'],generalProperties=evaluations['score_properties'],datetime=datetime)
+
+
+@app.route("/detail/<ontology_id>/<typeT>/<id_term>/")
+def detail(ontology_id,typeT,id_term):
+	ontology_id = int(ontology_id)
+	typeT = int(typeT)
+
+	cursor = onto_coll.find_one({'id':ontology_id},{'classes':1,'properties':1})
+
+	uris = da.getURIs(cursor)
+
+	if typeT == 0:
+		cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True},{'classes':1,'expert_domain':1,'expert_ontology':1,'observations':1})
+		data , observations , parents , ops , dps = da.getDataFrameClass(cursor,id_term)
+		print(uris)
+		return render_template('detailClasse.html',name=uris[id_term],uris=uris,evaluations = data,parents=parents,ops=ops,dps=dps,observations=observations)
+	elif typeT == 1:
+		cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True},{'properties':1,'expert_domain':1,'expert_ontology':1,'observations':1})
+		data , observations , parents , rgs  = da.getDataFrameProperties(cursor,id_term)
+		return render_template('detailProperty.html',name=uris[id_term],uris=uris,evaluations = data,parents=parents,rgs=rgs,observations=observations)
+
 
 if __name__ == "__main__":
 	#app.run(host='200.19.182.252')

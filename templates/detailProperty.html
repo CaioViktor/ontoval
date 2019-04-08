@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang = "pt-br">
+	<head>
+		<meta charset = "UTF-8">
+		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
+		<title>Estatísticas detalhadas para propriedade</title>
+	</head>
+	<body>
+		<div id="estatisticas" class = "content">
+			<center><h1>Estatísticas para a propriedade: {{name}}</h1></center>
+			<details open>
+				<summary>Geral</summary>
+				<table id="listaOnt">
+					<tr>
+						<th></th>
+						<th>experiência Domínio</th>
+						<th>experiência Ontologias</th>
+						<th>Aprovação Geral</th>
+						<th>P1</th>
+						<th>P2</th>
+						<th>P3</th>
+						<th>P5</th>
+						<th>superclasses</th>
+						<th>Range</th>
+					</tr>
+					<tr>
+						<th>Média</th>
+						<td>{{evaluations['expert_domain'].mean()}}</td>
+						<td>{{evaluations['expert_ontology'].mean()}}</td>
+						<td>{{evaluations['score'].mean() *100}}%</td>
+						<td>{{evaluations['p1'].mean() *100}}%</td>
+						<td>{{evaluations['p2'].mean() *100}}%</td>
+						<td>{{evaluations['p3'].mean() *100}}%</td>
+						<td>{{evaluations['p5'].mean() *100}}%</td>
+						<td>{{evaluations['score_parents'].mean() *100}}%</td>
+						<td>{{evaluations['score_range'].mean() *100}}%</td>
+					</tr>
+					<tr>
+						<th>Máximo</th>
+						<td>{{evaluations['expert_domain'].max()}}</td>
+						<td>{{evaluations['expert_ontology'].max()}}</td>
+						<td>{{evaluations['score'].max() *100}}%</td>
+						<td>{{evaluations['p1'].max() *100}}%</td>
+						<td>{{evaluations['p2'].max() *100}}%</td>
+						<td>{{evaluations['p3'].max() *100}}%</td>
+						<td>{{evaluations['p5'].max() *100}}%</td>
+						<td>{{evaluations['score_parents'].max() *100}}%</td>
+						<td>{{evaluations['score_range'].max() *100}}%</td>
+					</tr>
+					<tr>
+						<th>Mínimo</th>
+						<td>{{evaluations['expert_domain'].min()}}</td>
+						<td>{{evaluations['expert_ontology'].min()}}</td>
+						<td>{{evaluations['score'].min() *100}}%</td>
+						<td>{{evaluations['p1'].min() *100}}%</td>
+						<td>{{evaluations['p2'].min() *100}}%</td>
+						<td>{{evaluations['p3'].min() *100}}%</td>
+						<td>{{evaluations['p5'].min() *100}}%</td>
+						<td>{{evaluations['score_parents'].min() *100}}%</td>
+						<td>{{evaluations['score_range'].min() *100}}%</td>
+					</tr>
+					<tr>
+						<th>Desvio Padrão</th>
+						<td>{{evaluations['expert_domain'].mad()}}</td>
+						<td>{{evaluations['expert_ontology'].mad()}}</td>
+						<td>{{evaluations['score'].mad() *100}}%</td>
+						<td>{{evaluations['p1'].mad() *100}}%</td>
+						<td>{{evaluations['p2'].mad() *100}}%</td>
+						<td>{{evaluations['p3'].mad() *100}}%</td>
+						<td>{{evaluations['p5'].mad() *100}}%</td>
+						<td>{{evaluations['score_parents'].mad() *100}}%</td>
+						<td>{{evaluations['score_range'].mad()}}</td>
+					</tr>
+				</table>
+			</details>
+			
+			<details>
+				<summary>Super-Classes</summary>
+				{%for p in parents%}
+					<details>
+						<summary>{{uris[p]}}</summary>
+						<table>
+							<tr>
+								<th></th>
+								<th>Aprovação</th>
+							</tr>
+							<tr>
+								<th>Média (%)</th>
+								<td>{{evaluations[p].mean() *100}}</td>
+							</tr>
+							<tr>
+								<th>Máximo (%)</th>
+								<td>{{evaluations[p].max() *100}}</td>
+							</tr>
+							<tr>
+								<th>Mínimo (%)</th>
+								<td>{{evaluations[p].min() *100}}</td>
+							</tr>
+							<tr>
+								<th>Desvio Padrão (%)</th>
+								<td>{{evaluations[p].mad()}}</td>
+							</tr>
+						</table>
+					</details>
+				{%endfor%}
+			</details>
+
+			<details>
+				<summary>Range</summary>
+				{%for rg in rgs%}
+					<details>
+						<summary>{{uris[rg]}}</summary>
+						<table>
+							<tr>
+								<th></th>
+								<th>Aprovação</th>
+							</tr>
+							<tr>
+								<th>Média (%)</th>
+								<td>{{evaluations[rg].mean() *100}}</td>
+							</tr>
+							<tr>
+								<th>Máximo (%)</th>
+								<td>{{evaluations[rg].max() *100}}</td>
+							</tr>
+							<tr>
+								<th>Mínimo (%)</th>
+								<td>{{evaluations[rg].min() *100}}</td>
+							</tr>
+							<tr>
+								<th>Desvio Padrão (%)</th>
+								<td>{{evaluations[rg].mad()}}</td>
+							</tr>
+						</table>
+					</details>
+				{%endfor%}
+			</details>
+
+			
+			<details>
+				<summary>Comentários</summary>
+				{%for comment in observations%}
+					<textarea readonly>{{comment}}</textarea><br>
+				{%endfor%}
+			</details>
+		</div>
+	</body>
+
+</html>
