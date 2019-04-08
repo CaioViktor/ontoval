@@ -1,0 +1,316 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#"
+     xml:base="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasChef -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasChef">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHeadChef"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasChef"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Chef"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHeadChef -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHeadChef">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHeadChef"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Restaurant"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHotel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHotel">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasHotel"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#HotelChain"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasNumberOfRooms -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasNumberOfRooms">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasRating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasRating">
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasStar"/>
+        <owl:equivalentProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasTripAdvisorRating"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasStar -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasStar">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasStar"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Hotel"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasTripAdvisorRating -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasTripAdvisorRating">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasTripAdvisorRating"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveCurators -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveCurators">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#isCuratorOf"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#hasTripAdvisorRating"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Museum"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveSignatureDishes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveSignatureDishes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveSignatureDishes"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Restaurant"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveTicketPrice -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveTicketPrice">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#haveTicketPrice"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#isCuratorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#isCuratorOf">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#isCuratorOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#People"/>
+            </owl:Restriction>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#AmusementPark -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#AmusementPark">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#ArtMuseum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#ArtMuseum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Museum"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#HistoryMuseum"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Chef -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Chef">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#SkilledWorker"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#HistoryMuseum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#HistoryMuseum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Museum"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Hotel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Hotel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#HotelChain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#HotelChain"/>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Landmark -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Landmark">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Museum -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Museum">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#OutdoorSpot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#OutdoorSpot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#People -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#People"/>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Restaurant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Restaurant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#SkilledWorker -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#SkilledWorker">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismObject"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#AmusementPark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Landmark"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Museum"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#OutdoorSpot"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Hotel"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#Restaurant"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/franklyn/ontologies/2019/3/Tourism_ontology#TourismAtraction"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

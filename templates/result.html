@@ -57,6 +57,10 @@
 						<td>{{datetime.timedelta(seconds=evaluations['time'].mad())}}</td>
 					</tr>
 				</table>
+				<img src="{{url_for('static',filename='ontologies/plots/domainScore'+(ontology_id|string)+'.png')}}" class="plot">
+				<img src="{{url_for('static',filename='ontologies/plots/ontologyScore'+(ontology_id|string)+'.png')}}" class="plot">
+				<img src="{{url_for('static',filename='ontologies/plots/histClass'+(ontology_id|string)+'.png')}}" class="plot">
+				<img src="{{url_for('static',filename='ontologies/plots/histProperties'+(ontology_id|string)+'.png')}}" class="plot">
 			</details>
 			<details>
 				<summary>Classes</summary>
@@ -93,11 +97,11 @@
 								<td>{{evaluations['o'+classe].min() *100}}</td>
 							</tr>
 							<tr>
-								<th>Desvio Padrão (%)</th>
-								<td>{{evaluations['s'+classe].mad() *100}}</td>
-								<td>{{evaluations['p'+classe].mad() *100}}</td>
-								<td>{{evaluations['d'+classe].mad() *100}}</td>
-								<td>{{evaluations['o'+classe].mad() *100}}</td>
+								<th>Desvio Padrão</th>
+								<td>{{evaluations['s'+classe].mad()}}</td>
+								<td>{{evaluations['p'+classe].mad()}}</td>
+								<td>{{evaluations['d'+classe].mad()}}</td>
+								<td>{{evaluations['o'+classe].mad()}}</td>
 							</tr>
 						</table>
 						<center>
@@ -137,10 +141,10 @@
 								<td>{{evaluations['r'+property].min() *100}}</td>
 							</tr>
 							<tr>
-								<th>Desvio Padrão (%)</th>
-								<td>{{evaluations['s'+property].mad() *100}}</td>
-								<td>{{evaluations['p'+property].mad() *100}}</td>
-								<td>{{evaluations['r'+property].mad() *100}}</td>
+								<th>Desvio Padrão </th>
+								<td>{{evaluations['s'+property].mad()}}</td>
+								<td>{{evaluations['p'+property].mad()}}</td>
+								<td>{{evaluations['r'+property].mad()}}</td>
 							</tr>
 						</table>
 						<center>

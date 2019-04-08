@@ -7,6 +7,7 @@ from ast import literal_eval
 import time
 import datetime
 import dataAnalyses as da
+import matplotlib.pyplot as plt
 
 
 
@@ -36,6 +37,7 @@ if config_coll.find_one() is None:
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "static/ontologies"
+app.config['PLOTS_FOLDER'] = "static/ontologies/plots"
 app.config['JSON_FOLDER'] = "static/js"
 
 @app.route("/")
@@ -140,7 +142,7 @@ def eval(ontology_id,user):
 		else:
 			status = 3 #falta avaliar propriedades
 			indice = len(avaliacao['properties'])
-			print(indice)
+			
 			termo = ontologia['properties'][list(ontologia['properties'])[indice]]
 	else:
 		termo = ontologia['classes'][list(ontologia['classes'])[indice]]
@@ -261,7 +263,7 @@ def eval_confirm(ontology_id,user):
 		avaliacao['general'].append(evaluation_termo)
 		avaliacao['completed'] = True
 		avaliacao['timeFinish'] = time.time()
-		print("Tempo: " + str(datetime.timedelta(seconds=(avaliacao['timeFinish']-avaliacao['timeStart']))))
+		#print("Tempo: " + str(datetime.timedelta(seconds=(avaliacao['timeFinish']-avaliacao['timeStart']))))
 
 		eval_coll.replace_one({'eval_id': user,'ontology_id':ontology_id},avaliacao)
 		ontologia = onto_coll.find_one({'id':ontology_id},{'qtd_evaluations':1})
@@ -311,8 +313,17 @@ def result(ontology_id):
 
 	evaluations['score_classe'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].T.mean()
 	evaluations['score_properties'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].T.mean()
+	
+	evaluations.plot(x='expert_domain',y='score_classe',kind='scatter',title='dominio X score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'domainScore'+str(ontology_id)+'.png'))
+	evaluations.plot(x='expert_ontology',y='score_classe',kind='scatter',title='ontologia X score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'ontologyScore'+str(ontology_id)+'.png'))
+	
+	print(evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].mean().value_counts())
 
-	#evaluations.plot(x='expert_domain',y='score_classes',kind='scatter',title='dominio X score classes').get_figure()
+	evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].mean().round(2).value_counts().plot(kind='bar',title='histograma score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'histClass'+str(ontology_id)+'.png'))
+	evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].mean().round(2).value_counts().plot(kind='hist',title='histograma score propriedades').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'histProperties'+str(ontology_id)+'.png'))
+
+
+
 	return render_template('result.html',ontology_id=ontology_id,name=cursor['name'],evaluations=evaluations,classes=classes,properties=properties,generalClasses=evaluations['score_classe'],generalProperties=evaluations['score_properties'],datetime=datetime)
 
 
@@ -328,7 +339,6 @@ def detail(ontology_id,typeT,id_term):
 	if typeT == 0:
 		cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True},{'classes':1,'expert_domain':1,'expert_ontology':1,'observations':1})
 		data , observations , parents , ops , dps = da.getDataFrameClass(cursor,id_term)
-		print(uris)
 		return render_template('detailClasse.html',name=uris[id_term],uris=uris,evaluations = data,parents=parents,ops=ops,dps=dps,observations=observations)
 	elif typeT == 1:
 		cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True},{'properties':1,'expert_domain':1,'expert_ontology':1,'observations':1})

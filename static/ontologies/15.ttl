@@ -9,128 +9,114 @@
   rdfs:label "foaf:person"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#foaf:Person> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#gco:Character> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#gco:character2> .
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:superClassOf> .
 
-<http://www.arida.com/rpg/ontology/#gco:character1>
+<http://www.arida.com/rpg/ontology/#stor:locatedIn>
   a owl:ObjectProperty ;
-  rdfs:label "gco:character"^^xsd:string ;
+  rdfs:label "locatedIn"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#gco:Character> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Location> .
 
-<http://www.arida.com/rpg/ontology/#gco:character2>
+<http://www.arida.com/rpg/ontology/#stor:superClassOf>
   a owl:ObjectProperty ;
   rdfs:label "gco:character"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#foaf:Person> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#gco:Character> .
 
-<http://www.arida.com/rpg/ontology/#stor:mission1>
+<http://www.arida.com/rpg/ontology/#stor:memberOfMission>
   a owl:ObjectProperty ;
-  rdfs:label "stor:mission"^^xsd:string ;
+  rdfs:label "memberOfMission"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Mission> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:encounter1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:containsEncounter> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#member> .
 
-<http://www.arida.com/rpg/ontology/#stor:mission2>
+<http://www.arida.com/rpg/ontology/#stor:goalOfMission>
   a owl:ObjectProperty ;
-  rdfs:label "stor:mission"^^xsd:string ;
+  rdfs:label "goalOfMission"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Mission> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#ufo-c:goal1> .
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#hasGoal> .
 
-<http://www.arida.com/rpg/ontology/#stor:adventure1>
+<http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure>
   a owl:ObjectProperty ;
-  rdfs:label "stor:adventure"^^xsd:string ;
+  rdfs:label "characterizedByAdventure"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Match> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:adventure2>
+<http://www.arida.com/rpg/ontology/#stor:goalOfAdventure>
   a owl:ObjectProperty ;
-  rdfs:label "stor:adventure"^^xsd:string ;
+  rdfs:label "goalOfAdventure"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#ufo-c:goal3> .
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#hasGoal> .
 
-<http://www.arida.com/rpg/ontology/#stor:attack>
+<http://www.arida.com/rpg/ontology/#stor:hasAttack>
   a owl:ObjectProperty ;
-  rdfs:label "stor:attack"^^xsd:string ;
+  rdfs:label "hasAttack"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attack> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:combat4> .
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack> .
 
-<http://www.arida.com/rpg/ontology/#stor:attribute1>
+<http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
   a owl:ObjectProperty ;
-  rdfs:label "stor:attribute"^^xsd:string ;
+  rdfs:label "affectedByAttribute"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:combat2> .
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat>, <http://www.arida.com/rpg/ontology/#stor:Test>, <http://www.arida.com/rpg/ontology/#stor:Skill> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:affectCombat>, <http://www.arida.com/rpg/ontology/#stor:test>, <http://www.arida.com/rpg/ontology/#stor:affectSkill> .
 
-<http://www.arida.com/rpg/ontology/#stor:attribute2>
+<http://www.arida.com/rpg/ontology/#stor:characterizedByAttribute>
   a owl:ObjectProperty ;
-  rdfs:label "stor:attribute"^^xsd:string ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Test> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:test> .
-
-<http://www.arida.com/rpg/ontology/#stor:attribute3>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:attribute"^^xsd:string ;
+  rdfs:label "characterizedByAttribute"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:attributetype2> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:attribute4>
+<http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType>
   a owl:ObjectProperty ;
-  rdfs:label "stor:attribute"^^xsd:string ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Skill> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:skill> .
-
-<http://www.arida.com/rpg/ontology/#stor:attributetype2>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:attributetype"^^xsd:string ;
+  rdfs:label "characterizeAttributeType"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-<http://www.arida.com/rpg/ontology/#stor:campaign1>
+<http://www.arida.com/rpg/ontology/#stor:goalOfCampaign>
   a owl:ObjectProperty ;
-  rdfs:label "stor:campaign"^^xsd:string ;
+  rdfs:label "goalOfCampaign"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-<http://www.arida.com/rpg/ontology/#stor:campaign2>
+<http://www.arida.com/rpg/ontology/#stor:matchOfCampaign>
   a owl:ObjectProperty ;
-  rdfs:label "stor:campaign"^^xsd:string ;
+  rdfs:label "matchOfCampaign"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Match> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:combat1>
+<http://www.arida.com/rpg/ontology/#stor:characterizeCombatOther>
   a owl:ObjectProperty ;
-  rdfs:label "stor:combat"^^xsd:string ;
+  rdfs:label "characterizeCombat"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Other> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:other1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:hasOther> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-<http://www.arida.com/rpg/ontology/#stor:combat2>
+<http://www.arida.com/rpg/ontology/#stor:affectCombat>
   a owl:ObjectProperty ;
-  rdfs:label "stor:combat"^^xsd:string ;
+  rdfs:label "affectCombat"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> .
 
-<http://www.arida.com/rpg/ontology/#stor:combat3>
+<http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense>
   a owl:ObjectProperty ;
-  rdfs:label "stor:combat"^^xsd:string ;
+  rdfs:label "characterizeCombat"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Defense> .
 
-<http://www.arida.com/rpg/ontology/#stor:combat4>
+<http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack>
   a owl:ObjectProperty ;
-  rdfs:label "stor:combat"^^xsd:string ;
+  rdfs:label "characterizeCombat"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attack> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> .
 
@@ -139,62 +125,62 @@
   rdfs:label "stor:condition"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Condition> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:State> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:state1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composedByCondition> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
-<http://www.arida.com/rpg/ontology/#stor:defense>
+<http://www.arida.com/rpg/ontology/#stor:hasDefense>
   a owl:ObjectProperty ;
-  rdfs:label "stor:defense"^^xsd:string ;
+  rdfs:label "hasDefense"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Defense> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:combat3> .
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense> .
 
-<http://www.arida.com/rpg/ontology/#stor:dice>
+<http://www.arida.com/rpg/ontology/#stor:useDice>
   a owl:ObjectProperty ;
-  rdfs:label "stor:dice"^^xsd:string ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Dice> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:System> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:system1> .
+  rdfs:label "useDice"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Dice>, <http://www.arida.com/rpg/ontology/#stor:System> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:System>, <http://www.arida.com/rpg/ontology/#stor:Dice> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:useDice> .
 
-<http://www.arida.com/rpg/ontology/#stor:encounter1>
+<http://www.arida.com/rpg/ontology/#stor:containsEncounter>
   a owl:ObjectProperty ;
-  rdfs:label "stor:encounter"^^xsd:string ;
+  rdfs:label "containsEncounter"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Mission> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#isMemberOf> .
 
-<http://www.arida.com/rpg/ontology/#stor:encounter2>
+<http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer>
   a owl:ObjectProperty ;
-  rdfs:label "stor:encounter"^^xsd:string ;
+  rdfs:label "mediationOfEncounter"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Player> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediatedBy> .
 
-<http://www.arida.com/rpg/ontology/#stor:encounter3>
+<http://www.arida.com/rpg/ontology/#stor:goalOfEncounter>
   a owl:ObjectProperty ;
-  rdfs:label "stor:encounter"^^xsd:string ;
+  rdfs:label "goalOfEncounter"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-<http://www.arida.com/rpg/ontology/#stor:encounter4>
+<http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC>
   a owl:ObjectProperty ;
-  rdfs:label "stor:encounter"^^xsd:string ;
+  rdfs:label "mediationOfEncounter"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:NPC> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediatedBy> .
 
-<http://www.arida.com/rpg/ontology/#stor:entity1>
+<http://www.arida.com/rpg/ontology/#stor:executedByEntity>
   a owl:ObjectProperty ;
-  rdfs:label "stor:entity"^^xsd:string ;
+  rdfs:label "executedByEntity"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Entity> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-b:Action> .
 
-<http://www.arida.com/rpg/ontology/#stor:entity2>
+<http://www.arida.com/rpg/ontology/#stor:composedByEntity>
   a owl:ObjectProperty ;
-  rdfs:label "stor:entity"^^xsd:string ;
+  rdfs:label "composedByEntity"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Entity> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Game> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:game2> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeGameEntity> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
 <http://www.arida.com/rpg/ontology/#stor:experience>
@@ -204,30 +190,30 @@
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Other> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-<http://www.arida.com/rpg/ontology/#stor:forum>
+<http://www.arida.com/rpg/ontology/#stor:composeForum>
   a owl:ObjectProperty ;
-  rdfs:label "stor:forum"^^xsd:string ;
+  rdfs:label "composeForum"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Forum> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Topic> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:game1>
+<http://www.arida.com/rpg/ontology/#stor:composeGameSession>
   a owl:ObjectProperty ;
-  rdfs:label "stor:game"^^xsd:string ;
+  rdfs:label "composeGame"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Game> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#vgo:Session> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:game2>
+<http://www.arida.com/rpg/ontology/#stor:composeGameEntity>
   a owl:ObjectProperty ;
-  rdfs:label "stor:game"^^xsd:string ;
+  rdfs:label "composeGame"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Entity> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Game> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:game3>
+<http://www.arida.com/rpg/ontology/#stor:composeGameSystem>
   a owl:ObjectProperty ;
-  rdfs:label "stor:game"^^xsd:string ;
+  rdfs:label "composeGame"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Game> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:System> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
@@ -236,23 +222,23 @@
   a owl:ObjectProperty ;
   rdfs:label "stor:location"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#gco:Character> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#gco:character1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:locatedIn> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Location> .
 
-<http://www.arida.com/rpg/ontology/#stor:match1>
+<http://www.arida.com/rpg/ontology/#stor:characterizeMatch>
   a owl:ObjectProperty ;
-  rdfs:label "stor:match"^^xsd:string ;
+  rdfs:label "characterizeMatch"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Match> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:adventure1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-<http://www.arida.com/rpg/ontology/#stor:match2>
+<http://www.arida.com/rpg/ontology/#stor:hasAdventure>
   a owl:ObjectProperty ;
-  rdfs:label "stor:match"^^xsd:string ;
+  rdfs:label "hasAdventure"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Match> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:campaign2> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:matchOfCampaign> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
 <http://www.arida.com/rpg/ontology/#stor:material>
@@ -273,7 +259,7 @@
   rdfs:label "stor:news"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:News> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Post> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:post1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:formPost> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
 <http://www.arida.com/rpg/ontology/#stor:npc>
@@ -281,7 +267,7 @@
   rdfs:label "stor:npc"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:NPC> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:encounter4> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediates> .
 
 <http://www.arida.com/rpg/ontology/#stor:object>
@@ -289,243 +275,200 @@
   rdfs:label "stor:object"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Object> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Player> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:player2> .
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:carriedByPlayer> .
 
-<http://www.arida.com/rpg/ontology/#stor:other1>
+<http://www.arida.com/rpg/ontology/#stor:hasOther>
   a owl:ObjectProperty ;
-  rdfs:label "stor:other"^^xsd:string ;
+  rdfs:label "hasOther"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Other> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:other2>
+<http://www.arida.com/rpg/ontology/#stor:characterizeOther>
   a owl:ObjectProperty ;
-  rdfs:label "stor:other"^^xsd:string ;
+  rdfs:label "characterizeOther"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Experience> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Other> ;
   owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:experience> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:plan>
+<http://www.arida.com/rpg/ontology/#stor:containsPlans>
   a owl:ObjectProperty ;
-  rdfs:label "stor:plan"^^xsd:string ;
+  rdfs:label "containsPlans"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Plan> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Planning> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:planning> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:containsPlans> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#member> .
 
-<http://www.arida.com/rpg/ontology/#stor:planning>
+<http://www.arida.com/rpg/ontology/#stor:memberOfPlanning>
   a owl:ObjectProperty ;
-  rdfs:label "stor:planning"^^xsd:string ;
+  rdfs:label "memberOfPlanning"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Plan> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Planning> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#isMemberOf> .
 
-<http://www.arida.com/rpg/ontology/#stor:player1>
+<http://www.arida.com/rpg/ontology/#stor:mediatedByPlayer>
   a owl:ObjectProperty ;
-  rdfs:label "stor:player"^^xsd:string ;
+  rdfs:label "mediatedByPlayer"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Player> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:encounter2> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediates> .
 
-<http://www.arida.com/rpg/ontology/#stor:player2>
+<http://www.arida.com/rpg/ontology/#stor:carriedByPlayer>
   a owl:ObjectProperty ;
-  rdfs:label "stor:player"^^xsd:string ;
+  rdfs:label "carriedByPlayer"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Object> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Player> .
 
-<http://www.arida.com/rpg/ontology/#stor:post1>
+<http://www.arida.com/rpg/ontology/#stor:formPost>
   a owl:ObjectProperty ;
-  rdfs:label "stor:post"^^xsd:string ;
+  rdfs:label "formPost"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:News> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Post> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:post2>
+<http://www.arida.com/rpg/ontology/#stor:containsPost>
   a owl:ObjectProperty ;
-  rdfs:label "stor:post"^^xsd:string ;
+  rdfs:label "containsPost"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Post> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:site2> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:formSite> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
-<http://www.arida.com/rpg/ontology/#stor:post3>
+<http://www.arida.com/rpg/ontology/#stor:formedByPost>
   a owl:ObjectProperty ;
-  rdfs:label "stor:post"^^xsd:string ;
+  rdfs:label "formedByPost"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Post> ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:topic3> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:containedInTopic> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
-<http://www.arida.com/rpg/ontology/#stor:resource>
+<http://www.arida.com/rpg/ontology/#stor:characterizeResource>
   a owl:ObjectProperty ;
-  rdfs:label "stor:resource"^^xsd:string ;
+  rdfs:label "characterizeResource"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Money> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Resource> ;
   owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:money> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:scenario>
+<http://www.arida.com/rpg/ontology/#stor:hasScenario>
   a owl:ObjectProperty ;
-  rdfs:label "stor:scenario"^^xsd:string ;
+  rdfs:label "hasScenario"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Material> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Scenario> ;
   owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:material> .
 
-<http://www.arida.com/rpg/ontology/#stor:site1>
+<http://www.arida.com/rpg/ontology/#stor:formSite>
   a owl:ObjectProperty ;
-  rdfs:label "stor:site"^^xsd:string ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
-
-<http://www.arida.com/rpg/ontology/#stor:site2>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:site"^^xsd:string ;
+  rdfs:label "formSite"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Post> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Site> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:site3>
+<http://www.arida.com/rpg/ontology/#stor:affectSkill>
   a owl:ObjectProperty ;
-  rdfs:label "stor:site"^^xsd:string ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
-
-<http://www.arida.com/rpg/ontology/#stor:skill>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:skill"^^xsd:string ;
+  rdfs:label "affectSkill"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Skill> .
 
-<http://www.arida.com/rpg/ontology/#stor:state1>
+<http://www.arida.com/rpg/ontology/#stor:composedByCondition>
   a owl:ObjectProperty ;
-  rdfs:label "stor:state"^^xsd:string ;
+  rdfs:label "composedByCondition"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Condition> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:State> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:state2>
+<http://www.arida.com/rpg/ontology/#stor:hasState>
   a owl:ObjectProperty ;
-  rdfs:label "stor:state"^^xsd:string ;
+  rdfs:label "hasState"^^xsd:string ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:State> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Event> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Event>, <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-<http://www.arida.com/rpg/ontology/#stor:state3>
+<http://www.arida.com/rpg/ontology/#stor:composedBySystem>
   a owl:ObjectProperty ;
-  rdfs:label "stor:state"^^xsd:string ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:State> ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
-  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
-
-<http://www.arida.com/rpg/ontology/#stor:system1>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:system"^^xsd:string ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Dice> ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:System> .
-
-<http://www.arida.com/rpg/ontology/#stor:system2>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:system"^^xsd:string ;
+  rdfs:label "composedBySystem"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Game> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:System> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:game3> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeGameSystem> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
 <http://www.arida.com/rpg/ontology/#stor:test>
   a owl:ObjectProperty ;
-  rdfs:label "stor:test"^^xsd:string ;
+  rdfs:label "affectedBy"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Test> .
 
-<http://www.arida.com/rpg/ontology/#stor:topic1>
+<http://www.arida.com/rpg/ontology/#stor:containedInTopic>
   a owl:ObjectProperty ;
-  rdfs:label "stor:topic"^^xsd:string ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:site1> ;
-  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
-
-<http://www.arida.com/rpg/ontology/#stor:topic2>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:topic"^^xsd:string ;
-  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:site3> ;
-  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
-
-<http://www.arida.com/rpg/ontology/#stor:topic3>
-  a owl:ObjectProperty ;
-  rdfs:label "stor:topic"^^xsd:string ;
+  rdfs:label "containedInTopic"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Post> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Topic> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-<http://www.arida.com/rpg/ontology/#stor:topic4>
+<http://www.arida.com/rpg/ontology/#stor:hasTopic>
   a owl:ObjectProperty ;
-  rdfs:label "stor:topic"^^xsd:string ;
+  rdfs:label "hasTopic"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Forum> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:forum> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeForum> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
-<http://www.arida.com/rpg/ontology/#ufo-b:action1>
+<http://www.arida.com/rpg/ontology/#stor:executeAction>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-b:action"^^xsd:string ;
+  rdfs:label "executeAction"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Entity> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:entity1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:executedByEntity> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-b:Action> .
 
-<http://www.arida.com/rpg/ontology/#ufo-b:action2>
+<http://www.arida.com/rpg/ontology/#stor:characterizeActionState>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-b:action"^^xsd:string ;
+  rdfs:label "characterizeAction"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:State> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:state3> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:hasState> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-<http://www.arida.com/rpg/ontology/#ufo-c:event>
+<http://www.arida.com/rpg/ontology/#stor:characterizeEventState>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-c:event"^^xsd:string ;
+  rdfs:label "characterizeEvent"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:State> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:state2> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:hasState> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Event> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-<http://www.arida.com/rpg/ontology/#ufo-c:goal1>
+<http://www.arida.com/rpg/ontology/#hasGoalMission>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-c:goal"^^xsd:string ;
+  rdfs:label "hasGoal"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Mission> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-<http://www.arida.com/rpg/ontology/#ufo-c:goal2>
+<http://www.arida.com/rpg/ontology/#hasGoalEncounter>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-c:goal"^^xsd:string ;
+  rdfs:label "hasGoal"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:encounter3> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:goalOfEncounter> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-<http://www.arida.com/rpg/ontology/#ufo-c:goal3>
+<http://www.arida.com/rpg/ontology/#hasGoalAdventure>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-c:goal"^^xsd:string ;
+  rdfs:label "hasGoal"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-<http://www.arida.com/rpg/ontology/#ufo-c:goal4>
+<http://www.arida.com/rpg/ontology/#hasGoalCampaign>
   a owl:ObjectProperty ;
-  rdfs:label "ufo-c:goal"^^xsd:string ;
+  rdfs:label "hasGoal"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:campaign1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:goalOfCampaign> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-<http://www.arida.com/rpg/ontology/#vgo:session>
+<http://www.arida.com/rpg/ontology/#stor:composedBySession>
   a owl:ObjectProperty ;
-  rdfs:label "vgo:session"^^xsd:string ;
+  rdfs:label "composedBySession"^^xsd:string ;
   rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Game> ;
-  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:game1> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeGameSession> ;
   rdfs:range <http://www.arida.com/rpg/ontology/#vgo:Session> ;
   rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
@@ -1252,11 +1195,7 @@
   rdfs:label "Site"^^xsd:string ;
   owl:equivalentClass [
     a owl:Class ;
-    owl:intersectionOf (
-     _:genid217
-     _:genid219
-     _:genid221
-   )
+    owl:intersectionOf ( _:genid217 )
   ] ;
   rdfs:subClassOf [
     a owl:Class ;
@@ -1272,7 +1211,7 @@
   rdfs:label "Skill" ;
   owl:equivalentClass [
     a owl:Class ;
-    owl:intersectionOf ( _:genid227 )
+    owl:intersectionOf ( _:genid223 )
   ] ;
   rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
 
@@ -1282,9 +1221,9 @@
   owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
+     _:genid226
+     _:genid228
      _:genid230
-     _:genid232
-     _:genid234
    )
   ] ;
   rdfs:subClassOf [
@@ -1302,9 +1241,9 @@
   owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-     _:genid240
-     _:genid246
-     _:genid248
+     _:genid236
+     _:genid242
+     _:genid244
    )
   ] .
 
@@ -1314,7 +1253,7 @@
   rdfs:label "Test"^^xsd:string ;
   owl:equivalentClass [
     a owl:Class ;
-    owl:intersectionOf ( _:genid251 )
+    owl:intersectionOf ( _:genid247 )
   ] ;
   rdfs:subClassOf [
     a owl:Class ;
@@ -1331,10 +1270,8 @@
   owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-     _:genid257
-     _:genid259
-     _:genid261
-     _:genid263
+     _:genid253
+     _:genid255
    )
   ] ;
   rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
@@ -1347,8 +1284,8 @@
   owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-     _:genid266
-     _:genid268
+     _:genid258
+     _:genid260
    )
   ] ;
   rdfs:subClassOf [
@@ -1365,7 +1302,7 @@
   rdfs:comment "Events are individuals composed by temporal parts, they happen in time in the sense that they extend in time accumulating temporal parts. An example of an Event is a business process."^^xsd:string ;
   owl:equivalentClass [
     a owl:Class ;
-    owl:intersectionOf ( _:genid274 )
+    owl:intersectionOf ( _:genid266 )
   ] ;
   rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
 
@@ -1377,10 +1314,10 @@
   owl:equivalentClass [
     a owl:Class ;
     owl:intersectionOf (
-     _:genid277
-     _:genid279
-     _:genid281
-     _:genid283
+     _:genid269
+     _:genid271
+     _:genid273
+     _:genid275
    )
   ] ;
   rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
@@ -1391,7 +1328,7 @@
   rdfs:label "vgo:Session" ;
   owl:equivalentClass [
     a owl:Class ;
-    owl:intersectionOf ( _:genid286 )
+    owl:intersectionOf ( _:genid278 )
   ] ;
   rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
 
@@ -1427,7 +1364,7 @@
 <urn:swrl#z> a <http://www.w3.org/2003/11/swrl#Variable> .
 _:genid20
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#gco:character2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:superClassOf> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#gco:Character> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1445,30 +1382,30 @@ _:genid28
 
 _:genid34
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:match1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeMatch> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Match> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid36
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-c:goal3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoal> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid39
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:combat4> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid42
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:combat2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectCombat> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Combat> .
 
 _:genid44
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:skill> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectSkill> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Skill> .
 
 _:genid46
@@ -1478,7 +1415,7 @@ _:genid46
 
 _:genid48
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:attributetype2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1504,42 +1441,42 @@ _:genid63
 
 _:genid66
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:attribute3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizedByAttribute> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid72
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:match2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasAdventure> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Match> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid74
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-c:goal4> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoalCampaign> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid77
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:attribute1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Attribute> .
 
 _:genid79
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:attack> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasAttack> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Attack> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid81
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:defense> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasDefense> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Defense> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid83
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:other1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasOther> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Other> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1552,23 +1489,23 @@ _:genid86
 
 _:genid90
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:state1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedByCondition> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:State> .
 
 _:genid96
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:combat3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid99
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:system1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:useDice> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:System> .
 
 _:genid102
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mission1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:memberOfMission> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Mission> .
 
 _:genid104
@@ -1579,13 +1516,13 @@ _:genid104
 
 _:genid106
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:player1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mediatedByPlayer> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Player> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid108
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-c:goal2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoal> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1598,55 +1535,55 @@ _:genid111
 
 _:genid115
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:game2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeGameEntity> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Game> .
 
 _:genid117
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-b:action1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:executeAction> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#ufo-b:Action> .
 
 _:genid126
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:other2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeOther> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Other> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid129
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:topic4> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasTopic> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Topic> .
 
 _:genid135
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:entity2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedByEntity> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Entity> .
 
 _:genid137
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:system2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedBySystem> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:System> .
 
 _:genid139
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#vgo:session> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedBySession> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#vgo:Session> .
 
 _:genid142
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#gco:character1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:locatedIn> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#gco:Character> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid151
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:adventure1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid153
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:campaign2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:matchOfCampaign> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1661,29 +1598,29 @@ _:genid156
 
 _:genid162
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:scenario> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasScenario> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Scenario> .
 
 _:genid165
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:encounter1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:containsEncounter> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Encounter> .
 
 _:genid167
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-c:goal1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoal> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid170
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:resource> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeResource> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Resource> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid173
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:encounter4> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1697,13 +1634,13 @@ _:genid179
 
 _:genid184
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:player2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:carriedByPlayer> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Player> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid187
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:combat1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeCombatOther> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Combat> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1715,7 +1652,7 @@ _:genid189
 
 _:genid192
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:planning> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:memberOfPlanning> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Planning> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1727,7 +1664,7 @@ _:genid195
 
 _:genid198
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:encounter2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
@@ -1739,12 +1676,12 @@ _:genid200
 
 _:genid203
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:topic3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:containedInTopic> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Topic> .
 
 _:genid205
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:site2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:formSite> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Site> ;
   owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
 
@@ -1761,45 +1698,33 @@ _:genid214
 
 _:genid217
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:post2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:containsPost> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Post> ;
   owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
 
-_:genid219
+_:genid223
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:topic1> ;
-  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
-
-_:genid221
-  a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:topic2> ;
-  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Topic> ;
-  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
-
-_:genid227
-  a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:attribute4> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Attribute> .
 
-_:genid230
+_:genid226
   a owl:Restriction ;
   owl:onProperty <http://www.arida.com/rpg/ontology/#stor:condition> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Condition> .
 
-_:genid232
+_:genid228
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-b:action2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#characterizeActionState> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid234
+_:genid230
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#ufo-c:event> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#characterizeEventState> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Event> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid240
+_:genid236
   a owl:Class ;
   owl:unionOf (
    <http://www.arida.com/rpg/ontology/#stor:Attribute>
@@ -1808,87 +1733,75 @@ _:genid240
    <http://www.arida.com/rpg/ontology/#stor:Test>
  ) .
 
-_:genid246
+_:genid242
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:dice> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:useDice> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Dice> .
 
-_:genid248
+_:genid244
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:game3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeGameSystem> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Game> .
 
-_:genid251
+_:genid247
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:attribute2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Attribute> .
 
-_:genid257
+_:genid253
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:forum> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeForum> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Forum> .
 
-_:genid259
+_:genid255
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:post3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:formedByPost> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Post> .
 
-_:genid261
+_:genid258
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:site1> ;
-  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:executedByEntity> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Entity> .
 
-_:genid263
+_:genid260
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:site3> ;
-  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Site> ;
-  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasState> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:State> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
 _:genid266
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:entity1> ;
-  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Entity> .
-
-_:genid268
-  a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:state3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasState> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:State> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid274
+_:genid269
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:state2> ;
-  owl:onClass <http://www.arida.com/rpg/ontology/#stor:State> ;
-  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
-
-_:genid277
-  a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mission2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfMission> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Mission> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid279
+_:genid271
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:adventure2> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfAdventure> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid281
+_:genid273
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:campaign1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfCampaign> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid283
+_:genid275
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:encounter3> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfEncounter> ;
   owl:onClass <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
 
-_:genid286
+_:genid278
   a owl:Restriction ;
-  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:game1> ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeGameSession> ;
   owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Game> .
 
 []
@@ -1919,79 +1832,75 @@ _:genid286
   a owl:AllDisjointProperties ;
   owl:members (
    <http://www.arida.com/rpg/ontology/#foaf:person>
-   <http://www.arida.com/rpg/ontology/#gco:character1>
-   <http://www.arida.com/rpg/ontology/#gco:character2>
-   <http://www.arida.com/rpg/ontology/#stor:mission1>
-   <http://www.arida.com/rpg/ontology/#stor:mission2>
-   <http://www.arida.com/rpg/ontology/#stor:adventure1>
-   <http://www.arida.com/rpg/ontology/#stor:adventure2>
-   <http://www.arida.com/rpg/ontology/#stor:attack>
-   <http://www.arida.com/rpg/ontology/#stor:attribute1>
-   <http://www.arida.com/rpg/ontology/#stor:attribute2>
-   <http://www.arida.com/rpg/ontology/#stor:attribute3>
-   <http://www.arida.com/rpg/ontology/#stor:attribute4>
-   <http://www.arida.com/rpg/ontology/#stor:attributetype2>
-   <http://www.arida.com/rpg/ontology/#stor:campaign1>
-   <http://www.arida.com/rpg/ontology/#stor:campaign2>
-   <http://www.arida.com/rpg/ontology/#stor:combat1>
-   <http://www.arida.com/rpg/ontology/#stor:combat2>
-   <http://www.arida.com/rpg/ontology/#stor:combat3>
-   <http://www.arida.com/rpg/ontology/#stor:combat4>
+   <http://www.arida.com/rpg/ontology/#stor:locatedIn>
+   <http://www.arida.com/rpg/ontology/#stor:superClassOf>
+   <http://www.arida.com/rpg/ontology/#stor:memberOfMission>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfMission>
+   <http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfAdventure>
+   <http://www.arida.com/rpg/ontology/#stor:hasAttack>
+   <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:characterizedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfCampaign>
+   <http://www.arida.com/rpg/ontology/#stor:matchOfCampaign>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeCombatOther>
+   <http://www.arida.com/rpg/ontology/#stor:affectCombat>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack>
    <http://www.arida.com/rpg/ontology/#stor:condition>
-   <http://www.arida.com/rpg/ontology/#stor:defense>
-   <http://www.arida.com/rpg/ontology/#stor:dice>
-   <http://www.arida.com/rpg/ontology/#stor:encounter1>
-   <http://www.arida.com/rpg/ontology/#stor:encounter2>
-   <http://www.arida.com/rpg/ontology/#stor:encounter3>
-   <http://www.arida.com/rpg/ontology/#stor:encounter4>
-   <http://www.arida.com/rpg/ontology/#stor:entity1>
-   <http://www.arida.com/rpg/ontology/#stor:entity2>
+   <http://www.arida.com/rpg/ontology/#stor:hasDefense>
+   <http://www.arida.com/rpg/ontology/#stor:useDice>
+   <http://www.arida.com/rpg/ontology/#stor:containsEncounter>
+   <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfEncounter>
+   <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC>
+   <http://www.arida.com/rpg/ontology/#stor:executedByEntity>
+   <http://www.arida.com/rpg/ontology/#stor:composedByEntity>
    <http://www.arida.com/rpg/ontology/#stor:experience>
-   <http://www.arida.com/rpg/ontology/#stor:forum>
-   <http://www.arida.com/rpg/ontology/#stor:game1>
-   <http://www.arida.com/rpg/ontology/#stor:game2>
-   <http://www.arida.com/rpg/ontology/#stor:game3>
+   <http://www.arida.com/rpg/ontology/#stor:composeForum>
+   <http://www.arida.com/rpg/ontology/#stor:composeGameSession>
+   <http://www.arida.com/rpg/ontology/#stor:composeGameEntity>
+   <http://www.arida.com/rpg/ontology/#stor:composeGameSystem>
    <http://www.arida.com/rpg/ontology/#stor:location>
-   <http://www.arida.com/rpg/ontology/#stor:match1>
-   <http://www.arida.com/rpg/ontology/#stor:match2>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeMatch>
+   <http://www.arida.com/rpg/ontology/#stor:hasAdventure>
    <http://www.arida.com/rpg/ontology/#stor:material>
    <http://www.arida.com/rpg/ontology/#stor:money>
    <http://www.arida.com/rpg/ontology/#stor:news>
    <http://www.arida.com/rpg/ontology/#stor:npc>
    <http://www.arida.com/rpg/ontology/#stor:object>
-   <http://www.arida.com/rpg/ontology/#stor:other1>
-   <http://www.arida.com/rpg/ontology/#stor:other2>
-   <http://www.arida.com/rpg/ontology/#stor:plan>
-   <http://www.arida.com/rpg/ontology/#stor:planning>
-   <http://www.arida.com/rpg/ontology/#stor:player1>
-   <http://www.arida.com/rpg/ontology/#stor:player2>
-   <http://www.arida.com/rpg/ontology/#stor:post1>
-   <http://www.arida.com/rpg/ontology/#stor:post2>
-   <http://www.arida.com/rpg/ontology/#stor:post3>
-   <http://www.arida.com/rpg/ontology/#stor:resource>
-   <http://www.arida.com/rpg/ontology/#stor:scenario>
-   <http://www.arida.com/rpg/ontology/#stor:site1>
-   <http://www.arida.com/rpg/ontology/#stor:site2>
-   <http://www.arida.com/rpg/ontology/#stor:site3>
-   <http://www.arida.com/rpg/ontology/#stor:skill>
-   <http://www.arida.com/rpg/ontology/#stor:state1>
-   <http://www.arida.com/rpg/ontology/#stor:state2>
-   <http://www.arida.com/rpg/ontology/#stor:state3>
-   <http://www.arida.com/rpg/ontology/#stor:system1>
-   <http://www.arida.com/rpg/ontology/#stor:system2>
+   <http://www.arida.com/rpg/ontology/#stor:hasOther>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeOther>
+   <http://www.arida.com/rpg/ontology/#stor:containsPlans>
+   <http://www.arida.com/rpg/ontology/#stor:memberOfPlanning>
+   <http://www.arida.com/rpg/ontology/#stor:mediatedByPlayer>
+   <http://www.arida.com/rpg/ontology/#stor:carriedByPlayer>
+   <http://www.arida.com/rpg/ontology/#stor:formPost>
+   <http://www.arida.com/rpg/ontology/#stor:containsPost>
+   <http://www.arida.com/rpg/ontology/#stor:formedByPost>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeResource>
+   <http://www.arida.com/rpg/ontology/#stor:hasScenario>
+   <http://www.arida.com/rpg/ontology/#stor:formSite>
+   <http://www.arida.com/rpg/ontology/#stor:affectSkill>
+   <http://www.arida.com/rpg/ontology/#stor:composedByCondition>
+   <http://www.arida.com/rpg/ontology/#stor:hasState>
+   <http://www.arida.com/rpg/ontology/#stor:hasState>
+   <http://www.arida.com/rpg/ontology/#stor:useDice>
+   <http://www.arida.com/rpg/ontology/#stor:composedBySystem>
    <http://www.arida.com/rpg/ontology/#stor:test>
-   <http://www.arida.com/rpg/ontology/#stor:topic1>
-   <http://www.arida.com/rpg/ontology/#stor:topic2>
-   <http://www.arida.com/rpg/ontology/#stor:topic3>
-   <http://www.arida.com/rpg/ontology/#stor:topic4>
-   <http://www.arida.com/rpg/ontology/#ufo-b:action1>
-   <http://www.arida.com/rpg/ontology/#ufo-b:action2>
-   <http://www.arida.com/rpg/ontology/#ufo-c:event>
-   <http://www.arida.com/rpg/ontology/#ufo-c:goal1>
-   <http://www.arida.com/rpg/ontology/#ufo-c:goal2>
-   <http://www.arida.com/rpg/ontology/#ufo-c:goal3>
-   <http://www.arida.com/rpg/ontology/#ufo-c:goal4>
-   <http://www.arida.com/rpg/ontology/#vgo:session>
+   <http://www.arida.com/rpg/ontology/#stor:containedInTopic>
+   <http://www.arida.com/rpg/ontology/#stor:hasTopic>
+   <http://www.arida.com/rpg/ontology/#stor:executeAction>
+   <http://www.arida.com/rpg/ontology/#characterizeActionState>
+   <http://www.arida.com/rpg/ontology/#characterizeEventState>
+   <http://www.arida.com/rpg/ontology/#hasGoalMission>
+   <http://www.arida.com/rpg/ontology/#hasGoalEncounter>
+   <http://www.arida.com/rpg/ontology/#hasGoalAdventure>
+   <http://www.arida.com/rpg/ontology/#hasGoalCampaign>
+   <http://www.arida.com/rpg/ontology/#stor:composedBySession>
  ) .
 
 []
@@ -2030,43 +1939,43 @@ _:genid286
 
 []
   a <http://www.w3.org/2003/11/swrl#Imp> ;
-  ns0:head ( _:genid395 ) ;
+  ns0:head ( _:genid383 ) ;
   ns0:body (
-   _:genid397
-   _:genid405
-   _:genid404
-   _:genid401
-   _:genid403
+   _:genid385
+   _:genid393
+   _:genid392
+   _:genid389
+   _:genid391
  ) .
 
-_:genid395
+_:genid383
   a ns0:IndividualPropertyAtom ;
   ns0:propertyPredicate <http://www.menthor.net/ontouml#functionalPart> ;
   ns0:argument2 <urn:swrl#x> ;
   ns0:argument1 <urn:swrl#z> .
 
-_:genid397
+_:genid385
   a ns0:IndividualPropertyAtom ;
   ns0:propertyPredicate <http://www.menthor.net/ontouml#functionalPart> ;
   ns0:argument2 <urn:swrl#x> ;
   ns0:argument1 <urn:swrl#y> .
 
-_:genid401
+_:genid389
   a ns0:DifferentIndividualsAtom ;
   ns0:argument1 <urn:swrl#x> ;
   ns0:argument2 <urn:swrl#z> .
 
-_:genid403
+_:genid391
   a ns0:DifferentIndividualsAtom ;
   ns0:argument1 <urn:swrl#y> ;
   ns0:argument2 <urn:swrl#z> .
 
-_:genid404
+_:genid392
   a ns0:DifferentIndividualsAtom ;
   ns0:argument1 <urn:swrl#x> ;
   ns0:argument2 <urn:swrl#y> .
 
-_:genid405
+_:genid393
   a ns0:IndividualPropertyAtom ;
   ns0:propertyPredicate <http://www.menthor.net/ontouml#functionalPart> ;
   ns0:argument2 <urn:swrl#y> ;
@@ -2074,44 +1983,44 @@ _:genid405
 
 []
   a ns0:Imp ;
-  ns0:head ( _:genid408 ) ;
+  ns0:head ( _:genid396 ) ;
   ns0:body (
-   _:genid410
-   _:genid412
-   _:genid418
-   _:genid415
-   _:genid417
+   _:genid398
+   _:genid400
+   _:genid406
+   _:genid403
+   _:genid405
  ) .
 
-_:genid408
+_:genid396
   a ns0:IndividualPropertyAtom ;
   ns0:propertyPredicate <http://www.menthor.net/ontouml#collectionPart> ;
   ns0:argument2 <urn:swrl#x> ;
   ns0:argument1 <urn:swrl#z> .
 
-_:genid410
+_:genid398
   a ns0:IndividualPropertyAtom ;
   ns0:propertyPredicate <http://www.menthor.net/ontouml#collectionPart> ;
   ns0:argument2 <urn:swrl#y> ;
   ns0:argument1 <urn:swrl#z> .
 
-_:genid412
+_:genid400
   a ns0:IndividualPropertyAtom ;
   ns0:propertyPredicate <http://www.menthor.net/ontouml#member> ;
   ns0:argument2 <urn:swrl#x> ;
   ns0:argument1 <urn:swrl#y> .
 
-_:genid415
+_:genid403
   a ns0:DifferentIndividualsAtom ;
   ns0:argument1 <urn:swrl#x> ;
   ns0:argument2 <urn:swrl#z> .
 
-_:genid417
+_:genid405
   a ns0:DifferentIndividualsAtom ;
   ns0:argument1 <urn:swrl#y> ;
   ns0:argument2 <urn:swrl#z> .
 
-_:genid418
+_:genid406
   a ns0:DifferentIndividualsAtom ;
   ns0:argument1 <urn:swrl#x> ;
   ns0:argument2 <urn:swrl#y> .

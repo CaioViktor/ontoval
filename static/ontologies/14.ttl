@@ -1,108 +1,2027 @@
-@prefix : <http://webprotege.stanford.edu/project/8MvTGTFQ7I0DiYvgZgy6T6#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://webprotege.stanford.edu/project/8MvTGTFQ7I0DiYvgZgy6T6> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns0: <http://www.w3.org/2003/11/swrl#> .
 
-<http://webprotege.stanford.edu/project/8MvTGTFQ7I0DiYvgZgy6T6> rdf:type owl:Ontology .
+<http://www.arida.com/rpg/ontology/#> a owl:Ontology .
+<http://www.arida.com/rpg/ontology/#foaf:person>
+  a owl:ObjectProperty ;
+  rdfs:label "foaf:person"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#foaf:Person> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#gco:Character> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:superClassOf> .
 
-#################################################################
-#    Object Properties
-#################################################################
+<http://www.arida.com/rpg/ontology/#stor:locatedIn>
+  a owl:ObjectProperty ;
+  rdfs:label "locatedIn"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#gco:Character> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Location> .
 
-###  http://webprotege.stanford.edu/R88USyJXBaqKfCVZ1vLvZGb
-<http://webprotege.stanford.edu/R88USyJXBaqKfCVZ1vLvZGb> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf <http://webprotege.stanford.edu/RH8sw5C8RRwCtUQ628VZY0> ;
-                                                         rdfs:label "solidao" .
+<http://www.arida.com/rpg/ontology/#stor:superClassOf>
+  a owl:ObjectProperty ;
+  rdfs:label "gco:character"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#foaf:Person> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#gco:Character> .
 
+<http://www.arida.com/rpg/ontology/#stor:memberOfMission>
+  a owl:ObjectProperty ;
+  rdfs:label "memberOfMission"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Mission> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:containsEncounter> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#member> .
 
-###  http://webprotege.stanford.edu/R9Fogg3JIgF10bQz9hYtbK6
-<http://webprotege.stanford.edu/R9Fogg3JIgF10bQz9hYtbK6> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/RDJO7FYImZtCEzEOSuwyjJS> ;
-                                                         rdfs:range <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                         rdfs:label "dono" .
+<http://www.arida.com/rpg/ontology/#stor:goalOfMission>
+  a owl:ObjectProperty ;
+  rdfs:label "goalOfMission"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Mission> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#hasGoal> .
 
+<http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizedByAdventure"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Match> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-###  http://webprotege.stanford.edu/RBOUsi9ZO8BXldvduTdlNNo
-<http://webprotege.stanford.edu/RBOUsi9ZO8BXldvduTdlNNo> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                         rdfs:range <http://webprotege.stanford.edu/RDJO7FYImZtCEzEOSuwyjJS> ;
-                                                         rdfs:label "outra" .
+<http://www.arida.com/rpg/ontology/#stor:goalOfAdventure>
+  a owl:ObjectProperty ;
+  rdfs:label "goalOfAdventure"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#hasGoal> .
 
+<http://www.arida.com/rpg/ontology/#stor:hasAttack>
+  a owl:ObjectProperty ;
+  rdfs:label "hasAttack"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attack> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack> .
 
-###  http://webprotege.stanford.edu/RBT69Gtxck3nlUMF66xWibl
-<http://webprotege.stanford.edu/RBT69Gtxck3nlUMF66xWibl> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                         rdfs:label "possui" .
+<http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+  a owl:ObjectProperty ;
+  rdfs:label "affectedByAttribute"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat>, <http://www.arida.com/rpg/ontology/#stor:Test>, <http://www.arida.com/rpg/ontology/#stor:Skill> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:affectCombat>, <http://www.arida.com/rpg/ontology/#stor:test>, <http://www.arida.com/rpg/ontology/#stor:affectSkill> .
 
+<http://www.arida.com/rpg/ontology/#stor:characterizedByAttribute>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizedByAttribute"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
-###  http://webprotege.stanford.edu/RCDKhd16N5ZrWeolkDnARJM
-<http://webprotege.stanford.edu/RCDKhd16N5ZrWeolkDnARJM> rdf:type owl:ObjectProperty ;
-                                                         rdfs:subPropertyOf owl:topObjectProperty ;
-                                                         rdfs:domain <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                         rdfs:range <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                         rdfs:label "casado" .
+<http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeAttributeType"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
+<http://www.arida.com/rpg/ontology/#stor:goalOfCampaign>
+  a owl:ObjectProperty ;
+  rdfs:label "goalOfCampaign"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
-###  http://webprotege.stanford.edu/RH8sw5C8RRwCtUQ628VZY0
-<http://webprotege.stanford.edu/RH8sw5C8RRwCtUQ628VZY0> rdf:type owl:ObjectProperty ;
-                                                        rdfs:subPropertyOf owl:topObjectProperty ;
-                                                        rdfs:label "sozinha" .
+<http://www.arida.com/rpg/ontology/#stor:matchOfCampaign>
+  a owl:ObjectProperty ;
+  rdfs:label "matchOfCampaign"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Match> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
 
+<http://www.arida.com/rpg/ontology/#stor:characterizeCombatOther>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeCombat"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Other> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:hasOther> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
-#################################################################
-#    Data properties
-#################################################################
+<http://www.arida.com/rpg/ontology/#stor:affectCombat>
+  a owl:ObjectProperty ;
+  rdfs:label "affectCombat"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> .
 
-###  http://webprotege.stanford.edu/RSIGfhNAK1FOHDxGyybbkP
-<http://webprotege.stanford.edu/RSIGfhNAK1FOHDxGyybbkP> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                        rdfs:range xsd:integer ;
-                                                        rdfs:comment "Anos vividos"^^xsd:string ;
-                                                        rdfs:label "idade" .
+<http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeCombat"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Defense> .
 
+<http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeCombat"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attack> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Combat> .
 
-###  http://webprotege.stanford.edu/RxHhMASle6vqCpds1SdIMI
-<http://webprotege.stanford.edu/RxHhMASle6vqCpds1SdIMI> rdf:type owl:DatatypeProperty ;
-                                                        rdfs:subPropertyOf owl:topDataProperty ;
-                                                        rdfs:domain <http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> ;
-                                                        rdfs:range xsd:string ;
-                                                        rdfs:label "nome" .
+<http://www.arida.com/rpg/ontology/#stor:condition>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:condition"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Condition> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:State> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composedByCondition> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
+<http://www.arida.com/rpg/ontology/#stor:hasDefense>
+  a owl:ObjectProperty ;
+  rdfs:label "hasDefense"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Defense> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense> .
 
-#################################################################
-#    Classes
-#################################################################
+<http://www.arida.com/rpg/ontology/#stor:useDice>
+  a owl:ObjectProperty ;
+  rdfs:label "useDice"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Dice>, <http://www.arida.com/rpg/ontology/#stor:System> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:System>, <http://www.arida.com/rpg/ontology/#stor:Dice> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:useDice> .
 
-###  http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx
-<http://webprotege.stanford.edu/R1tG480V4lOCXz3jEN2BPx> rdf:type owl:Class ;
-                                                        rdfs:subClassOf <http://webprotege.stanford.edu/R9DE0yQFkE1z1WamSKNHWU5> ;
-                                                        rdfs:comment "É só uma pessoa"^^xsd:string ;
-                                                        rdfs:label "Humano"^^xsd:string ,
-                                                                   "Pessoa" .
+<http://www.arida.com/rpg/ontology/#stor:containsEncounter>
+  a owl:ObjectProperty ;
+  rdfs:label "containsEncounter"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Mission> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#isMemberOf> .
 
+<http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer>
+  a owl:ObjectProperty ;
+  rdfs:label "mediationOfEncounter"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Player> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediatedBy> .
 
-###  http://webprotege.stanford.edu/R8yOM5dOnIrSqCJ4AsOzlu0
-<http://webprotege.stanford.edu/R8yOM5dOnIrSqCJ4AsOzlu0> rdf:type owl:Class ;
-                                                         rdfs:label "So" .
+<http://www.arida.com/rpg/ontology/#stor:goalOfEncounter>
+  a owl:ObjectProperty ;
+  rdfs:label "goalOfEncounter"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
 
+<http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC>
+  a owl:ObjectProperty ;
+  rdfs:label "mediationOfEncounter"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:NPC> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediatedBy> .
 
-###  http://webprotege.stanford.edu/R9DE0yQFkE1z1WamSKNHWU5
-<http://webprotege.stanford.edu/R9DE0yQFkE1z1WamSKNHWU5> rdf:type owl:Class ;
-                                                         rdfs:comment "É um ser vivo"^^xsd:string ;
-                                                         rdfs:label "Ser" .
+<http://www.arida.com/rpg/ontology/#stor:executedByEntity>
+  a owl:ObjectProperty ;
+  rdfs:label "executedByEntity"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Entity> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-b:Action> .
 
+<http://www.arida.com/rpg/ontology/#stor:composedByEntity>
+  a owl:ObjectProperty ;
+  rdfs:label "composedByEntity"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Entity> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Game> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeGameEntity> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
 
-###  http://webprotege.stanford.edu/RDJO7FYImZtCEzEOSuwyjJS
-<http://webprotege.stanford.edu/RDJO7FYImZtCEzEOSuwyjJS> rdf:type owl:Class ;
-                                                         rdfs:subClassOf <http://webprotege.stanford.edu/R9DE0yQFkE1z1WamSKNHWU5> ;
-                                                         rdfs:label "Cachorro" .
+<http://www.arida.com/rpg/ontology/#stor:experience>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:experience"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Experience> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Other> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
 
+<http://www.arida.com/rpg/ontology/#stor:composeForum>
+  a owl:ObjectProperty ;
+  rdfs:label "composeForum"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Forum> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Topic> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
 
-###  Generated by the OWL API (version 4.5.6) https://github.com/owlcs/owlapi
+<http://www.arida.com/rpg/ontology/#stor:composeGameSession>
+  a owl:ObjectProperty ;
+  rdfs:label "composeGame"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Game> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#vgo:Session> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:composeGameEntity>
+  a owl:ObjectProperty ;
+  rdfs:label "composeGame"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Entity> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Game> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:composeGameSystem>
+  a owl:ObjectProperty ;
+  rdfs:label "composeGame"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Game> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:System> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:location>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:location"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#gco:Character> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:locatedIn> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Location> .
+
+<http://www.arida.com/rpg/ontology/#stor:characterizeMatch>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeMatch"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Match> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
+
+<http://www.arida.com/rpg/ontology/#stor:hasAdventure>
+  a owl:ObjectProperty ;
+  rdfs:label "hasAdventure"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Match> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:matchOfCampaign> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
+
+<http://www.arida.com/rpg/ontology/#stor:material>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:material"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Material> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Scenario> .
+
+<http://www.arida.com/rpg/ontology/#stor:money>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:money"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Money> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Resource> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
+
+<http://www.arida.com/rpg/ontology/#stor:news>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:news"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:News> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:formPost> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
+
+<http://www.arida.com/rpg/ontology/#stor:npc>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:npc"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:NPC> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediates> .
+
+<http://www.arida.com/rpg/ontology/#stor:object>
+  a owl:ObjectProperty ;
+  rdfs:label "stor:object"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Object> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Player> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:carriedByPlayer> .
+
+<http://www.arida.com/rpg/ontology/#stor:hasOther>
+  a owl:ObjectProperty ;
+  rdfs:label "hasOther"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Other> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
+
+<http://www.arida.com/rpg/ontology/#stor:characterizeOther>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeOther"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Experience> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Other> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:experience> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
+
+<http://www.arida.com/rpg/ontology/#stor:containsPlans>
+  a owl:ObjectProperty ;
+  rdfs:label "containsPlans"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Plan> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Planning> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:containsPlans> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#member> .
+
+<http://www.arida.com/rpg/ontology/#stor:memberOfPlanning>
+  a owl:ObjectProperty ;
+  rdfs:label "memberOfPlanning"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Plan> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Planning> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#isMemberOf> .
+
+<http://www.arida.com/rpg/ontology/#stor:mediatedByPlayer>
+  a owl:ObjectProperty ;
+  rdfs:label "mediatedByPlayer"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Player> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#mediates> .
+
+<http://www.arida.com/rpg/ontology/#stor:carriedByPlayer>
+  a owl:ObjectProperty ;
+  rdfs:label "carriedByPlayer"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Object> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Player> .
+
+<http://www.arida.com/rpg/ontology/#stor:formPost>
+  a owl:ObjectProperty ;
+  rdfs:label "formPost"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:News> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:containsPost>
+  a owl:ObjectProperty ;
+  rdfs:label "containsPost"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Site> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:formSite> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
+
+<http://www.arida.com/rpg/ontology/#stor:formedByPost>
+  a owl:ObjectProperty ;
+  rdfs:label "formedByPost"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Topic> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:containedInTopic> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
+
+<http://www.arida.com/rpg/ontology/#stor:characterizeResource>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeResource"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Money> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Resource> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:money> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
+
+<http://www.arida.com/rpg/ontology/#stor:hasScenario>
+  a owl:ObjectProperty ;
+  rdfs:label "hasScenario"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Material> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Scenario> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:material> .
+
+<http://www.arida.com/rpg/ontology/#stor:formSite>
+  a owl:ObjectProperty ;
+  rdfs:label "formSite"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Site> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:affectSkill>
+  a owl:ObjectProperty ;
+  rdfs:label "affectSkill"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Skill> .
+
+<http://www.arida.com/rpg/ontology/#stor:composedByCondition>
+  a owl:ObjectProperty ;
+  rdfs:label "composedByCondition"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Condition> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:State> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:hasState>
+  a owl:ObjectProperty ;
+  rdfs:label "hasState"^^xsd:string ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:State> ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#ufo-c:Event>, <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#bearer> .
+
+<http://www.arida.com/rpg/ontology/#stor:composedBySystem>
+  a owl:ObjectProperty ;
+  rdfs:label "composedBySystem"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Game> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:System> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeGameSystem> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
+
+<http://www.arida.com/rpg/ontology/#stor:test>
+  a owl:ObjectProperty ;
+  rdfs:label "affectedBy"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Test> .
+
+<http://www.arida.com/rpg/ontology/#stor:containedInTopic>
+  a owl:ObjectProperty ;
+  rdfs:label "containedInTopic"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Topic> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalWhole> .
+
+<http://www.arida.com/rpg/ontology/#stor:hasTopic>
+  a owl:ObjectProperty ;
+  rdfs:label "hasTopic"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Forum> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#stor:Topic> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeForum> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
+
+<http://www.arida.com/rpg/ontology/#stor:executeAction>
+  a owl:ObjectProperty ;
+  rdfs:label "executeAction"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Entity> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:executedByEntity> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-b:Action> .
+
+<http://www.arida.com/rpg/ontology/#stor:characterizeActionState>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeAction"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:State> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:hasState> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
+
+<http://www.arida.com/rpg/ontology/#stor:characterizeEventState>
+  a owl:ObjectProperty ;
+  rdfs:label "characterizeEvent"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:State> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:hasState> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Event> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#intrinsicProperty> .
+
+<http://www.arida.com/rpg/ontology/#hasGoalMission>
+  a owl:ObjectProperty ;
+  rdfs:label "hasGoal"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Mission> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
+
+<http://www.arida.com/rpg/ontology/#hasGoalEncounter>
+  a owl:ObjectProperty ;
+  rdfs:label "hasGoal"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:goalOfEncounter> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
+
+<http://www.arida.com/rpg/ontology/#hasGoalAdventure>
+  a owl:ObjectProperty ;
+  rdfs:label "hasGoal"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
+
+<http://www.arida.com/rpg/ontology/#hasGoalCampaign>
+  a owl:ObjectProperty ;
+  rdfs:label "hasGoal"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:goalOfCampaign> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#ufo-c:Goal> .
+
+<http://www.arida.com/rpg/ontology/#stor:composedBySession>
+  a owl:ObjectProperty ;
+  rdfs:label "composedBySession"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:Game> ;
+  owl:inverseOf <http://www.arida.com/rpg/ontology/#stor:composeGameSession> ;
+  rdfs:range <http://www.arida.com/rpg/ontology/#vgo:Session> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#functionalPart> .
+
+<http://www.menthor.net/ontouml#bearer>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:TransitiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#intrinsicProperty> ;
+  rdfs:subPropertyOf owl:topObjectProperty ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.menthor.net/ontouml#Mode>
+     <http://www.menthor.net/ontouml#Quality>
+   )
+  ] .
+
+<http://www.menthor.net/ontouml#causedBy>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:TransitiveProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Event> ;
+  rdfs:domain <http://www.menthor.net/ontouml#Event> ;
+  owl:inverseOf <http://www.menthor.net/ontouml#causes> .
+
+<http://www.menthor.net/ontouml#causes>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:TransitiveProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Event> ;
+  rdfs:domain <http://www.menthor.net/ontouml#Event> .
+
+<http://www.menthor.net/ontouml#collectionPart>
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Collection> ;
+  rdfs:domain <http://www.menthor.net/ontouml#Collection> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#part> .
+
+<http://www.menthor.net/ontouml#collectionWhole>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Collection> ;
+  rdfs:range <http://www.menthor.net/ontouml#Collection> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#whole> .
+
+<http://www.menthor.net/ontouml#contains>
+  a owl:ObjectProperty, owl:ReflexiveProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#during>
+  a owl:ObjectProperty, owl:ReflexiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#contains> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#equalTo>
+  a owl:ObjectProperty, owl:ReflexiveProperty, owl:SymmetricProperty, owl:TransitiveProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#eventPart>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Event> ;
+  rdfs:range <http://www.menthor.net/ontouml#Event> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#part> .
+
+<http://www.menthor.net/ontouml#eventWhole>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Event> ;
+  rdfs:range <http://www.menthor.net/ontouml#Event> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#whole> .
+
+<http://www.menthor.net/ontouml#finishedBy>
+  a owl:ObjectProperty, owl:ReflexiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#finishes> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#finishes>
+  a owl:ObjectProperty, owl:ReflexiveProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#functionalPart>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#FunctionalComplex> ;
+  rdfs:range <http://www.menthor.net/ontouml#FunctionalComplex> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#part> .
+
+<http://www.menthor.net/ontouml#functionalWhole>
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#FunctionalComplex> ;
+  rdfs:domain <http://www.menthor.net/ontouml#FunctionalComplex> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#whole> .
+
+<http://www.menthor.net/ontouml#intrinsicProperty>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty, owl:TransitiveProperty ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.menthor.net/ontouml#Mode>
+     <http://www.menthor.net/ontouml#Quality>
+   )
+  ] .
+
+<http://www.menthor.net/ontouml#isMemberOf>
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Collection> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#whole> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.menthor.net/ontouml#Collection>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.menthor.net/ontouml#mediatedBy>
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Relator> ;
+  owl:inverseOf <http://www.menthor.net/ontouml#mediates> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.menthor.net/ontouml#Object>
+     <http://www.menthor.net/ontouml#Relator>
+   )
+  ] .
+
+<http://www.menthor.net/ontouml#mediates>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Relator> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.menthor.net/ontouml#Object>
+     <http://www.menthor.net/ontouml#Relator>
+   )
+  ] .
+
+<http://www.menthor.net/ontouml#meets>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#member>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Collection> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#part> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://www.menthor.net/ontouml#Collection>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.menthor.net/ontouml#metBy>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#meets> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#overlaps>
+  a owl:ObjectProperty, owl:ReflexiveProperty, owl:SymmetricProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#part>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#whole> .
+
+<http://www.menthor.net/ontouml#participant>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Event> ;
+  rdfs:range <http://www.menthor.net/ontouml#Object> ;
+  owl:inverseOf <http://www.menthor.net/ontouml#participatesIn> ;
+  rdfs:subPropertyOf owl:topObjectProperty .
+
+<http://www.menthor.net/ontouml#participatesIn>
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Event> ;
+  rdfs:domain <http://www.menthor.net/ontouml#Object> ;
+  rdfs:subPropertyOf owl:topObjectProperty .
+
+<http://www.menthor.net/ontouml#precededBy>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#preceds>
+  a owl:ObjectProperty, owl:AsymmetricProperty, owl:ReflexiveProperty, owl:TransitiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#precededBy> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#quantityPart>
+  a owl:ObjectProperty ;
+  rdfs:range <http://www.menthor.net/ontouml#Quantity> ;
+  rdfs:domain <http://www.menthor.net/ontouml#Quantity> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#part> .
+
+<http://www.menthor.net/ontouml#quantityWhole>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Quantity> ;
+  rdfs:range <http://www.menthor.net/ontouml#Quantity> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#whole> .
+
+<http://www.menthor.net/ontouml#startedBy>
+  a owl:ObjectProperty, owl:ReflexiveProperty ;
+  owl:inverseOf <http://www.menthor.net/ontouml#starts> ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#starts>
+  a owl:ObjectProperty, owl:ReflexiveProperty ;
+  rdfs:subPropertyOf <http://www.menthor.net/ontouml#temporal> .
+
+<http://www.menthor.net/ontouml#temporal>
+  a owl:ObjectProperty ;
+  rdfs:domain <http://www.menthor.net/ontouml#Event> ;
+  rdfs:range <http://www.menthor.net/ontouml#Event> .
+
+<http://www.menthor.net/ontouml#whole> a owl:ObjectProperty, owl:AsymmetricProperty, owl:IrreflexiveProperty .
+<http://www.arida.com/rpg/ontology/#stor:AttributeDomain>
+  a owl:DatatypeProperty, owl:Class ;
+  rdfs:label "AttributeDomain"^^xsd:string ;
+  rdfs:domain <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
+  rdfs:range rdfs:Literal ;
+  rdfs:comment "This class is abstract type, it has not instantiate, but its children have instatiates. This is about a quality defines attributes."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid54 )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#foaf:Person>
+  a owl:Class ;
+  rdfs:comment "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered agents's in FOAF."^^xsd:string ;
+  rdfs:label "Person" ;
+  rdfs:seeAlso <http://xmlns.com/foaf/spec/#term_Person> ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid20 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Entity>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#gco:Character>
+  a owl:Class ;
+  rdfs:label "Character"^^xsd:string, "Character" ;
+  rdfs:comment "Any character within a video game. The character could be playable or non playable (NPC)."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid26
+     _:genid28
+   )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Entity>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] ;
+  owl:disjointWith <http://www.arida.com/rpg/ontology/#stor:NPC> .
+
+<http://www.arida.com/rpg/ontology/#stor:Adventure>
+  a owl:Class ;
+  rdfs:label "Adventure"^^xsd:string ;
+  rdfs:comment "An adventure is a medium-sized story with middle beginning and end. An adventure can have a series of missions."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid34
+     _:genid36
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Mode> .
+
+<http://www.arida.com/rpg/ontology/#stor:Attack>
+  a owl:Class ;
+  rdfs:label "Attack"^^xsd:string ;
+  rdfs:comment "A sequence of actions for resolution of conflict, consisting of attacks and defense, but can has others maneuvers"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid39 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Mode> .
+
+<http://www.arida.com/rpg/ontology/#stor:Attribute>
+  a owl:Class ;
+  rdfs:label "Attribute"^^xsd:string ;
+  rdfs:comment "Representation of variables that define states or capacities of characters or of other elements within the rules in game"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid42
+     _:genid44
+     _:genid46
+     _:genid48
+   )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:System>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Mental>
+  a owl:DatatypeProperty, owl:Class ;
+  rdfs:label "Mental"^^xsd:string ;
+  rdfs:comment "Characteristics such as intelligence, perception, charisma, sanity, wisdom, will power etc among others depending rules"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid57 )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Physical>
+  a owl:DatatypeProperty, owl:Class ;
+  rdfs:label "Physical"^^xsd:string ;
+  rdfs:comment "Features such as strenght, dexterity, endurance, constitution, agility and among others depending on the rules"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid60 )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:OtherAttribute>
+  a owl:DatatypeProperty, owl:Class ;
+  rdfs:label "OtherAttribute"^^xsd:string ;
+  rdfs:comment "Other variables in different contexts, like experience, life points etc"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid63 )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:AttributeType>
+  a owl:Class ;
+  rdfs:label "AttributeType"^^xsd:string ;
+  rdfs:comment "This class is abstract type, it has not instantiate, but its children have instatiates. This is about a quality defines attributes."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid66 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Quality> .
+
+<http://www.arida.com/rpg/ontology/#stor:Book>
+  a owl:Class ;
+  rdfs:comment "Books about RPGs: normally contain rules, scenarios or adventures"^^xsd:string ;
+  rdfs:label "Book" ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Material>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Campaign>
+  a owl:Class ;
+  rdfs:label "Campaign"^^xsd:string ;
+  rdfs:comment "A campaign is a long story or a set of adventures. In tabletop RPGs campaigns have big changes in scenario and in characters."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid72
+     _:genid74
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Mode> .
+
+<http://www.arida.com/rpg/ontology/#stor:Combat>
+  a owl:Class ;
+  rdfs:label "Combat"^^xsd:string ;
+  rdfs:comment "A sequence of actions for resolution of conflict, consisting of attacks and defense, but can has others maneuvers"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid77
+     _:genid79
+     _:genid81
+     _:genid83
+   )
+  ] ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#stor:System> .
+
+<http://www.arida.com/rpg/ontology/#stor:Condition>
+  a owl:Class ;
+  rdfs:label "Condition"^^xsd:string ;
+  rdfs:comment "Condition is a set of constraints given a set of specific states."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid86
+     _:genid90
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:Consumable>
+  a owl:Class ;
+  rdfs:label "Consumable"^^xsd:string ;
+  rdfs:comment "Items are objects which can use in limited use, commonly is not used for damage. Like: potions, foods, poisons, etc."^^xsd:string ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Object>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Defense>
+  a owl:Class ;
+  rdfs:label "Defense"^^xsd:string ;
+  rdfs:comment "Combat maneuver to defense against attacks"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid96 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Mode> .
+
+<http://www.arida.com/rpg/ontology/#stor:Dice>
+  a owl:Class ;
+  rdfs:label "Dice"^^xsd:string, "Dice" ;
+  rdfs:comment "Generator of random values, in tabletop RPG are commonly represented by polyhedral dice. Others ways for generate random numbers are possible like to use cards, coins and among others."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid99 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:Encounter>
+  a owl:Class ;
+  rdfs:label "Encounter"^^xsd:string ;
+  rdfs:comment "Conflicts between players and NPCs are called encounters in which solving one or more problems is required. Such resolution may occur with or without combat."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid102
+     _:genid104
+     _:genid106
+     _:genid108
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Relator> .
+
+<http://www.arida.com/rpg/ontology/#stor:Entity>
+  a owl:Class ;
+  rdfs:label "Entity"^^xsd:string ;
+  rdfs:comment "This category represents all entities in game, like: characters, places, objects, vehicles etc. This is a important abstract concept, because a entity can be act in the world in differents ways. For example: a horse can be seen like a vehicle, a character, object, or a place."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid111
+     _:genid115
+     _:genid117
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Equipment>
+  a owl:Class ;
+  rdfs:comment "Equipment items are commonly wearable items which a character carry with itself. For example: weapons, armors, clothes, jewels, hats, etc."^^xsd:string ;
+  rdfs:label "Equipment" ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Object>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Etc>
+  a owl:Class ;
+  rdfs:comment "Objects which are not defined like equipments or items. Etc can be collectable objects or objects needed for quests but which has not useful for other situations."^^xsd:string ;
+  rdfs:label "Etc" ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Object>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Experience>
+  a owl:Class ;
+  rdfs:comment "Experience is used to upgrade and promote character enhancements"^^xsd:string ;
+  rdfs:label "Experience"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid126 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Quality> .
+
+<http://www.arida.com/rpg/ontology/#stor:Forum>
+  a owl:Class ;
+  rdfs:comment "Virtual environment for discussing or playing RPG matches (PBF, play-by-forum)"^^xsd:string ;
+  rdfs:label "Forum" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid129 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Material>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Game>
+  a owl:Class ;
+  rdfs:comment "Set of all elements linked about RPG"^^xsd:string ;
+  rdfs:label "Game" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid135
+     _:genid137
+     _:genid139
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:Location>
+  a owl:Class ;
+  rdfs:comment "Every entity is somewhere. Places are connected to each other and an entity with the correct state can transit between them."^^xsd:string ;
+  rdfs:label "Location" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid142 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Entity>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Magazine>
+  a owl:Class ;
+  rdfs:comment "Magazines have similar functions as books"^^xsd:string ;
+  rdfs:label "Magazine" ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Material>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Match>
+  a owl:Class ;
+  rdfs:label "Match"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid151
+     _:genid153
+   )
+  ] ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#vgo:Session> .
+
+<http://www.arida.com/rpg/ontology/#stor:Material>
+  a owl:Class ;
+  rdfs:comment "Materials for studying rules, scenarios or to enable or discuss games"^^xsd:string ;
+  rdfs:label "Material" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid156
+     _:genid162
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Mission>
+  a owl:Class ;
+  rdfs:comment "Missions are a set of goals for a character or group of characters. It defines events in story or gameplay."^^xsd:string ;
+  rdfs:label "Mission" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid165
+     _:genid167
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Collection> .
+
+<http://www.arida.com/rpg/ontology/#stor:Money>
+  a owl:Class ;
+  rdfs:comment "Money for change items or others resources in game"^^xsd:string ;
+  rdfs:label "Money" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid170 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Quality> .
+
+<http://www.arida.com/rpg/ontology/#stor:NPC>
+  a owl:Class ;
+  rdfs:comment "A non-player character (NPC), also known as a non-playable character, is any character in a game which is not controlled by a player. In video games, this usually means a character controlled by the computer via algorithmic, predetermined or responsive behavior, but not necessarily true artificial intelligence. In traditional tabletop role-playing games, the term applies to characters controlled by the gamemaster or referee, rather than another player."^^xsd:string ;
+  rdfs:isDefinedBy <https://en.wikipedia.org/wiki/Non-player_character> ;
+  rdfs:label "NPC" ;
+  rdfs:seeAlso <http://dbpedia.org/page/Non-player_character> ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid173 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Entity>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:News>
+  a owl:Class ;
+  rdfs:comment "News about realeses and updating from RPG"^^xsd:string ;
+  rdfs:label "News" ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:Object>
+  a owl:Class ;
+  rdfs:comment "Objects are items, equipments, or any element can be possed for someone."^^xsd:string ;
+  rdfs:label "Object" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid179
+     _:genid184
+   )
+  ] ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#stor:Entity> .
+
+<http://www.arida.com/rpg/ontology/#stor:Other>
+  a owl:Class ;
+  rdfs:label "Other"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid187
+     _:genid189
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Mode> .
+
+<http://www.arida.com/rpg/ontology/#stor:Plan>
+  a owl:Class ;
+  rdfs:comment "A plan is a set of actions considering its conditions and states to realize it"^^xsd:string ;
+  rdfs:label "Plan" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid192 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:Planning>
+  a owl:Class ;
+  rdfs:comment "Planning is abstract class about with a set plan"^^xsd:string ;
+  rdfs:label "Planning" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid195 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Collection> .
+
+<http://www.arida.com/rpg/ontology/#stor:Player>
+  a owl:Class ;
+  rdfs:label "Player"^^xsd:string, "Player" ;
+  rdfs:comment "Human player in game. This entity controls PC (Player Character)."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid198
+     _:genid200
+   )
+  ] ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#gco:Character> .
+
+<http://www.arida.com/rpg/ontology/#stor:Post>
+  a owl:Class ;
+  rdfs:comment "Posts are informations about something. In PBF (Play-By-Forum), a post can represent description part of story."^^xsd:string ;
+  rdfs:label "Post" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid203
+     _:genid205
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:PostCondition>
+  a owl:Class ;
+  rdfs:label "PostCondition"^^xsd:string ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#stor:Condition> ;
+  owl:disjointWith <http://www.arida.com/rpg/ontology/#stor:PreCondition> .
+
+<http://www.arida.com/rpg/ontology/#stor:PreCondition>
+  a owl:Class ;
+  rdfs:comment "A previous state which defines constraints for condition"^^xsd:string ;
+  rdfs:label "PreCondition"^^xsd:string ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#stor:Condition> .
+
+<http://www.arida.com/rpg/ontology/#stor:Resource>
+  a owl:Class ;
+  rdfs:label "Resource"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid208 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:System>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Scenario>
+  a owl:Class ;
+  rdfs:comment "The scenario consists of all the entities that make up the universe of the game. The scenario includes: characters, ambiences, items, important events, that is, it has many of the narrative components of the game, while the system includes its rules."^^xsd:string ;
+  rdfs:label "Scenario" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid214 )
+  ] ;
+  rdfs:subClassOf <http://www.arida.com/rpg/ontology/#stor:Location> .
+
+<http://www.arida.com/rpg/ontology/#stor:Site>
+  a owl:Class ;
+  rdfs:comment "Sites are web pages"^^xsd:string ;
+  rdfs:label "Site"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid217 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Material>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Skill>
+  a owl:Class ;
+  rdfs:comment "Skills are specific abilities which characters can to do in the world of game. They are affected by one or more attributes."^^xsd:string ;
+  rdfs:label "Skill" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid223 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#stor:State>
+  a owl:Class ;
+  rdfs:label "State"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid226
+     _:genid228
+     _:genid230
+   )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:Planning>
+     <http://www.menthor.net/ontouml#Mode>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:System>
+  a owl:Class ;
+  rdfs:comment "System is set of rules from games"^^xsd:string ;
+  rdfs:label "System" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid236
+     _:genid242
+     _:genid244
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Test>
+  a owl:Class ;
+  rdfs:comment "Test is a event that defines a success or fail in action. Tests commonly are random and are affected by attributes and states of the world."^^xsd:string ;
+  rdfs:label "Test"^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid247 )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#stor:System>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#stor:Topic>
+  a owl:Class ;
+  rdfs:comment "Foruns have many topics, each topic has a set of posts"^^xsd:string ;
+  rdfs:label "Topic" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid253
+     _:genid255
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#ufo-b:Action>
+  a owl:Class ;
+  rdfs:label "UFO-B:Action"^^xsd:string ;
+  rdfs:comment "Actions are intentional events, i.e., Events with the specific purpose of satisfying (the propositional content of) some Intention of an Agent (In this sense, an Action can be said to be caused by the Intention)"^^xsd:string ;
+  rdfs:seeAlso <https://ontology.com.br/ufo/ufo-c/spec/index.html> ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid258
+     _:genid260
+   )
+  ] ;
+  rdfs:subClassOf [
+    a owl:Class ;
+    owl:intersectionOf (
+     <http://www.arida.com/rpg/ontology/#ufo-c:Event>
+     <http://www.menthor.net/ontouml#FunctionalComplex>
+   )
+  ] .
+
+<http://www.arida.com/rpg/ontology/#ufo-c:Event>
+  a owl:Class ;
+  rdfs:label "UFO-C:Event"^^xsd:string ;
+  rdfs:comment "Events are individuals composed by temporal parts, they happen in time in the sense that they extend in time accumulating temporal parts. An example of an Event is a business process."^^xsd:string ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid266 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#ufo-c:Goal>
+  a owl:Class ;
+  rdfs:comment "Goals are defined by states to be achieved. Such goals can be defined within missions or discoveries in planning."^^xsd:string ;
+  rdfs:label "UFO-C:Goal" ;
+  rdfs:seeAlso <http://dev.nemo.inf.ufes.br/seon/UFO.html#UFO_Appointment+Goal_detail> ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf (
+     _:genid269
+     _:genid271
+     _:genid273
+     _:genid275
+   )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.arida.com/rpg/ontology/#vgo:Session>
+  a owl:Class ;
+  rdfs:comment "Session is an abstraction of time in game. For example, in digital games online, session starts in sign in and end in sign out. In Tabletop RPGs, session is when players init game match and end when they stop, but can be restarted the same adventure in another day."^^xsd:string ;
+  rdfs:label "vgo:Session" ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:intersectionOf ( _:genid278 )
+  ] ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#FunctionalComplex> .
+
+<http://www.menthor.net/ontouml#Collection>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Object> .
+
+<http://www.menthor.net/ontouml#Event> a owl:Class .
+<http://www.menthor.net/ontouml#FunctionalComplex>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Object> .
+
+<http://www.menthor.net/ontouml#Mode>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Moment> .
+
+<http://www.menthor.net/ontouml#Moment> a owl:Class .
+<http://www.menthor.net/ontouml#Object> a owl:Class .
+<http://www.menthor.net/ontouml#Quality>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Moment> .
+
+<http://www.menthor.net/ontouml#Quantity>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Object> .
+
+<http://www.menthor.net/ontouml#Relator>
+  a owl:Class ;
+  rdfs:subClassOf <http://www.menthor.net/ontouml#Moment> .
+
+<urn:swrl#y> a <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#x> a <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl#z> a <http://www.w3.org/2003/11/swrl#Variable> .
+_:genid20
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:superClassOf> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#gco:Character> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid26
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#foaf:person> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#foaf:Person> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid28
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:location> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Location> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid34
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeMatch> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Match> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid36
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoal> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid39
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid42
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectCombat> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Combat> .
+
+_:genid44
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectSkill> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Skill> .
+
+_:genid46
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:test> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Test> .
+
+_:genid48
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:AttributeType> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid54
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:AttributeDomain> ;
+  owl:cardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid57
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:Mental> ;
+  owl:cardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid60
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:Physical> ;
+  owl:cardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid63
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:OtherAttribute> ;
+  owl:cardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid66
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizedByAttribute> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Attribute> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid72
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasAdventure> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Match> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid74
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoalCampaign> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid77
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Attribute> .
+
+_:genid79
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasAttack> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Attack> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid81
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasDefense> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Defense> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid83
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasOther> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Other> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid86
+  a owl:Class ;
+  owl:unionOf (
+   <http://www.arida.com/rpg/ontology/#stor:PostCondition>
+   <http://www.arida.com/rpg/ontology/#stor:PreCondition>
+ ) .
+
+_:genid90
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedByCondition> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:State> .
+
+_:genid96
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid99
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:useDice> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:System> .
+
+_:genid102
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:memberOfMission> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Mission> .
+
+_:genid104
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:npc> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:NPC> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid106
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mediatedByPlayer> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Player> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid108
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoal> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid111
+  a owl:Class ;
+  owl:unionOf (
+   <http://www.arida.com/rpg/ontology/#gco:Character>
+   <http://www.arida.com/rpg/ontology/#stor:NPC>
+ ) .
+
+_:genid115
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeGameEntity> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Game> .
+
+_:genid117
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:executeAction> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#ufo-b:Action> .
+
+_:genid126
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeOther> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Other> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid129
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasTopic> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Topic> .
+
+_:genid135
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedByEntity> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Entity> .
+
+_:genid137
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedBySystem> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:System> .
+
+_:genid139
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composedBySession> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#vgo:Session> .
+
+_:genid142
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:locatedIn> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#gco:Character> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid151
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid153
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:matchOfCampaign> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid156
+  a owl:Class ;
+  owl:unionOf (
+   <http://www.arida.com/rpg/ontology/#stor:Book>
+   <http://www.arida.com/rpg/ontology/#stor:Forum>
+   <http://www.arida.com/rpg/ontology/#stor:Magazine>
+   <http://www.arida.com/rpg/ontology/#stor:Site>
+ ) .
+
+_:genid162
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasScenario> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Scenario> .
+
+_:genid165
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:containsEncounter> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Encounter> .
+
+_:genid167
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#hasGoal> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Goal> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid170
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeResource> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Resource> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid173
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid179
+  a owl:Class ;
+  owl:unionOf (
+   <http://www.arida.com/rpg/ontology/#stor:Consumable>
+   <http://www.arida.com/rpg/ontology/#stor:Equipment>
+   <http://www.arida.com/rpg/ontology/#stor:Etc>
+ ) .
+
+_:genid184
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:carriedByPlayer> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Player> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid187
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:characterizeCombatOther> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Combat> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid189
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:experience> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Experience> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid192
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:memberOfPlanning> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Planning> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid195
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:plan> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Plan> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid198
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid200
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:object> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Object> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid203
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:containedInTopic> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Topic> .
+
+_:genid205
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:formSite> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Site> ;
+  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
+
+_:genid208
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:money> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Money> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid214
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:material> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Material> .
+
+_:genid217
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:containsPost> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Post> ;
+  owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger .
+
+_:genid223
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Attribute> .
+
+_:genid226
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:condition> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Condition> .
+
+_:genid228
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#characterizeActionState> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#ufo-b:Action> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid230
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#characterizeEventState> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#ufo-c:Event> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid236
+  a owl:Class ;
+  owl:unionOf (
+   <http://www.arida.com/rpg/ontology/#stor:Attribute>
+   <http://www.arida.com/rpg/ontology/#stor:Combat>
+   <http://www.arida.com/rpg/ontology/#stor:Resource>
+   <http://www.arida.com/rpg/ontology/#stor:Test>
+ ) .
+
+_:genid242
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:useDice> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Dice> .
+
+_:genid244
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeGameSystem> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Game> .
+
+_:genid247
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Attribute> .
+
+_:genid253
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeForum> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Forum> .
+
+_:genid255
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:formedByPost> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Post> .
+
+_:genid258
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:executedByEntity> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Entity> .
+
+_:genid260
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasState> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:State> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid266
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:hasState> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:State> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid269
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfMission> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Mission> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid271
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfAdventure> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Adventure> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid273
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfCampaign> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Campaign> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid275
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:goalOfEncounter> ;
+  owl:onClass <http://www.arida.com/rpg/ontology/#stor:Encounter> ;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger .
+
+_:genid278
+  a owl:Restriction ;
+  owl:onProperty <http://www.arida.com/rpg/ontology/#stor:composeGameSession> ;
+  owl:someValuesFrom <http://www.arida.com/rpg/ontology/#stor:Game> .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.arida.com/rpg/ontology/#stor:Consumable>
+   <http://www.arida.com/rpg/ontology/#stor:Equipment>
+   <http://www.arida.com/rpg/ontology/#stor:Etc>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.menthor.net/ontouml#Event>
+   <http://www.menthor.net/ontouml#Moment>
+   <http://www.menthor.net/ontouml#Object>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.menthor.net/ontouml#Collection>
+   <http://www.menthor.net/ontouml#FunctionalComplex>
+   <http://www.menthor.net/ontouml#Quantity>
+ ) .
+
+[]
+  a owl:AllDisjointProperties ;
+  owl:members (
+   <http://www.arida.com/rpg/ontology/#foaf:person>
+   <http://www.arida.com/rpg/ontology/#stor:locatedIn>
+   <http://www.arida.com/rpg/ontology/#stor:superClassOf>
+   <http://www.arida.com/rpg/ontology/#stor:memberOfMission>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfMission>
+   <http://www.arida.com/rpg/ontology/#stor:characterizedByAdventure>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfAdventure>
+   <http://www.arida.com/rpg/ontology/#stor:hasAttack>
+   <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:characterizedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:affectedByAttribute>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeAttributeType>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfCampaign>
+   <http://www.arida.com/rpg/ontology/#stor:matchOfCampaign>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeCombatOther>
+   <http://www.arida.com/rpg/ontology/#stor:affectCombat>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeCombatDefense>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeCombatAttack>
+   <http://www.arida.com/rpg/ontology/#stor:condition>
+   <http://www.arida.com/rpg/ontology/#stor:hasDefense>
+   <http://www.arida.com/rpg/ontology/#stor:useDice>
+   <http://www.arida.com/rpg/ontology/#stor:containsEncounter>
+   <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterPlayer>
+   <http://www.arida.com/rpg/ontology/#stor:goalOfEncounter>
+   <http://www.arida.com/rpg/ontology/#stor:mediationOfEncounterNPC>
+   <http://www.arida.com/rpg/ontology/#stor:executedByEntity>
+   <http://www.arida.com/rpg/ontology/#stor:composedByEntity>
+   <http://www.arida.com/rpg/ontology/#stor:experience>
+   <http://www.arida.com/rpg/ontology/#stor:composeForum>
+   <http://www.arida.com/rpg/ontology/#stor:composeGameSession>
+   <http://www.arida.com/rpg/ontology/#stor:composeGameEntity>
+   <http://www.arida.com/rpg/ontology/#stor:composeGameSystem>
+   <http://www.arida.com/rpg/ontology/#stor:location>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeMatch>
+   <http://www.arida.com/rpg/ontology/#stor:hasAdventure>
+   <http://www.arida.com/rpg/ontology/#stor:material>
+   <http://www.arida.com/rpg/ontology/#stor:money>
+   <http://www.arida.com/rpg/ontology/#stor:news>
+   <http://www.arida.com/rpg/ontology/#stor:npc>
+   <http://www.arida.com/rpg/ontology/#stor:object>
+   <http://www.arida.com/rpg/ontology/#stor:hasOther>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeOther>
+   <http://www.arida.com/rpg/ontology/#stor:containsPlans>
+   <http://www.arida.com/rpg/ontology/#stor:memberOfPlanning>
+   <http://www.arida.com/rpg/ontology/#stor:mediatedByPlayer>
+   <http://www.arida.com/rpg/ontology/#stor:carriedByPlayer>
+   <http://www.arida.com/rpg/ontology/#stor:formPost>
+   <http://www.arida.com/rpg/ontology/#stor:containsPost>
+   <http://www.arida.com/rpg/ontology/#stor:formedByPost>
+   <http://www.arida.com/rpg/ontology/#stor:characterizeResource>
+   <http://www.arida.com/rpg/ontology/#stor:hasScenario>
+   <http://www.arida.com/rpg/ontology/#stor:formSite>
+   <http://www.arida.com/rpg/ontology/#stor:affectSkill>
+   <http://www.arida.com/rpg/ontology/#stor:composedByCondition>
+   <http://www.arida.com/rpg/ontology/#stor:hasState>
+   <http://www.arida.com/rpg/ontology/#stor:hasState>
+   <http://www.arida.com/rpg/ontology/#stor:useDice>
+   <http://www.arida.com/rpg/ontology/#stor:composedBySystem>
+   <http://www.arida.com/rpg/ontology/#stor:test>
+   <http://www.arida.com/rpg/ontology/#stor:containedInTopic>
+   <http://www.arida.com/rpg/ontology/#stor:hasTopic>
+   <http://www.arida.com/rpg/ontology/#stor:executeAction>
+   <http://www.arida.com/rpg/ontology/#characterizeActionState>
+   <http://www.arida.com/rpg/ontology/#characterizeEventState>
+   <http://www.arida.com/rpg/ontology/#hasGoalMission>
+   <http://www.arida.com/rpg/ontology/#hasGoalEncounter>
+   <http://www.arida.com/rpg/ontology/#hasGoalAdventure>
+   <http://www.arida.com/rpg/ontology/#hasGoalCampaign>
+   <http://www.arida.com/rpg/ontology/#stor:composedBySession>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.arida.com/rpg/ontology/#stor:Attribute>
+   <http://www.arida.com/rpg/ontology/#stor:Combat>
+   <http://www.arida.com/rpg/ontology/#stor:Resource>
+   <http://www.arida.com/rpg/ontology/#stor:Test>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.arida.com/rpg/ontology/#stor:Book>
+   <http://www.arida.com/rpg/ontology/#stor:Forum>
+   <http://www.arida.com/rpg/ontology/#stor:Magazine>
+   <http://www.arida.com/rpg/ontology/#stor:Site>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.menthor.net/ontouml#Mode>
+   <http://www.menthor.net/ontouml#Quality>
+   <http://www.menthor.net/ontouml#Relator>
+ ) .
+
+[]
+  a owl:AllDisjointClasses ;
+  owl:members (
+   <http://www.arida.com/rpg/ontology/#stor:Mental>
+   <http://www.arida.com/rpg/ontology/#stor:Physical>
+   <http://www.arida.com/rpg/ontology/#stor:OtherAttribute>
+ ) .
+
+[]
+  a <http://www.w3.org/2003/11/swrl#Imp> ;
+  ns0:head ( _:genid383 ) ;
+  ns0:body (
+   _:genid385
+   _:genid393
+   _:genid392
+   _:genid389
+   _:genid391
+ ) .
+
+_:genid383
+  a ns0:IndividualPropertyAtom ;
+  ns0:propertyPredicate <http://www.menthor.net/ontouml#functionalPart> ;
+  ns0:argument2 <urn:swrl#x> ;
+  ns0:argument1 <urn:swrl#z> .
+
+_:genid385
+  a ns0:IndividualPropertyAtom ;
+  ns0:propertyPredicate <http://www.menthor.net/ontouml#functionalPart> ;
+  ns0:argument2 <urn:swrl#x> ;
+  ns0:argument1 <urn:swrl#y> .
+
+_:genid389
+  a ns0:DifferentIndividualsAtom ;
+  ns0:argument1 <urn:swrl#x> ;
+  ns0:argument2 <urn:swrl#z> .
+
+_:genid391
+  a ns0:DifferentIndividualsAtom ;
+  ns0:argument1 <urn:swrl#y> ;
+  ns0:argument2 <urn:swrl#z> .
+
+_:genid392
+  a ns0:DifferentIndividualsAtom ;
+  ns0:argument1 <urn:swrl#x> ;
+  ns0:argument2 <urn:swrl#y> .
+
+_:genid393
+  a ns0:IndividualPropertyAtom ;
+  ns0:propertyPredicate <http://www.menthor.net/ontouml#functionalPart> ;
+  ns0:argument2 <urn:swrl#y> ;
+  ns0:argument1 <urn:swrl#z> .
+
+[]
+  a ns0:Imp ;
+  ns0:head ( _:genid396 ) ;
+  ns0:body (
+   _:genid398
+   _:genid400
+   _:genid406
+   _:genid403
+   _:genid405
+ ) .
+
+_:genid396
+  a ns0:IndividualPropertyAtom ;
+  ns0:propertyPredicate <http://www.menthor.net/ontouml#collectionPart> ;
+  ns0:argument2 <urn:swrl#x> ;
+  ns0:argument1 <urn:swrl#z> .
+
+_:genid398
+  a ns0:IndividualPropertyAtom ;
+  ns0:propertyPredicate <http://www.menthor.net/ontouml#collectionPart> ;
+  ns0:argument2 <urn:swrl#y> ;
+  ns0:argument1 <urn:swrl#z> .
+
+_:genid400
+  a ns0:IndividualPropertyAtom ;
+  ns0:propertyPredicate <http://www.menthor.net/ontouml#member> ;
+  ns0:argument2 <urn:swrl#x> ;
+  ns0:argument1 <urn:swrl#y> .
+
+_:genid403
+  a ns0:DifferentIndividualsAtom ;
+  ns0:argument1 <urn:swrl#x> ;
+  ns0:argument2 <urn:swrl#z> .
+
+_:genid405
+  a ns0:DifferentIndividualsAtom ;
+  ns0:argument1 <urn:swrl#y> ;
+  ns0:argument2 <urn:swrl#z> .
+
+_:genid406
+  a ns0:DifferentIndividualsAtom ;
+  ns0:argument1 <urn:swrl#x> ;
+  ns0:argument2 <urn:swrl#y> .
+
