@@ -146,8 +146,7 @@
                                                  rdfs:domain <http://200.19.182.252/ontology#Gestacao> .
 
 
-###  http://www.w3.org/2002/07/owl#topDataProperty
-owl:topDataProperty rdfs:subPropertyOf owl:topDataProperty .
+
 
 
 #################################################################
