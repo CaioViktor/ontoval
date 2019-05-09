@@ -3,25 +3,25 @@
 	<head>
 		<meta charset = "UTF-8">
 		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
-		<title>Estatísticas</title>
+		<title>Statistics</title>
 	</head>
 	<body>
 		<div id="estatisticas" class = "content">
-			<center><h1>Estatísticas para a ontologia: {{name}}</h1></center>
+			<center><h1>Statistics for the ontology: {{name}}</h1></center>
 			<details open>
-				<summary>Resumo</summary>
+				<summary>Summary</summary>
 				<table>
 					<tr>
 						<th></th>
-						<th>Idade</th>
-						<th>experiência Domínio</th>
-						<th>experiência Ontologias</th>
-						<th>Aprovação Média de Classes</th>
-						<th>Aprovação Média de Propriedades</th>
-						<th>Tempo</th>
+						<th>Age</th>
+						<th>Domain experience</th>
+						<th>Ontology experience</th>
+						<th>Mean class approval</th>
+						<th>Mean properties approval</th>
+						<th>Time</th>
 					</tr>
 					<tr>
-						<th>Média</th>
+						<th>Mean</th>
 						<td>{{evaluations['age'].mean() }}</td>
 						<td>{{evaluations['expert_domain'].mean()}}</td>
 						<td>{{evaluations['expert_ontology'].mean()}}</td>
@@ -30,7 +30,7 @@
 						<td>{{datetime.timedelta(seconds=evaluations['time'].mean())}}</td>
 					</tr>
 					<tr>
-						<th>Máximo</th>
+						<th>Max</th>
 						<td>{{evaluations['age'].max() }}</td>
 						<td>{{evaluations['expert_domain'].max()}}</td>
 						<td>{{evaluations['expert_ontology'].max()}}</td>
@@ -39,7 +39,7 @@
 						<td>{{datetime.timedelta(seconds=evaluations['time'].max())}}</td>
 					</tr>
 					<tr>
-						<th>Mínimo</th>
+						<th>Min</th>
 						<td>{{evaluations['age'].min() }}</td>
 						<td>{{evaluations['expert_domain'].min()}}</td>
 						<td>{{evaluations['expert_ontology'].min()}}</td>
@@ -48,7 +48,7 @@
 						<td>{{datetime.timedelta(seconds=evaluations['time'].min())}}</td>
 					</tr>
 					<tr>
-						<th>Desvio Padrão</th>
+						<th>Standard deviation</th>
 						<td>{{evaluations['age'].mad() }}</td>
 						<td>{{evaluations['expert_domain'].mad()}}</td>
 						<td>{{evaluations['expert_ontology'].mad()}}</td>
@@ -70,34 +70,34 @@
 						<table>
 							<tr>
 								<th></th>
-								<th>Aprovação Geral</th>
-								<th>Aprovação Superclasses</th>
-								<th>Aprovação DatatypeProperties</th>
-								<th>Aprovação ObjectProperties</th>
+								<th>General approval</th>
+								<th>Superclass approval</th>
+								<th>DatatypeProperties approval</th>
+								<th>ObjectProperties approval</th>
 							</tr>
 							<tr>
-								<th>Média (%)</th>
+								<th>Mean (%)</th>
 								<td>{{evaluations['s'+classe].mean() *100}}</td>
 								<td>{{evaluations['p'+classe].mean() *100}}</td>
 								<td>{{evaluations['d'+classe].mean() *100}}</td>
 								<td>{{evaluations['o'+classe].mean() *100}}</td>
 							</tr>
 							<tr>
-								<th>Máximo (%)</th>
+								<th>Max (%)</th>
 								<td>{{evaluations['s'+classe].max() *100}}</td>
 								<td>{{evaluations['p'+classe].max() *100}}</td>
 								<td>{{evaluations['d'+classe].max() *100}}</td>
 								<td>{{evaluations['o'+classe].max() *100}}</td>
 							</tr>
 							<tr>
-								<th>Mínimo (%)</th>
+								<th>Min (%)</th>
 								<td>{{evaluations['s'+classe].min() *100}}</td>
 								<td>{{evaluations['p'+classe].min() *100}}</td>
 								<td>{{evaluations['d'+classe].min() *100}}</td>
 								<td>{{evaluations['o'+classe].min() *100}}</td>
 							</tr>
 							<tr>
-								<th>Desvio Padrão</th>
+								<th>Standard deviation</th>
 								<td>{{evaluations['s'+classe].mad()}}</td>
 								<td>{{evaluations['p'+classe].mad()}}</td>
 								<td>{{evaluations['d'+classe].mad()}}</td>
@@ -111,37 +111,37 @@
 				{%endfor%}
 			</details>
 			<details>
-				<summary>Propriedades</summary>
+				<summary>Properties</summary>
 				{%for property in properties%}
 					<details >
 						<summary class="{%if evaluations['s'+property].mean() < 1%}vermelho{%endif%}">{{properties[property]}}</summary>
 						<table>
 							<tr>
 								<th></th>
-								<th>Aprovação Geral</th>
-								<th>Aprovação Super-Propriedades</th>
-								<th>Aprovação Range</th>
+								<th>General approval</th>
+								<th>Super-Properties approval</th>
+								<th>Range approval</th>
 							</tr>
 							<tr>
-								<th>Média (%)</th>
+								<th>Mean (%)</th>
 								<td>{{evaluations['s'+property].mean() *100}}</td>
 								<td>{{evaluations['p'+property].mean() *100}}</td>
 								<td>{{evaluations['r'+property].mean() *100}}</td>
 							</tr>
 							<tr>
-								<th>Máximo (%)</th>
+								<th>Max (%)</th>
 								<td>{{evaluations['s'+property].max() *100}}</td>
 								<td>{{evaluations['p'+property].max() *100}}</td>
 								<td>{{evaluations['r'+property].max() *100}}</td>
 							</tr>
 							<tr>
-								<th>Mínimo (%)</th>
+								<th>Min (%)</th>
 								<td>{{evaluations['s'+property].min() *100}}</td>
 								<td>{{evaluations['p'+property].min() *100}}</td>
 								<td>{{evaluations['r'+property].min() *100}}</td>
 							</tr>
 							<tr>
-								<th>Desvio Padrão </th>
+								<th>Standard deviation</th>
 								<td>{{evaluations['s'+property].mad()}}</td>
 								<td>{{evaluations['p'+property].mad()}}</td>
 								<td>{{evaluations['r'+property].mad()}}</td>
@@ -156,7 +156,7 @@
 
 
 			<details>
-				<summary>Geral</summary>
+				<summary>General</summary>
 				<table>
 					<tr>
 						<th></th>

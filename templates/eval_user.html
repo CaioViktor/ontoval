@@ -3,32 +3,32 @@
 	<head>
 		<meta charset = "UTF-8">
 		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
-		<title>Nova avaliação</title>
+		<title>New evaluation</title>
 	</head>
 	<body>
 		<div class = "content">
-			<center><h3> Formulário de inscrição para avaliação da ontolgia {{ontology.name}}</h3></center>
-			<b>Descrição:</b>{{ontology.description}}<br>
+			<center><h3> Application form for ontology evaluation: {{ontology.name}}</h3></center>
+			<b>Description:</b>{{ontology.description}}<br>
 			<form action="{{url_for('eval_user_confirm',ontology_id=ontology.id)}}" method="post" id="novoAvaliador">
 				<table>
 					<tr>
-						<td>Nome:</td>
-						<td><input type="text" name="nameE" placeholder="Opicional"></td>
+						<td>Name:</td>
+						<td><input type="text" name="nameE" placeholder="Optional"></td>
 					</tr>
 					<tr>
-						<td>Idade*:</td>
+						<td>Age*:</td>
 						<td><input type="number" name="age" value=18 min=0 max=120 step=1 pattern="\d+" required></td>
 					</tr>
 					<tr>
-						<td>Nível de conhecimento no domínio*:</td>
+						<td>Level of knowledge in the domain*:</td>
 						<td><input type="number" name="expert_domain" value=5 min=0 max=10 step=1 pattern="\d+" required></td>
 					</tr>
 					<tr>
-						<td>Nível de conhecimento sobre ontologias*:</td>
+						<td>Level of knowledge about ontologies*:</td>
 						<td><input type="number" name="expert_ontology" value=5 min=0 max=10 step=1 pattern="\d+" required></td>
 					</tr>
 				</table>
-				<p id="aviso">(*) Campos obrigatórios</p>
+				<p id="aviso">(*) Required fields</p>
 				<center><input type="image" class="botao" src="{{url_for('static',filename='img/next.png')}}" alt="Enviar"></center>
 			</form>
 		</div>

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset = "UTF-8">
 		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
-		<title>Avaliação</title>
+		<title>Evaluation</title>
 		<script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
 	</head>
 	<body onkeypress="keyPress(event)" >
@@ -19,47 +19,47 @@
 		<div id="indice" class="side">
 			<center><h3>{{ontologia['name']}}</h3></center>
 			<fieldset>
-				<legend>Descrição</legend>
+				<legend>Description</legend>
 				{{ontologia['description']}}</td><br>
 			</fieldset>
 			<fieldset>
-				<legend>Progesso da avaliação</legend>
+				<legend>Progression of evaluation</legend>
 				<table>
 					<tr>
-						<td>Classes avaliadas:</td>
+						<td>Classes evaluated:</td>
 						<td>{{indices['classes'][0]}}/{{indices['classes'][1]}}</td>
 					</tr>
 					<tr>
-						<td>Propriedades avaliadas:</td>
+						<td>Properties evaluated:</td>
 						<td>{{indices['properties'][0]}}/{{indices['properties'][1]}}</td>
 					</tr>
 					<tr>
-						<td>Avaliação geral:</td>
+						<td>General evaluation:</td>
 						<td>{{indices['general'][0]}}/{{indices['general'][1]}}</td>
 					</tr>
 				</table>
 			</fieldset>
 			{%if ontologia.image != ""%}
 			<fieldset>
-				<legend>Modelo da ontologia</legend>
+				<legend>Ontology model</legend>
 				<center>
 					<img src="{{url_for('static',filename='img/diagram.png')}}" alt="Imagem com modelo da ontologia" class="icon" onclick="document.getElementById('modelDiv').style.display='block'">
 				</center>
 			</fieldset>
 			{%endif%}
 			<fieldset>
-				<legend>Link para continuar mais tarde</legend>
+				<legend>Link to continue later</legend>
 				<a tabindex="-1" href="{{url_for('eval',ontology_id=ontologia.id,user=user)}}">{{url_for('eval',ontology_id=ontologia.id,user=user,_external=True)}}</a>
 			</fieldset>
 			<fieldset id="atalhos">
-				<legend>Atalhos</legend>
+				<legend>Shortcuts</legend>
 				<table>
 					<tr>
 						<td>
 							Tab
 						</td>
 						<td>
-							Próximo Campo
+							Next Field
 						</td>
 					</tr>
 					<tr>
@@ -67,7 +67,7 @@
 							Shift + Tab
 						</td>
 						<td>
-							Campo Anterior
+							Previous Field
 						</td>
 					</tr>
 					<tr>
@@ -75,7 +75,7 @@
 							&larr;,&rarr;
 						</td>
 						<td>
-							Mudar valor selecionado (Sim/Não)
+							Change selected value (Yes / No)
 						</td>
 					</tr>
 					<tr>
@@ -83,7 +83,7 @@
 							Enter
 						</td>
 						<td>
-							Enviar
+							Submit
 						</td>
 					</tr>
 				</table>
@@ -100,12 +100,12 @@
 
 
 
-					<b>Para a classe (conceito) com o identificador:</b><br> {{termo.uri}}<br>
-					<b>Chamada pelos seguintes nomes:</b><br>
+					<b>For the class (concept) with the identifier:</b><br> {{termo.uri}}<br>
+					<b>Called by the following names:</b><br>
 					{%for label in termo.labels%}
 						{{label}}<br>
 					{%endfor%}
-					<b>Sendo definida como:</b><br>
+					<b>Defined as:</b><br>
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
@@ -113,25 +113,25 @@
 						<tr>
 							<td class="question"></td>
 							<td class="response">
-								<input type="radio" value=1 name="all" checked onchange="check(1);"> Sim <input type="radio" name="all" value=0 onchange="check(0);"> Não
+								<input type="radio" value=1 name="all" checked onchange="check(1);"> Yes <input type="radio" name="all" value=0 onchange="check(0);"> No
 							</td>
 						</tr>
 						<tr id="cor0">
 							<td class="question">{{questions.c1}}</td>
 							<td class="response">
-								<input type="radio" name="c1" value=1 class="sim" checked> Sim <input type="radio" name="c1" class="nao" value=0 > Não
+								<input type="radio" name="c1" value=1 class="sim" checked> Yes <input type="radio" name="c1" class="nao" value=0 > No
 							</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.c2}}</td>
 							<td>
-								<input type="radio" name="c2" value=1 class="sim" checked> Sim <input type="radio" name="c2" class="nao" value=0 > Não
+								<input type="radio" name="c2" value=1 class="sim" checked> Yes <input type="radio" name="c2" class="nao" value=0 > No
 							</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.c3}}</td>
 							<td>
-								<input type="radio" name="c3" value=1 class="sim" checked> Sim <input type="radio" name="c3" class="nao" value=0 > Não
+								<input type="radio" name="c3" value=1 class="sim" checked> Yes <input type="radio" name="c3" class="nao" value=0 > No
 							</td>
 						</tr>
 					{%set count = {'c':0}%}
@@ -141,7 +141,7 @@
 
 							<td>{{questions.c4}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_mae}} ,0);">{{ontologia.classes[id_mae].uri}}</a> ?</td>
 							<td>
-								<input type="radio" name="{{'m'~id_mae}}" value=1 class="sim" checked> Sim <input type="radio" name="{{'m'~id_mae}}" class="nao" value=0 > Não
+								<input type="radio" name="{{'m'~id_mae}}" value=1 class="sim" checked> Yes <input type="radio" name="{{'m'~id_mae}}" class="nao" value=0 > No
 							</td>
 						</tr>
 						{% if Sclasses.append(id_mae)%}{%endif%}
@@ -153,7 +153,7 @@
 						<tr id="{{id}}">
 							<td>{{questions.c5}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_rel}} ,1);">{{ontologia.properties[id_rel].uri}}</a>?</td>
 							<td>
-								<input type="radio" name="{{'r'~id_rel}}" value=1 class="sim" checked> Sim <input type="radio" name="{{'r'~id_rel}}" class="nao" value=0 > Não
+								<input type="radio" name="{{'r'~id_rel}}" value=1 class="sim" checked> Yes <input type="radio" name="{{'r'~id_rel}}" class="nao" value=0 > No
 							</td>
 						</tr>
 						{%if Spropriedades.append(id_rel)%}{%endif%}
@@ -166,7 +166,7 @@
 						<tr id="{{id}}">
 						<td>{{questions.c6}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_atr}} ,1);">{{ontologia.properties[id_atr].uri}}</a> ?</td>
 						<td>
-							<input type="radio" name="{{'a'~id_atr}}" value=1 class="sim" checked> Sim <input type="radio" name="{{'a'~id_atr}}" class="nao" value=0 > Não
+							<input type="radio" name="{{'a'~id_atr}}" value=1 class="sim" checked> Yes <input type="radio" name="{{'a'~id_atr}}" class="nao" value=0 > No
 						</td>
 						</tr>
 						{% if Spropriedades.append(id_atr)%}{%endif%}
@@ -184,32 +184,32 @@
 						<tr>
 							<td class="question"></td>
 							<td class="response">
-								<input type="radio" value=1 name="all" checked onchange="check(1);"> Sim <input type="radio" name="all" value=0 onchange="check(0);"> Não
+								<input type="radio" value=1 name="all" checked onchange="check(1);"> Yes <input type="radio" name="all" value=0 onchange="check(0);"> No
 							</td>
 						</tr>
 						<tr id="cor0">
 							<td class="question">{{questions.g1}}</td>
-							<td class="response"><input type="radio" name="g1" value=1 class="sim" checked> Sim   <input type="radio" name="g1" class="nao" value=0 > Não</td>
+							<td class="response"><input type="radio" name="g1" value=1 class="sim" checked> Yes   <input type="radio" name="g1" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g2}}</td>
-							<td><input type="radio" name="g2" value=1 class="sim" checked> Sim   <input type="radio" name="g2" class="nao" value=0 > Não</td>
+							<td><input type="radio" name="g2" value=1 class="sim" checked> Yes   <input type="radio" name="g2" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.g3}}</td>
-							<td><input type="radio" name="g3" value=1 class="sim" checked> Sim   <input type="radio" name="g3" class="nao" value=0 > Não</td>
+							<td><input type="radio" name="g3" value=1 class="sim" checked> Yes   <input type="radio" name="g3" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g4}}</td>
-							<td><input type="radio" name="g4" value=1 class="sim" checked> Sim   <input type="radio" name="g4" class="nao" value=0 > Não</td>
+							<td><input type="radio" name="g4" value=1 class="sim" checked> Yes   <input type="radio" name="g4" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.g5}}</td>
-							<td><input type="radio" name="g5" value=1 class="sim" checked> Sim   <input type="radio" name="g5" class="nao" value=0 > Não</td>
+							<td><input type="radio" name="g5" value=1 class="sim" checked> Yes   <input type="radio" name="g5" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.g6}}</td>
-							<td><input type="radio" name="g6" value=1 class="sim" checked> Sim   <input type="radio" name="g6" class="nao" value=0 > Não</td>
+							<td><input type="radio" name="g6" value=1 class="sim" checked> Yes   <input type="radio" name="g6" class="nao" value=0 > No</td>
 						</tr>
 					</table>
 
@@ -220,16 +220,16 @@
 					
 
 
-					<b>Para a propriedade com o identificador:</b><br> {{termo.uri}}<br>
-					<b>Chamada pelos seguintes nomes:</b><br>
+					<b>For property with identifier:</b><br> {{termo.uri}}<br>
+					<b>Called by the following names:</b><br>
 					{%for label in termo.labels%}
 						{{label}}<br>
 					{%endfor%}
-					<b>Sendo definida como:</b><br>
+					<b>Defined as:</b><br>
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
-					<b>Dono da propriedade (Domain):</b><br>
+					<b>Owner of the property (Domain):</b><br>
 					{%for id_domain in termo.domain%}
 						<a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_domain}} ,0);">{{ontologia.classes[id_domain].uri}}</a><br>
 						{%if Sclasses.append(id_domain)%}{%endif%}
@@ -239,30 +239,30 @@
 						<tr>
 							<td class="question"></td>
 							<td class="response">
-								<input type="radio" value=1 name="all" checked onchange="check(1);"> Sim <input type="radio" name="all" value=0 onchange="check(0);"> Não
+								<input type="radio" value=1 name="all" checked onchange="check(1);"> Yes <input type="radio" name="all" value=0 onchange="check(0);"> No
 							</td>
 						</tr>
 						<tr id="cor0">
 							<td class="question">{{questions.p1}}</td>
 							<td class="response">
-								<input type="radio" name="p1" value=1 class="sim" checked> Sim   <input type="radio" name="p1" class="nao" value=0 > Não</td>
+								<input type="radio" name="p1" value=1 class="sim" checked> Yes   <input type="radio" name="p1" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor1">
 							<td>{{questions.p2}}</td>
 							<td>
-								<input type="radio" name="p2" value=1 class="sim" checked> Sim   <input type="radio" name="p2" class="nao" value=0 > Não</td>
+								<input type="radio" name="p2" value=1 class="sim" checked> Yes   <input type="radio" name="p2" class="nao" value=0 > No</td>
 						</tr>
 						<tr id="cor0">
 							<td>{{questions.p3}}</td>
 							<td>
-								<input type="radio" name="p3" value=1 class="sim" checked> Sim   <input type="radio" name="p3" class="nao" value=0 > Não</td>
+								<input type="radio" name="p3" value=1 class="sim" checked> Yes   <input type="radio" name="p3" class="nao" value=0 > No</td>
 						</tr>
 						<tr  id="cor1">
 							<td>
 							{{questions.p5}} {{termo.type}}?
 							</td>
 							<td>
-								<input type="radio" name="p5" value=1 class="sim" checked> Sim   <input type="radio" name="p5" class="nao" value=0 > Não<br>
+								<input type="radio" name="p5" value=1 class="sim" checked> Yes   <input type="radio" name="p5" class="nao" value=0 > No<br>
 							</td>
 						</tr>
 						{%set count = {'c':0}%}
@@ -272,7 +272,7 @@
 								<td>
 									{{questions.p4}} <a tabindex="-1" href="#" onclick= "showInfo(event,S{{id_mae}} ,1);">{{ontologia.properties[id_mae].uri}}</a> ?</td>
 								<td>
-									<input type="radio" name="{{'m'~id_mae}}" value=1 class="sim" checked> Sim   <input type="radio" name="{{'m'~id_mae}}" class="nao" value=0 > Não
+									<input type="radio" name="{{'m'~id_mae}}" value=1 class="sim" checked> Yes   <input type="radio" name="{{'m'~id_mae}}" class="nao" value=0 > No
 								</td>
 							</tr>
 							{%if Spropriedades.append(id_mae)%}{%endif%}
@@ -297,7 +297,7 @@
 									?
 								</td>
 								<td>
-									<input type="radio" name="{{'r'~nameC}}" value=1 class="sim" checked> Sim   <input type="radio" name="{{'r'~nameC}}" class="nao" value=0 > Não
+									<input type="radio" name="{{'r'~nameC}}" value=1 class="sim" checked> Yes   <input type="radio" name="{{'r'~nameC}}" class="nao" value=0 > No
 								</td>
 							</tr>
 							{%if count.update({'c':(count.c +1)})%}{%endif%}
@@ -306,8 +306,8 @@
 
 
 				{%endif%}
-					<b>Observação:</b><br>
-					<textarea name="observation" placeholder="Opcional" rows="3" col="150" onkeypress="event.stopPropagation();"></textarea>
+					<b>Comment:</b><br>
+					<textarea name="observation" placeholder="Optional" rows="3" col="150" onkeypress="event.stopPropagation();"></textarea>
 				<center><input tabindex="-1" class="botao" type="image" src="{{url_for('static',filename='img/back.png')}}" alt="Voltar" onclick="voltar(event);"><input type="image" id="uploadButton" class="botao" src="{{url_for('static',filename='img/next.png')}}" alt="Enviar"></center>
 			</form>
 		</div>

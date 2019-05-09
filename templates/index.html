@@ -7,16 +7,16 @@
 	</head>
 	<body>
 		<div class = "content">
-			<center><h1>Lista de ontologias</h1></center>
-			<div id="divNovaOnto">Nova ontologia: <a href="{{url_for('new')}}"><img id="plus" src="{{url_for('static',filename='img/plus.png')}}"></a></div>
+			<center><h1>List of ontologies</h1></center>
+			<div id="divNovaOnto">New ontology: <a href="{{url_for('new')}}"><img id="plus" src="{{url_for('static',filename='img/plus.png')}}"></a></div>
 			{% if ontologies|length > 0 %}
 				<table id="listaOnt">
 					<tr>
-						<th>Nome</th>
+						<th>Name</th>
 						
 						<th>Classes</th>
-						<th>Propriedades</th>
-						<th>Avaliações</th>
+						<th>Properties</th>
+						<th>Evaluations</th>
 					</tr>
 					{%set count = {'c':0}%}
 					{% for ontologia in ontologies %}
@@ -29,7 +29,7 @@
 							<td id="col5">{{ontologia.qtd_evaluations}}</td>
 							
 							<tr id="link">
-								<td><b>Link para avaliação:</b></td>
+								<td><b>Link to evaluation:</b></td>
 								<td colspan="2"><a href="{{url_for('eval_user',ontology_id=ontologia.id)}}">{{url_for('eval_user',ontology_id=ontologia.id,_external=True)}}</a></td>
 								<td>
 									{%if ontologia.qtd_evaluations > 0%}
@@ -43,7 +43,7 @@
 				</table>
 			{% else %}
 				<center>
-					Nenuma ontologia cadastrada
+					No ontology registered
 				</center>
 			{% endif %}
 		</div>

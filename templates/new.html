@@ -3,32 +3,32 @@
 	<head>
 		<meta charset = "UTF-8">
 		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
-		<title>index</title>
+		<title>New ontology</title>
 	</head>
 	<body>
 		<div class = "content">
 			<center>
-				<h1>Nova ontologia para avaliação</h1>
+				<h1>New ontology for evaluation</h1>
 				<form method="post" action="{{url_for('newConfirm')}}" enctype="multipart/form-data" id = "newOntology">
 					<table>
 						<tr>
-							<td>Nome da ontologia*:</td>
-							<td><input type="text" name="nome" placeholder="Nome" required autofocus> </td>
+							<td>Ontology name*:</td>
+							<td><input type="text" name="nome" placeholder="Name" required autofocus> </td>
 						</tr>
 						<tr>
-							<td>Descrição:</td>
-							<td><textarea name="descricao" placeholder="Descrição da ontologia" rows="3" col="50"></textarea></td>
+							<td>Description:</td>
+							<td><textarea name="descricao" placeholder="Description of the ontology" rows="3" col="50"></textarea></td>
 						</tr>
 						<tr>
-							<td>Arquivo da ontologia*:</td>
+							<td>Ontology file*:</td>
 							<td><input type="file" name="ontologia" required> </td>
 						</tr>
 						<tr>
-							<td>Imagem da ontologia:</td>
+							<td>Image of the ontology:</td>
 							<td><input type="file" name="foto" accept="image/*" > </td>
 						</tr>
 					</table>
-					<p id="aviso">(*) Campos obrigatórios</p>
+					<p id="aviso">(*) Required fields</p>
 					<center><input type="image" class="botao" src="{{url_for('static',filename='img/next.png')}}" alt="Enviar"></center>
 				</form>
 			</center>

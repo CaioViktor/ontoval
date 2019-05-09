@@ -3,28 +3,28 @@
 	<head>
 		<meta charset = "UTF-8">
 		<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
-		<title>Estatísticas detalhadas para propriedade</title>
+		<title>Detailed property statistics</title>
 	</head>
 	<body>
 		<div id="estatisticas" class = "content">
-			<center><h1>Estatísticas para a propriedade: {{name}}</h1></center>
+			<center><h1>Statistics for property: {{name}}</h1></center>
 			<details open>
-				<summary>Geral</summary>
+				<summary>General</summary>
 				<table id="listaOnt">
 					<tr>
 						<th></th>
-						<th>experiência Domínio</th>
-						<th>experiência Ontologias</th>
-						<th>Aprovação Geral</th>
+						<th>Domain experience</th>
+						<th>Ontology experience</th>
+						<th>General Approval</th>
 						<th>P1</th>
 						<th>P2</th>
 						<th>P3</th>
 						<th>P5</th>
-						<th>superclasses</th>
+						<th>Super-properties</th>
 						<th>Range</th>
 					</tr>
 					<tr>
-						<th>Média</th>
+						<th>Mean</th>
 						<td>{{evaluations['expert_domain'].mean()}}</td>
 						<td>{{evaluations['expert_ontology'].mean()}}</td>
 						<td>{{evaluations['score'].mean() *100}}%</td>
@@ -36,7 +36,7 @@
 						<td>{{evaluations['score_range'].mean() *100}}%</td>
 					</tr>
 					<tr>
-						<th>Máximo</th>
+						<th>Max</th>
 						<td>{{evaluations['expert_domain'].max()}}</td>
 						<td>{{evaluations['expert_ontology'].max()}}</td>
 						<td>{{evaluations['score'].max() *100}}%</td>
@@ -48,7 +48,7 @@
 						<td>{{evaluations['score_range'].max() *100}}%</td>
 					</tr>
 					<tr>
-						<th>Mínimo</th>
+						<th>Min</th>
 						<td>{{evaluations['expert_domain'].min()}}</td>
 						<td>{{evaluations['expert_ontology'].min()}}</td>
 						<td>{{evaluations['score'].min() *100}}%</td>
@@ -60,7 +60,7 @@
 						<td>{{evaluations['score_range'].min() *100}}%</td>
 					</tr>
 					<tr>
-						<th>Desvio Padrão</th>
+						<th>Standard deviation</th>
 						<td>{{evaluations['expert_domain'].mad()}}</td>
 						<td>{{evaluations['expert_ontology'].mad()}}</td>
 						<td>{{evaluations['score'].mad() *100}}%</td>
@@ -82,23 +82,23 @@
 						<table>
 							<tr>
 								<th></th>
-								<th>Aprovação</th>
+								<th>Approval</th>
 							</tr>
 							<tr>
-								<th>Média (%)</th>
+								<th>Mean (%)</th>
 								<td>{{evaluations[p].mean() *100}}</td>
 							</tr>
 							<tr>
-								<th>Máximo (%)</th>
+								<th>Max (%)</th>
 								<td>{{evaluations[p].max() *100}}</td>
 							</tr>
 							<tr>
-								<th>Mínimo (%)</th>
+								<th>Min (%)</th>
 								<td>{{evaluations[p].min() *100}}</td>
 							</tr>
 							<tr>
-								<th>Desvio Padrão (%)</th>
-								<td>{{evaluations[p].mad()}}</td>
+								<th>Standard deviation (%)</th>
+								<td>{{evaluations[p].mad() * 100}}</td>
 							</tr>
 						</table>
 					</details>
@@ -113,23 +113,23 @@
 						<table>
 							<tr>
 								<th></th>
-								<th>Aprovação</th>
+								<th>Approval</th>
 							</tr>
 							<tr>
-								<th>Média (%)</th>
+								<th>Mean (%)</th>
 								<td>{{evaluations[rg].mean() *100}}</td>
 							</tr>
 							<tr>
-								<th>Máximo (%)</th>
+								<th>Max (%)</th>
 								<td>{{evaluations[rg].max() *100}}</td>
 							</tr>
 							<tr>
-								<th>Mínimo (%)</th>
+								<th>Min (%)</th>
 								<td>{{evaluations[rg].min() *100}}</td>
 							</tr>
 							<tr>
-								<th>Desvio Padrão (%)</th>
-								<td>{{evaluations[rg].mad()}}</td>
+								<th>Standard deviation (%)</th>
+								<td>{{evaluations[rg].mad() * 100}}</td>
 							</tr>
 						</table>
 					</details>
@@ -138,7 +138,7 @@
 
 			
 			<details>
-				<summary>Comentários</summary>
+				<summary>Comments</summary>
 				{%for comment in observations%}
 					<textarea readonly>{{comment}}</textarea><br>
 				{%endfor%}
