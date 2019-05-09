@@ -1,6 +1,7 @@
 import pandas as pd
-def getDataFrameGeneral(cursor):
+def getDataFrameSummary_General(cursor):
 	evals = []
+	evalg = []
 	for evalu in cursor:
 		ev = {'id':evalu['eval_id'],'name':evalu['name'],'age':evalu['age'],'expert_domain':evalu['expert_domain'],'expert_ontology':evalu['expert_ontology'],'time':(evalu['timeFinish'] - evalu['timeStart'])}
 		for classe in evalu['classes']:
@@ -14,7 +15,11 @@ def getDataFrameGeneral(cursor):
 			ev['r'+str(prop['id'])] = prop['score_range']
 
 		evals.append(ev)
-	return pd.DataFrame(evals)
+
+		evg = {'id':evalu['eval_id'],'g1': evalu['general'][0]['g1'], 'g2': evalu['general'][0]['g2'],'g3': evalu['general'][0]['g3'],'g4': evalu['general'][0]['g4'],'g5': evalu['general'][0]['g5'],'g6': evalu['general'][0]['g6']}	
+		evalg.append(evg)
+	return pd.DataFrame(evals),pd.DataFrame(evalg)
+
 
 def getDataFrameClass(cursor,id_term):
 	observations = []

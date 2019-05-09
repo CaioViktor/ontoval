@@ -300,7 +300,7 @@ def back(ontology_id,user):
 def result(ontology_id):
 	ontology_id = int(ontology_id)
 	cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True})
-	evaluations = da.getDataFrameGeneral(cursor)
+	evaluations,evalg = da.getDataFrameSummary_General(cursor)
 
 	cursor = onto_coll.find_one({'id':ontology_id},{'name':1,'classes':1,'properties':1})
 	classes = {}
@@ -324,7 +324,7 @@ def result(ontology_id):
 
 
 
-	return render_template('result.html',ontology_id=ontology_id,name=cursor['name'],evaluations=evaluations,classes=classes,properties=properties,generalClasses=evaluations['score_classe'],generalProperties=evaluations['score_properties'],datetime=datetime)
+	return render_template('result.html',ontology_id=ontology_id,name=cursor['name'],evaluations=evaluations,classes=classes,properties=properties,generalClasses=evaluations['score_classe'],generalProperties=evaluations['score_properties'],datetime=datetime,evalg=evalg)
 
 
 @app.route("/detail/<ontology_id>/<typeT>/<id_term>/")

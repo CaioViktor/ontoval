@@ -9,7 +9,7 @@
 		<div id="estatisticas" class = "content">
 			<center><h1>Estatísticas para a ontologia: {{name}}</h1></center>
 			<details open>
-				<summary>Geral</summary>
+				<summary>Resumo</summary>
 				<table>
 					<tr>
 						<th></th>
@@ -153,6 +153,32 @@
 					</details>
 				{%endfor%}
 			</details>
+
+
+			<details>
+				<summary>Geral</summary>
+				<table>
+					<tr>
+						<th></th>
+						<th>G1</th>
+						<th>G2</th>
+						<th>G3</th>
+						<th>G4</th>
+						<th>G5</th>
+						<th>G6</th>
+					</tr>
+					<tr>
+						<th>Média (%)</th>
+						<td>{{evalg['g1'].mean() *100}}</td>
+						<td>{{evalg['g2'].mean() *100}}</td>
+						<td>{{evalg['g3'].mean() *100}}</td>
+						<td>{{evalg['g4'].mean() *100}}</td>
+						<td>{{evalg['g5'].mean() *100}}</td>
+						<td>{{evalg['g6'].mean() *100}}</td>
+					</tr>
+				</table>
+			</details>
+
 		</div>
 	</body>
 
