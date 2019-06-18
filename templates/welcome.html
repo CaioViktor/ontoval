@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<meta charset = "UTF-8">
+	<link rel = "stylesheet" href = "{{url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+	<div class="content">
+		<img id="logo" src="{{url_for('static',filename='img/logo.png')}}">
+		<div id="abstract">
+			In this paper, we present OntoVal, a portable and  domain-independent web tool for the evaluation of OWL ontologies by non-technical domain specialists. OntoVal presents the ontology in a textual way, making it readable for users with little to no knowledge about ontologies. Also, OntoVal features an integrated form engine which allows users to give feedback and evaluate the correctness of the artifact being developed. Evaluation data is automatically added and processed to the experiment in order to present detailed report on the results of the evaluations.
+		</div>
+		<center>
+			<a href="{{url_for('menu')}}" class="buttonStart">Get Start!</a>
+		</center>
+	</div>
+</body>
+</html>

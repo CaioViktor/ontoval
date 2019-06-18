@@ -40,8 +40,8 @@ app.config['UPLOAD_FOLDER'] = "static/ontologies"
 app.config['PLOTS_FOLDER'] = "static/ontologies/plots"
 app.config['JSON_FOLDER'] = "static/js"
 
-@app.route("/")
-def index():
+@app.route("/index")
+def menu():
 	ontologies = []
 	cur = onto_coll.find({},{"evaluations":0,"classes": 0,"properties": 0})
 	for ontology in cur:
@@ -89,7 +89,7 @@ def newConfirm():
 	config_coll.update_many({},{'$set':{'id_ontology':id_ontology+1}})
 
 
-	return redirect(url_for("index"))
+	return redirect(url_for("menu"))
 
 @app.route("/eval/<ontology_id>/")
 def eval_user(ontology_id):
@@ -344,6 +344,10 @@ def detail(ontology_id,typeT,id_term):
 		cursor = eval_coll.find({'ontology_id':ontology_id,'completed':True},{'properties':1,'expert_domain':1,'expert_ontology':1,'observations':1})
 		data , observations , parents , rgs  = da.getDataFrameProperties(cursor,id_term)
 		return render_template('detailProperty.html',name=uris[id_term],uris=uris,evaluations = data,parents=parents,rgs=rgs,observations=observations)
+
+@app.route("/")
+def index():
+	return render_template('welcome.html')
 
 
 if __name__ == "__main__":
