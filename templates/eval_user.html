@@ -7,8 +7,18 @@
 	</head>
 	<body>
 		<div class = "content">
-			<center><h3> Application form for ontology evaluation: {{ontology.name}}</h3></center>
-			<b>Description:</b>{{ontology.description}}<br>
+			<div class="logoIndexDiv">
+				<img id="logoIndex" src="{{url_for('static',filename='img/logo.png')}}">
+				<p id="logoNameIndex">OntoVal</p>
+			</div>
+			
+			<center><h1>New evaluation</h1></center>
+
+			<fieldset>
+				<center>Ontology name: {{ontology.name}}</center>
+				<legend><b>Description</b></legend>
+				{{ontology.description}}
+			</fieldset>
 			<form action="{{url_for('eval_user_confirm',ontology_id=ontology.id)}}" method="post" id="novoAvaliador">
 				<table>
 					<tr>

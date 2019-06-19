@@ -314,13 +314,15 @@ def result(ontology_id):
 	evaluations['score_classe'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].T.mean()
 	evaluations['score_properties'] = evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].T.mean()
 	
+	# print(evaluations)
 	evaluations.plot(x='expert_domain',y='score_classe',kind='scatter',title='dominio X score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'domainScore'+str(ontology_id)+'.png'))
 	evaluations.plot(x='expert_ontology',y='score_classe',kind='scatter',title='ontologia X score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'ontologyScore'+str(ontology_id)+'.png'))
 	
-	print(evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].mean().value_counts())
+	# print(evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].mean().value_counts())
 
-	evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].mean().round(2).value_counts().plot(kind='bar',title='histograma score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'histClass'+str(ontology_id)+'.png'))
-	evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].mean().round(2).value_counts().plot(kind='hist',title='histograma score propriedades').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'histProperties'+str(ontology_id)+'.png'))
+
+	evaluations.loc[:,list(map(lambda idx: 's'+idx,classes.keys()))].mean().round(2).value_counts().plot(x='mean_score',y='frequency',kind='bar',title='histogram score classes').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'histClass'+str(ontology_id)+'.png'))
+	evaluations.loc[:,list(map(lambda idx: 's'+idx,properties.keys()))].mean().round(2).value_counts().plot(x='mean_score',y='frequency',kind='bar',title='histogram score propriedades').get_figure().savefig(os.path.join(app.config['PLOTS_FOLDER'],'histProperties'+str(ontology_id)+'.png'))
 
 
 

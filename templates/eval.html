@@ -91,6 +91,11 @@
 		</div>
 
 		<div class = "content" >
+			<div class="logoIndexDiv">
+				<img id="logoIndex" src="{{url_for('static',filename='img/logo.png')}}">
+				<p id="logoNameIndex">OntoVal</p>
+			</div>
+			<center><h1>Evaluation</h1></center>
 			<form method="post" action="{{url_for('eval_confirm',ontology_id=ontologia.id,user=user)}}">
 				<input type="hidden" name="termo" value="{{termo}}">
 				<input type="hidden" name="status" value="{{status}}">
@@ -109,6 +114,7 @@
 					{%for comment in termo.comments%}
 						{{comment}}<br>
 					{%endfor%}<br>
+					<hr>
 					<table class="eval">
 						<tr>
 							<td class="question"></td>
@@ -179,7 +185,7 @@
 
 				{%elif status == 2%}<!-- Geral-->
 					
-
+					<hr>
 					<table class="eval">
 						<tr>
 							<td class="question"></td>
@@ -219,7 +225,6 @@
 				{%elif status == 3%}<!-- Propriedade-->
 					
 
-
 					<b>For property with identifier:</b><br> {{termo.uri}}<br>
 					<b>Called by the following names:</b><br>
 					{%for label in termo.labels%}
@@ -235,6 +240,7 @@
 						{%if Sclasses.append(id_domain)%}{%endif%}
 					{%endfor%}<br>
 
+					<hr>
 					<table class="eval">
 						<tr>
 							<td class="question"></td>

@@ -7,6 +7,13 @@
 	</head>
 	<body>
 		<div id="estatisticas" class = "content">
+			<a href="{{url_for('menu')}}" class="logoLink">
+				<center>
+					<img id="logo" src="{{url_for('static',filename='img/logo.png')}}">
+					<p id="logoName">OntoVal</p>
+				</center>
+			</a>
+
 			<center><h1>Statistics for the ontology: {{name}}</h1></center>
 			<details open>
 				<summary>Summary</summary>
@@ -156,7 +163,7 @@
 
 
 			<details>
-				<summary>General</summary>
+				<summary>Overall</summary>
 				<table>
 					<tr>
 						<th></th>

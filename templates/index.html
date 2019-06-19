@@ -7,8 +7,13 @@
 	</head>
 	<body>
 		<div class = "content">
-			<center><h1>List of ontologies</h1></center>
-			<div id="divNovaOnto">New ontology: <a href="{{url_for('new')}}"><img id="plus" src="{{url_for('static',filename='img/plus.png')}}"></a></div>
+			<div class="logoIndexDiv">
+				<img id="logoIndex" src="{{url_for('static',filename='img/logo.png')}}">
+				<p id="logoNameIndex">OntoVal</p>
+			</div>
+			<h1>Registred ontologies</h1>
+			
+			<div id="divNovaOnto">Add a new ontology: <a href="{{url_for('new')}}"><img id="plus" src="{{url_for('static',filename='img/plus.png')}}"></a></div>
 			{% if ontologies|length > 0 %}
 				<table id="listaOnt">
 					<tr>
