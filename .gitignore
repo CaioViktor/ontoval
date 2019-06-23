@@ -1,5 +1,5 @@
 # Ignore folder
-
+static/ontologies
 
 # Ignore temps
 *.pyc
