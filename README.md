@@ -8,6 +8,6 @@ pip install pandas<br>
 
 <h2>Run</h2>
 python server.py
-
+ 
 
 http://localhost:5000/
